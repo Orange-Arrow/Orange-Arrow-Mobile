@@ -8,20 +8,48 @@
 
 /* Begin PBXBuildFile section */
 		443278FF222F1CFC00E58225 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443278FE222F1CFC00E58225 /* AppDelegate.swift */; };
-		44327901222F1CFC00E58225 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44327900222F1CFC00E58225 /* ViewController.swift */; };
+		44327901222F1CFC00E58225 /* RegisterLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44327900222F1CFC00E58225 /* RegisterLoginVC.swift */; };
 		44327904222F1CFC00E58225 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44327902222F1CFC00E58225 /* Main.storyboard */; };
 		44327906222F1CFE00E58225 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44327905222F1CFE00E58225 /* Assets.xcassets */; };
 		44327909222F1CFE00E58225 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44327907222F1CFE00E58225 /* LaunchScreen.storyboard */; };
+		44A479C222306EC6009D944F /* UpdateUserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479C122306EC6009D944F /* UpdateUserInfoVC.swift */; };
+		44A479C422306EE3009D944F /* NavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479C322306EE3009D944F /* NavigationVC.swift */; };
+		44A479C622306EF4009D944F /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479C522306EF4009D944F /* ProfileVC.swift */; };
+		44A479C822306F47009D944F /* TriviaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479C722306F47009D944F /* TriviaVC.swift */; };
+		44A479CA22306F5F009D944F /* ImagePuzzleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479C922306F5F009D944F /* ImagePuzzleVC.swift */; };
+		44A479CC22306F70009D944F /* WordScrambleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479CB22306F70009D944F /* WordScrambleVC.swift */; };
+		44A479CE22306F9B009D944F /* LeadingBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479CD22306F9B009D944F /* LeadingBoardVC.swift */; };
+		44A479D022306FB0009D944F /* ContactUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479CF22306FB0009D944F /* ContactUsVC.swift */; };
+		44A479D222306FD9009D944F /* AcievementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479D122306FD9009D944F /* AcievementVC.swift */; };
+		44A479D422307043009D944F /* Trivia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479D322307043009D944F /* Trivia.swift */; };
+		44A479D622307061009D944F /* WordScramble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479D522307061009D944F /* WordScramble.swift */; };
+		44A479D82230706F009D944F /* ImagePuzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479D72230706F009D944F /* ImagePuzzle.swift */; };
+		C7E4C2CFD4CC21E534F65B09 /* Pods_Orange_Arrow_Mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9786B864D982B98F6A227668 /* Pods_Orange_Arrow_Mobile.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		443278FB222F1CFC00E58225 /* Orange Arrow Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Orange Arrow Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		443278FE222F1CFC00E58225 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		44327900222F1CFC00E58225 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		44327900222F1CFC00E58225 /* RegisterLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterLoginVC.swift; sourceTree = "<group>"; };
 		44327903222F1CFC00E58225 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		44327905222F1CFE00E58225 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44327908222F1CFE00E58225 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4432790A222F1CFE00E58225 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44A479C122306EC6009D944F /* UpdateUserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserInfoVC.swift; sourceTree = "<group>"; };
+		44A479C322306EE3009D944F /* NavigationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationVC.swift; sourceTree = "<group>"; };
+		44A479C522306EF4009D944F /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		44A479C722306F47009D944F /* TriviaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaVC.swift; sourceTree = "<group>"; };
+		44A479C922306F5F009D944F /* ImagePuzzleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePuzzleVC.swift; sourceTree = "<group>"; };
+		44A479CB22306F70009D944F /* WordScrambleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordScrambleVC.swift; sourceTree = "<group>"; };
+		44A479CD22306F9B009D944F /* LeadingBoardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingBoardVC.swift; sourceTree = "<group>"; };
+		44A479CF22306FB0009D944F /* ContactUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsVC.swift; sourceTree = "<group>"; };
+		44A479D122306FD9009D944F /* AcievementVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcievementVC.swift; sourceTree = "<group>"; };
+		44A479D322307043009D944F /* Trivia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trivia.swift; sourceTree = "<group>"; };
+		44A479D522307061009D944F /* WordScramble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordScramble.swift; sourceTree = "<group>"; };
+		44A479D72230706F009D944F /* ImagePuzzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePuzzle.swift; sourceTree = "<group>"; };
+		9786B864D982B98F6A227668 /* Pods_Orange_Arrow_Mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Orange_Arrow_Mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99D5D908681C76C7D0C316B5 /* Pods-Orange Arrow Mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Orange Arrow Mobile.release.xcconfig"; path = "Target Support Files/Pods-Orange Arrow Mobile/Pods-Orange Arrow Mobile.release.xcconfig"; sourceTree = "<group>"; };
+		A384CF8C3D2D8A5AEE79FCD5 /* Pods-Orange Arrow Mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Orange Arrow Mobile.debug.xcconfig"; path = "Target Support Files/Pods-Orange Arrow Mobile/Pods-Orange Arrow Mobile.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7E4C2CFD4CC21E534F65B09 /* Pods_Orange_Arrow_Mobile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +69,8 @@
 			children = (
 				443278FD222F1CFC00E58225 /* Orange Arrow Mobile */,
 				443278FC222F1CFC00E58225 /* Products */,
+				91E9C3E735738FE5EA8E6650 /* Pods */,
+				73B276CC78E9DA517C54B211 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +85,76 @@
 		443278FD222F1CFC00E58225 /* Orange Arrow Mobile */ = {
 			isa = PBXGroup;
 			children = (
-				443278FE222F1CFC00E58225 /* AppDelegate.swift */,
-				44327900222F1CFC00E58225 /* ViewController.swift */,
-				44327902222F1CFC00E58225 /* Main.storyboard */,
-				44327905222F1CFE00E58225 /* Assets.xcassets */,
-				44327907222F1CFE00E58225 /* LaunchScreen.storyboard */,
-				4432790A222F1CFE00E58225 /* Info.plist */,
+				44A479C022306DC1009D944F /* Support Files */,
+				44A479BF22306DB7009D944F /* Controller */,
+				44A479BE22306DB0009D944F /* View */,
+				44A479BD22306DA0009D944F /* Model */,
 			);
 			path = "Orange Arrow Mobile";
+			sourceTree = "<group>";
+		};
+		44A479BD22306DA0009D944F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				44A479D322307043009D944F /* Trivia.swift */,
+				44A479D522307061009D944F /* WordScramble.swift */,
+				44A479D72230706F009D944F /* ImagePuzzle.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		44A479BE22306DB0009D944F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				44327907222F1CFE00E58225 /* LaunchScreen.storyboard */,
+				44327902222F1CFC00E58225 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		44A479BF22306DB7009D944F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				44327900222F1CFC00E58225 /* RegisterLoginVC.swift */,
+				44A479C122306EC6009D944F /* UpdateUserInfoVC.swift */,
+				44A479C322306EE3009D944F /* NavigationVC.swift */,
+				44A479C522306EF4009D944F /* ProfileVC.swift */,
+				44A479C722306F47009D944F /* TriviaVC.swift */,
+				44A479C922306F5F009D944F /* ImagePuzzleVC.swift */,
+				44A479CB22306F70009D944F /* WordScrambleVC.swift */,
+				44A479CD22306F9B009D944F /* LeadingBoardVC.swift */,
+				44A479CF22306FB0009D944F /* ContactUsVC.swift */,
+				44A479D122306FD9009D944F /* AcievementVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		44A479C022306DC1009D944F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				443278FE222F1CFC00E58225 /* AppDelegate.swift */,
+				44327905222F1CFE00E58225 /* Assets.xcassets */,
+				4432790A222F1CFE00E58225 /* Info.plist */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		73B276CC78E9DA517C54B211 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9786B864D982B98F6A227668 /* Pods_Orange_Arrow_Mobile.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		91E9C3E735738FE5EA8E6650 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A384CF8C3D2D8A5AEE79FCD5 /* Pods-Orange Arrow Mobile.debug.xcconfig */,
+				99D5D908681C76C7D0C316B5 /* Pods-Orange Arrow Mobile.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,6 +164,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4432790D222F1CFE00E58225 /* Build configuration list for PBXNativeTarget "Orange Arrow Mobile" */;
 			buildPhases = (
+				EC5380659B90CA220A183233 /* [CP] Check Pods Manifest.lock */,
 				443278F7222F1CFC00E58225 /* Sources */,
 				443278F8222F1CFC00E58225 /* Frameworks */,
 				443278F9222F1CFC00E58225 /* Resources */,
@@ -130,13 +224,50 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		EC5380659B90CA220A183233 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Orange Arrow Mobile-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		443278F7222F1CFC00E58225 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44327901222F1CFC00E58225 /* ViewController.swift in Sources */,
+				44A479D622307061009D944F /* WordScramble.swift in Sources */,
+				44A479C622306EF4009D944F /* ProfileVC.swift in Sources */,
+				44A479C222306EC6009D944F /* UpdateUserInfoVC.swift in Sources */,
+				44A479CE22306F9B009D944F /* LeadingBoardVC.swift in Sources */,
+				44A479D222306FD9009D944F /* AcievementVC.swift in Sources */,
+				44A479D82230706F009D944F /* ImagePuzzle.swift in Sources */,
+				44327901222F1CFC00E58225 /* RegisterLoginVC.swift in Sources */,
+				44A479C422306EE3009D944F /* NavigationVC.swift in Sources */,
+				44A479CA22306F5F009D944F /* ImagePuzzleVC.swift in Sources */,
+				44A479CC22306F70009D944F /* WordScrambleVC.swift in Sources */,
 				443278FF222F1CFC00E58225 /* AppDelegate.swift in Sources */,
+				44A479C822306F47009D944F /* TriviaVC.swift in Sources */,
+				44A479D422307043009D944F /* Trivia.swift in Sources */,
+				44A479D022306FB0009D944F /* ContactUsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +411,7 @@
 		};
 		4432790E222F1CFE00E58225 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A384CF8C3D2D8A5AEE79FCD5 /* Pods-Orange Arrow Mobile.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +430,7 @@
 		};
 		4432790F222F1CFE00E58225 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99D5D908681C76C7D0C316B5 /* Pods-Orange Arrow Mobile.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
