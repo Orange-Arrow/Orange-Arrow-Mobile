@@ -10,7 +10,6 @@
 		443278FF222F1CFC00E58225 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443278FE222F1CFC00E58225 /* AppDelegate.swift */; };
 		44327901222F1CFC00E58225 /* RegisterLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44327900222F1CFC00E58225 /* RegisterLoginVC.swift */; };
 		44327904222F1CFC00E58225 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44327902222F1CFC00E58225 /* Main.storyboard */; };
-		44327906222F1CFE00E58225 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44327905222F1CFE00E58225 /* Assets.xcassets */; };
 		44327909222F1CFE00E58225 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44327907222F1CFE00E58225 /* LaunchScreen.storyboard */; };
 		44A479C222306EC6009D944F /* UpdateUserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479C122306EC6009D944F /* UpdateUserInfoVC.swift */; };
 		44A479C422306EE3009D944F /* NavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479C322306EE3009D944F /* NavigationVC.swift */; };
@@ -24,6 +23,13 @@
 		44A479D422307043009D944F /* Trivia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479D322307043009D944F /* Trivia.swift */; };
 		44A479D622307061009D944F /* WordScramble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479D522307061009D944F /* WordScramble.swift */; };
 		44A479D82230706F009D944F /* ImagePuzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479D72230706F009D944F /* ImagePuzzle.swift */; };
+		44A479DC22307F3D009D944F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479DA22307F3D009D944F /* LoginVC.swift */; };
+		44A479DD22307F3D009D944F /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44A479DB22307F3D009D944F /* LoginVC.xib */; };
+		44A479E022307F4F009D944F /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479DE22307F4F009D944F /* SignUpVC.swift */; };
+		44A479E122307F4F009D944F /* SignUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44A479DF22307F4F009D944F /* SignUpVC.xib */; };
+		44A479E32230A4D9009D944F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44A479E22230A4D9009D944F /* Images.xcassets */; };
+		44A479E52230C615009D944F /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479E42230C615009D944F /* Utilities.swift */; };
+		44A479E82230CB1F009D944F /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479E72230CB1F009D944F /* Checkbox.swift */; };
 		C7E4C2CFD4CC21E534F65B09 /* Pods_Orange_Arrow_Mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9786B864D982B98F6A227668 /* Pods_Orange_Arrow_Mobile.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +38,6 @@
 		443278FE222F1CFC00E58225 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44327900222F1CFC00E58225 /* RegisterLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterLoginVC.swift; sourceTree = "<group>"; };
 		44327903222F1CFC00E58225 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		44327905222F1CFE00E58225 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44327908222F1CFE00E58225 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4432790A222F1CFE00E58225 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44A479C122306EC6009D944F /* UpdateUserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserInfoVC.swift; sourceTree = "<group>"; };
@@ -47,6 +52,13 @@
 		44A479D322307043009D944F /* Trivia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trivia.swift; sourceTree = "<group>"; };
 		44A479D522307061009D944F /* WordScramble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordScramble.swift; sourceTree = "<group>"; };
 		44A479D72230706F009D944F /* ImagePuzzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePuzzle.swift; sourceTree = "<group>"; };
+		44A479DA22307F3D009D944F /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		44A479DB22307F3D009D944F /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
+		44A479DE22307F4F009D944F /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		44A479DF22307F4F009D944F /* SignUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpVC.xib; sourceTree = "<group>"; };
+		44A479E22230A4D9009D944F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		44A479E42230C615009D944F /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		44A479E72230CB1F009D944F /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		9786B864D982B98F6A227668 /* Pods_Orange_Arrow_Mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Orange_Arrow_Mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99D5D908681C76C7D0C316B5 /* Pods-Orange Arrow Mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Orange Arrow Mobile.release.xcconfig"; path = "Target Support Files/Pods-Orange Arrow Mobile/Pods-Orange Arrow Mobile.release.xcconfig"; sourceTree = "<group>"; };
 		A384CF8C3D2D8A5AEE79FCD5 /* Pods-Orange Arrow Mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Orange Arrow Mobile.debug.xcconfig"; path = "Target Support Files/Pods-Orange Arrow Mobile/Pods-Orange Arrow Mobile.debug.xcconfig"; sourceTree = "<group>"; };
@@ -67,6 +79,7 @@
 		443278F2222F1CFC00E58225 = {
 			isa = PBXGroup;
 			children = (
+				44A479E62230CB05009D944F /* Utility */,
 				443278FD222F1CFC00E58225 /* Orange Arrow Mobile */,
 				443278FC222F1CFC00E58225 /* Products */,
 				91E9C3E735738FE5EA8E6650 /* Pods */,
@@ -85,7 +98,8 @@
 		443278FD222F1CFC00E58225 /* Orange Arrow Mobile */ = {
 			isa = PBXGroup;
 			children = (
-				44A479C022306DC1009D944F /* Support Files */,
+				4432790A222F1CFE00E58225 /* Info.plist */,
+				44A479C022306DC1009D944F /* Supporting Files */,
 				44A479BF22306DB7009D944F /* Controller */,
 				44A479BE22306DB0009D944F /* View */,
 				44A479BD22306DA0009D944F /* Model */,
@@ -115,6 +129,7 @@
 		44A479BF22306DB7009D944F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				44A479D922307F1A009D944F /* register and login subview */,
 				44327900222F1CFC00E58225 /* RegisterLoginVC.swift */,
 				44A479C122306EC6009D944F /* UpdateUserInfoVC.swift */,
 				44A479C322306EE3009D944F /* NavigationVC.swift */,
@@ -129,14 +144,33 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		44A479C022306DC1009D944F /* Support Files */ = {
+		44A479C022306DC1009D944F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				443278FE222F1CFC00E58225 /* AppDelegate.swift */,
-				44327905222F1CFE00E58225 /* Assets.xcassets */,
-				4432790A222F1CFE00E58225 /* Info.plist */,
+				44A479E22230A4D9009D944F /* Images.xcassets */,
 			);
-			path = "Support Files";
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		44A479D922307F1A009D944F /* register and login subview */ = {
+			isa = PBXGroup;
+			children = (
+				44A479DA22307F3D009D944F /* LoginVC.swift */,
+				44A479DB22307F3D009D944F /* LoginVC.xib */,
+				44A479DE22307F4F009D944F /* SignUpVC.swift */,
+				44A479DF22307F4F009D944F /* SignUpVC.xib */,
+			);
+			path = "register and login subview";
+			sourceTree = "<group>";
+		};
+		44A479E62230CB05009D944F /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				44A479E42230C615009D944F /* Utilities.swift */,
+				44A479E72230CB1F009D944F /* Checkbox.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		73B276CC78E9DA517C54B211 /* Frameworks */ = {
@@ -153,7 +187,6 @@
 				A384CF8C3D2D8A5AEE79FCD5 /* Pods-Orange Arrow Mobile.debug.xcconfig */,
 				99D5D908681C76C7D0C316B5 /* Pods-Orange Arrow Mobile.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -168,6 +201,7 @@
 				443278F7222F1CFC00E58225 /* Sources */,
 				443278F8222F1CFC00E58225 /* Frameworks */,
 				443278F9222F1CFC00E58225 /* Resources */,
+				97FF2E9810707F5B711F1F56 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -217,7 +251,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				44327909222F1CFE00E58225 /* LaunchScreen.storyboard in Resources */,
-				44327906222F1CFE00E58225 /* Assets.xcassets in Resources */,
+				44A479E32230A4D9009D944F /* Images.xcassets in Resources */,
+				44A479E122307F4F009D944F /* SignUpVC.xib in Resources */,
+				44A479DD22307F3D009D944F /* LoginVC.xib in Resources */,
 				44327904222F1CFC00E58225 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,6 +261,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		97FF2E9810707F5B711F1F56 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Orange Arrow Mobile/Pods-Orange Arrow Mobile-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BetterSegmentedControl/BetterSegmentedControl.framework",
+				"${BUILT_PRODUCTS_DIR}/FontAwesome.swift/FontAwesome_swift.framework",
+				"${BUILT_PRODUCTS_DIR}/LGButton/LGButton.framework",
+				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BetterSegmentedControl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesome_swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LGButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Orange Arrow Mobile/Pods-Orange Arrow Mobile-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		EC5380659B90CA220A183233 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -256,18 +320,22 @@
 			files = (
 				44A479D622307061009D944F /* WordScramble.swift in Sources */,
 				44A479C622306EF4009D944F /* ProfileVC.swift in Sources */,
+				44A479E82230CB1F009D944F /* Checkbox.swift in Sources */,
 				44A479C222306EC6009D944F /* UpdateUserInfoVC.swift in Sources */,
 				44A479CE22306F9B009D944F /* LeadingBoardVC.swift in Sources */,
 				44A479D222306FD9009D944F /* AcievementVC.swift in Sources */,
 				44A479D82230706F009D944F /* ImagePuzzle.swift in Sources */,
 				44327901222F1CFC00E58225 /* RegisterLoginVC.swift in Sources */,
 				44A479C422306EE3009D944F /* NavigationVC.swift in Sources */,
+				44A479E022307F4F009D944F /* SignUpVC.swift in Sources */,
 				44A479CA22306F5F009D944F /* ImagePuzzleVC.swift in Sources */,
+				44A479E52230C615009D944F /* Utilities.swift in Sources */,
 				44A479CC22306F70009D944F /* WordScrambleVC.swift in Sources */,
 				443278FF222F1CFC00E58225 /* AppDelegate.swift in Sources */,
 				44A479C822306F47009D944F /* TriviaVC.swift in Sources */,
 				44A479D422307043009D944F /* Trivia.swift in Sources */,
 				44A479D022306FB0009D944F /* ContactUsVC.swift in Sources */,
+				44A479DC22307F3D009D944F /* LoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

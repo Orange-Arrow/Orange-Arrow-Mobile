@@ -17,13 +17,60 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aew-X8-1Lt" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
+                                <rect key="frame" x="48" y="80" width="279" height="40"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="1" green="0.82035219410000004" blue="0.38978428370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="x8W-Fd-r4z"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="indicatorViewBackgroundColor">
+                                        <color key="value" red="0.99607843137254903" green="0.76470588235294112" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="indicatorViewInset">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="alwaysAnnouncesValue" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="announcesValueImmediately" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="segmentedCtrlChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="TEC-CC-mMK"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KiX-Qn-Sff" userLabel="Container">
+                                <rect key="frame" x="48" y="120" width="279" height="400"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="NtQ-wx-GAT"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.50952213763411391" blue="0.078435873170717318" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Aew-X8-1Lt" secondAttribute="trailing" constant="48" id="8i6-ky-KQE"/>
+                            <constraint firstItem="Aew-X8-1Lt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="Lyc-Vl-r7Q"/>
+                            <constraint firstItem="KiX-Qn-Sff" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QCD-j2-QuY"/>
+                            <constraint firstItem="KiX-Qn-Sff" firstAttribute="top" secondItem="Aew-X8-1Lt" secondAttribute="bottom" id="TUs-ff-6K0"/>
+                            <constraint firstItem="KiX-Qn-Sff" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="bes-BW-SZy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KiX-Qn-Sff" secondAttribute="trailing" constant="48" id="oiV-26-e7J"/>
+                            <constraint firstItem="Aew-X8-1Lt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sRR-8u-bsm"/>
+                            <constraint firstItem="Aew-X8-1Lt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="yDN-AN-xn2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="container" destination="KiX-Qn-Sff" id="Soc-xK-rMT"/>
+                        <outlet property="segmentedControl" destination="Aew-X8-1Lt" id="6EU-9C-QSm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-364" y="123"/>
+            <point key="canvasLocation" x="-364" y="122.78860569715144"/>
         </scene>
         <!--TriviaVC-->
         <scene sceneID="LVY-yn-wD3">
