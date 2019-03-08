@@ -13,6 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC" customModule="Orange_Arrow_Mobile" customModuleProvider="target">
             <connections>
+                <outlet property="forgetPasswordLink" destination="wSW-gh-uxz" id="uXy-vt-YUU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -65,7 +66,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4KC-tX-Ksf" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                            <rect key="frame" x="0.0" y="115.5" width="335" height="50"/>
+                            <rect key="frame" x="0.0" y="112.5" width="335" height="50"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="iconTypeValue">
@@ -105,7 +106,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="seJ-jA-dsM" customClass="LGButton" customModule="LGButton">
-                            <rect key="frame" x="0.0" y="231" width="335" height="50"/>
+                            <rect key="frame" x="0.0" y="225" width="335" height="50"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
@@ -149,7 +150,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Xdm-VS-pxC">
-                            <rect key="frame" x="0.0" y="347" width="335" height="35"/>
+                            <rect key="frame" x="0.0" y="337" width="335" height="35"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Fyv-pR-vvP">
                                     <rect key="frame" x="0.0" y="0.0" width="109" height="35"/>
@@ -174,20 +175,23 @@
                                     <rect key="frame" x="117" y="0.0" width="218" height="35"/>
                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
                                     <state key="normal" title="Forget Password? "/>
+                                    <connections>
+                                        <action selector="forgetPasswordTapped:" destination="-1" eventType="touchDown" id="ZVS-ok-WUz"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="---------- OR ----------" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebo-cz-xTg">
-                            <rect key="frame" x="0.0" y="447.5" width="335" height="24"/>
+                            <rect key="frame" x="0.0" y="434.5" width="335" height="24"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="lUG-iy-iWr">
-                            <rect key="frame" x="0.0" y="537" width="335" height="50"/>
+                            <rect key="frame" x="0.0" y="521" width="335" height="66"/>
                             <subviews>
                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D8A-jO-92w" customClass="LGButton" customModule="LGButton">
-                                    <rect key="frame" x="0.0" y="0.0" width="147.5" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="147.5" height="66"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
@@ -211,7 +215,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0hB-PO-HrE" customClass="LGButton" customModule="LGButton">
-                                    <rect key="frame" x="187.5" y="0.0" width="147.5" height="50"/>
+                                    <rect key="frame" x="187.5" y="0.0" width="147.5" height="66"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="color" keyPath="bgColor">

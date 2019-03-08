@@ -11,8 +11,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpVC" customModule="Orange_Arrow_Mobile" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpVC" customModule="Orange_Arrow_Mobile">
             <connections>
+                <outlet property="emailTextfield" destination="bJ7-79-jRz" id="J2N-7r-SUM"/>
+                <outlet property="passwordTextfield" destination="XXf-1T-1B4" id="n8G-VR-Gfe"/>
+                <outlet property="repeatPasswordTextfield" destination="TFy-RY-u4G" id="v1j-aa-pae"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -65,12 +68,9 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XXf-1T-1B4" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                            <rect key="frame" x="0.0" y="174" width="335" height="50"/>
+                            <rect key="frame" x="0.0" y="173.5" width="335" height="43"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="tintColor" red="1" green="0.50952213759999998" blue="0.078435873170000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" id="DPs-nA-NCU"/>
-                            </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="iconWidth">
                                     <real key="value" value="50"/>
@@ -109,11 +109,8 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFy-RY-u4G" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                            <rect key="frame" x="0.0" y="355.5" width="335" height="50"/>
+                            <rect key="frame" x="0.0" y="347.5" width="335" height="42.5"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" id="VV3-hN-FfL"/>
-                            </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="iconWidth">
                                     <real key="value" value="50"/>
@@ -152,11 +149,8 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wl5-Qe-3d4" customClass="LGButton" customModule="LGButton">
-                            <rect key="frame" x="0.0" y="537" width="335" height="50"/>
+                            <rect key="frame" x="0.0" y="521" width="335" height="66"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" id="Sey-8f-xTB"/>
-                            </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
                                     <color key="value" red="0.99607843139999996" green="0.76470588240000004" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -197,6 +191,9 @@
                                     <real key="value" value="50"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="signupBtnTapped:" destination="-1" eventType="touchUpInside" id="QqI-fo-dY0"/>
+                            </connections>
                         </view>
                     </subviews>
                 </stackView>

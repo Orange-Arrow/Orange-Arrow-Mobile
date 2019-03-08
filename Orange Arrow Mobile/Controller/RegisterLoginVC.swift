@@ -18,6 +18,7 @@ class RegisterLoginVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("this is main page superview")
 
         //change the value of segmented control
         segmentedControl.segments = LabelSegment.segments(withTitles: ["Login", "Sign Up"],
@@ -46,12 +47,8 @@ class RegisterLoginVC: UIViewController {
     
     // when the segmented control was selected
     @IBAction func segmentedCtrlChanged(_ sender: BetterSegmentedControl) {
-//        self.container.subviews[Int(sender.index)].backgroundColor = Utilities.hexStringToUIColor(hex: "#FEC341")
         self.container.bringSubviewToFront(subviews![Int(sender.index)])
-        //change the subview background color
  
     }
-    
-
 }
 

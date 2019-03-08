@@ -43,15 +43,13 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KiX-Qn-Sff" userLabel="Container">
-                                <rect key="frame" x="48" y="120" width="279" height="400"/>
+                                <rect key="frame" x="48" y="120" width="279" height="397"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="NtQ-wx-GAT"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.50952213763411391" blue="0.078435873170717318" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KiX-Qn-Sff" secondAttribute="bottom" constant="150" id="05p-Er-6OF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Aew-X8-1Lt" secondAttribute="trailing" constant="48" id="8i6-ky-KQE"/>
                             <constraint firstItem="Aew-X8-1Lt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="Lyc-Vl-r7Q"/>
                             <constraint firstItem="KiX-Qn-Sff" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QCD-j2-QuY"/>
@@ -66,6 +64,7 @@
                     <connections>
                         <outlet property="container" destination="KiX-Qn-Sff" id="Soc-xK-rMT"/>
                         <outlet property="segmentedControl" destination="Aew-X8-1Lt" id="6EU-9C-QSm"/>
+                        <segue destination="z2M-9t-egS" kind="showDetail" identifier="signupToUpdateinfoSegue" id="inT-7z-Rbv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
