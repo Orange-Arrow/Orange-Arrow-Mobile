@@ -16,6 +16,7 @@
                 <outlet property="emailTextfield" destination="bJ7-79-jRz" id="J2N-7r-SUM"/>
                 <outlet property="passwordTextfield" destination="XXf-1T-1B4" id="n8G-VR-Gfe"/>
                 <outlet property="repeatPasswordTextfield" destination="TFy-RY-u4G" id="v1j-aa-pae"/>
+                <outlet property="signupButton" destination="Wl5-Qe-3d4" id="cJt-Fc-0QN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -27,8 +28,8 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fRC-2l-eHz">
                     <rect key="frame" x="20" y="40" width="335" height="587"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJ7-79-jRz" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                            <rect key="frame" x="0.0" y="0.0" width="335" height="43"/>
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bJ7-79-jRz" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
+                            <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="textColor">
@@ -67,8 +68,8 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Email"/>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XXf-1T-1B4" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                            <rect key="frame" x="0.0" y="173.5" width="335" height="43"/>
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XXf-1T-1B4" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
+                            <rect key="frame" x="0.0" y="173.5" width="335" height="50"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="tintColor" red="1" green="0.50952213759999998" blue="0.078435873170000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <userDefinedRuntimeAttributes>
@@ -108,8 +109,8 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Password"/>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFy-RY-u4G" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                            <rect key="frame" x="0.0" y="347.5" width="335" height="42.5"/>
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TFy-RY-u4G" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
+                            <rect key="frame" x="0.0" y="347.5" width="335" height="50"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="iconWidth">
@@ -148,7 +149,7 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Repeat Password"/>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wl5-Qe-3d4" customClass="LGButton" customModule="LGButton">
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wl5-Qe-3d4" customClass="LGButton" customModule="LGButton">
                             <rect key="frame" x="0.0" y="521" width="335" height="66"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <userDefinedRuntimeAttributes>
@@ -191,9 +192,6 @@
                                     <real key="value" value="50"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
-                            <connections>
-                                <action selector="signupBtnTapped:" destination="-1" eventType="touchUpInside" id="QqI-fo-dY0"/>
-                            </connections>
                         </view>
                     </subviews>
                 </stackView>

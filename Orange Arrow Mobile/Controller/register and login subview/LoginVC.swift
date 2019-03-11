@@ -7,22 +7,35 @@
 //
 
 import UIKit
+import LGButton
 
 class LoginVC: UIViewController {
     
     @IBOutlet weak var forgetPasswordLink: UIButton!
+    @IBOutlet weak var loginButton: LGButton!
+    @IBOutlet weak var googleButton: LGButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("omg!")
         
+        forgetPasswordLink.addTarget(self, action: #selector(forgetPasswordTapped), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginBtnTapped), for: .touchUpInside)
+        googleButton.addTarget(self, action: #selector(googleBtnTapped), for: .touchUpInside)
         // Do any additional setup after loading the view.
     }
-
-    @IBAction func forgetPasswordTapped(_ sender: UIButton) {
-        print("normal button works")
+    
+    @objc func forgetPasswordTapped(){
+        print("the forget button works")
     }
-
+    
+    @objc func loginBtnTapped(){
+        print("the login button works")
+    }
+    
+    @objc func googleBtnTapped(){
+        print("the google button works")
+    }
+    
 }
 
 

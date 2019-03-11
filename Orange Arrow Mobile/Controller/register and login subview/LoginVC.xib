@@ -14,6 +14,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC" customModule="Orange_Arrow_Mobile" customModuleProvider="target">
             <connections>
                 <outlet property="forgetPasswordLink" destination="wSW-gh-uxz" id="uXy-vt-YUU"/>
+                <outlet property="googleButton" destination="D8A-jO-92w" id="RQW-Hc-IRN"/>
+                <outlet property="loginButton" destination="seJ-jA-dsM" id="1Uc-fj-lqf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -175,9 +177,6 @@
                                     <rect key="frame" x="117" y="0.0" width="218" height="35"/>
                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
                                     <state key="normal" title="Forget Password? "/>
-                                    <connections>
-                                        <action selector="forgetPasswordTapped:" destination="-1" eventType="touchDown" id="ZVS-ok-WUz"/>
-                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>
@@ -252,7 +251,7 @@
                 <constraint firstAttribute="trailing" secondItem="5u4-pW-roD" secondAttribute="trailing" constant="20" id="fx2-vY-m1l"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="39.200000000000003" y="46.326836581709152"/>
+            <point key="canvasLocation" x="-370" y="27"/>
         </view>
     </objects>
     <resources>

@@ -12,18 +12,27 @@ import LGButton
 //import FontAwesome_swift
 import Firebase
 
+protocol SignUpViewControllerDelegate: class {
+    func signUpBtnTapped()
+}
+
 class SignUpVC: UIViewController {
+    
+    weak var delegate: SignUpViewControllerDelegate?
     
     @IBOutlet weak var passwordTextfield: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet weak var emailTextfield: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet weak var repeatPasswordTextfield: SkyFloatingLabelTextFieldWithIcon!
     
+    @IBOutlet weak var signupButton: LGButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("this is sign up")
+        
+        signupButton.addTarget(self, action: #selector(signupBtnTapped), for: .touchUpInside)
     }
 
-    @IBAction func signupBtnTapped(_ sender: LGButton) {
+    @objc func signupBtnTapped() {
         
         print("the button was tapped")
         
@@ -39,11 +48,17 @@ class SignUpVC: UIViewController {
                 }
                 // create user info node on database
                 // go to next page to let user update their information
-                self.performSegue(withIdentifier: "signupToUpdateinfoSegue", sender: self)
+                self.delegate?.signUpBtnTapped()
+                
             }
         }
-        
-        
     }
+    
+//    @IBAction func didTapButton(_ sender: Any) {
+//        if let parent = parent as? SignUpViewControllerDelegate {
+//            parent.child(self, didTapButton: sender)
+//        }
+//    }
+
     
 }
