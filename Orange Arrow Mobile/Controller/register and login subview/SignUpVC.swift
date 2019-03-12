@@ -9,12 +9,13 @@
 import UIKit
 import SkyFloatingLabelTextField
 import LGButton
-//import FontAwesome_swift
 import Firebase
 
+//MARK -- protocol for send signal to superview conduct segue to next page
 protocol SignUpViewControllerDelegate: class {
     func signUpBtnTapped()
 }
+
 
 class SignUpVC: UIViewController {
     
@@ -23,18 +24,32 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var passwordTextfield: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet weak var emailTextfield: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet weak var repeatPasswordTextfield: SkyFloatingLabelTextFieldWithIcon!
-    
     @IBOutlet weak var signupButton: LGButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //initialize the delegation for ui textfield
+        passwordTextfield.delegate = self
+        emailTextfield.delegate = self
+        repeatPasswordTextfield.delegate = self
+        
+        //customize textfield
+        passwordTextfield.textContentType = .password
+        repeatPasswordTextfield.textContentType = .password
+        emailTextfield.textContentType = .emailAddress
+        passwordTextfield.isSecureTextEntry = true
+        repeatPasswordTextfield.isSecureTextEntry = true
+        emailTextfield.keyboardType = .emailAddress
+        passwordTextfield.returnKeyType = .next
+        emailTextfield.returnKeyType = .next
+        repeatPasswordTextfield.returnKeyType = .done
+        
         signupButton.addTarget(self, action: #selector(signupBtnTapped), for: .touchUpInside)
     }
 
+    //MARK -- sign up button function
     @objc func signupBtnTapped() {
-        
-        print("the button was tapped")
         
         //to check if password is same and login
         guard let password = passwordTextfield.text else{return}
@@ -47,6 +62,8 @@ class SignUpVC: UIViewController {
                     return
                 }
                 // create user info node on database
+                
+                
                 // go to next page to let user update their information
                 self.delegate?.signUpBtnTapped()
                 
@@ -54,11 +71,24 @@ class SignUpVC: UIViewController {
         }
     }
     
-//    @IBAction func didTapButton(_ sender: Any) {
-//        if let parent = parent as? SignUpViewControllerDelegate {
-//            parent.child(self, didTapButton: sender)
-//        }
-//    }
+}
 
+// TODO -- MAKE A FUNCTION TO TOUCH OTHER AREA AND DISMISS THE KEYBOARD
+
+// MARK -- CUSTOM THE KEYBOARD RETURN KEY
+extension SignUpVC: UITextFieldDelegate {
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailTextfield {
+            passwordTextfield.becomeFirstResponder()
+            return false
+        }else if textField == passwordTextfield {
+            repeatPasswordTextfield.becomeFirstResponder()
+            return false
+        }else if textField == repeatPasswordTextfield{
+            repeatPasswordTextfield.resignFirstResponder()
+            return false
+        }
+        return true
+    }
 }

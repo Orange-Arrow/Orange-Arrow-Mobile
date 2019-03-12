@@ -13,9 +13,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC" customModule="Orange_Arrow_Mobile" customModuleProvider="target">
             <connections>
+                <outlet property="emailTextfield" destination="iv4-X8-XFb" id="v6r-kV-Lkn"/>
+                <outlet property="facebookButton" destination="0hB-PO-HrE" id="4QX-LW-mrD"/>
                 <outlet property="forgetPasswordLink" destination="wSW-gh-uxz" id="uXy-vt-YUU"/>
                 <outlet property="googleButton" destination="D8A-jO-92w" id="RQW-Hc-IRN"/>
                 <outlet property="loginButton" destination="seJ-jA-dsM" id="1Uc-fj-lqf"/>
+                <outlet property="passwordTextfield" destination="4KC-tX-Ksf" id="IYp-Pv-e4I"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
