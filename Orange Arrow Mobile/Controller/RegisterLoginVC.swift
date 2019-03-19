@@ -55,8 +55,10 @@ class RegisterLoginVC: UIViewController, SignUpViewControllerDelegate {
  
     }
     
+ 
+//    signupToUpdateinfoSegue
     func signUpBtnTapped() {
-        self.performSegue(withIdentifier: "signupToUpdateinfoSegue", sender: self)
+        self.performSegue(withIdentifier: "landingToMenuSegue", sender: self)
     }
 }
 
