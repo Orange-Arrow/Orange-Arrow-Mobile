@@ -62,6 +62,23 @@ class SignUpVC: UIViewController {
                     return
                 }
                 // create user info node on database
+                guard let uid = Auth.auth().currentUser?.uid else {
+                    return
+                }
+//                print("=============================\(uid)")
+                
+//                let userDictionary = ["First Name":"","Last Name":"","Email":"","Date of Birth":"","Gender":"","Sports":"","School":schoolInfo,"ProfileImageUrl":downloadURL,"Levels":[1,1,1,1]] as [String : Any]
+                
+//                let entryNode = Utilities.ref_db.child("UsersInfo")
+//                entryNode.updateChildValues(values) { (error, ref) in
+//                    if error != nil {
+//                        print("user information can't be stored at firebase with error: \(error!)")
+//                        return
+//                    }
+//                    print("additional user info was saved in firebase")
+//                }
+                
+                Utilities.ref_db.child("abcd").setValue([uid:""])
                 
                 
                 // go to next page to let user update their information

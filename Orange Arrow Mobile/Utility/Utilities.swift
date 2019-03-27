@@ -8,8 +8,11 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class Utilities{
+    
+    static var ref_db: DatabaseReference = Database.database().reference()
     
     //this function might not be right because the color rendered looks weird
     static func hexStringToUIColor (hex:String) -> UIColor {

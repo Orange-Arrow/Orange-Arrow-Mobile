@@ -11,6 +11,7 @@
 		44327901222F1CFC00E58225 /* RegisterLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44327900222F1CFC00E58225 /* RegisterLoginVC.swift */; };
 		44327904222F1CFC00E58225 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44327902222F1CFC00E58225 /* Main.storyboard */; };
 		44327909222F1CFE00E58225 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44327907222F1CFE00E58225 /* LaunchScreen.storyboard */; };
+		4465A68F224ABE7400F0E827 /* Orange_Arrow_MobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4465A68E224ABE7400F0E827 /* Orange_Arrow_MobileUITests.swift */; };
 		44A479C222306EC6009D944F /* UpdateUserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479C122306EC6009D944F /* UpdateUserInfoVC.swift */; };
 		44A479C422306EE3009D944F /* NavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479C322306EE3009D944F /* NavigationVC.swift */; };
 		44A479C622306EF4009D944F /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479C522306EF4009D944F /* ProfileVC.swift */; };
@@ -34,6 +35,16 @@
 		C7E4C2CFD4CC21E534F65B09 /* Pods_Orange_Arrow_Mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9786B864D982B98F6A227668 /* Pods_Orange_Arrow_Mobile.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4465A691224ABE7400F0E827 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 443278F3222F1CFC00E58225 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 443278FA222F1CFC00E58225;
+			remoteInfo = "Orange Arrow Mobile";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		443278FB222F1CFC00E58225 /* Orange Arrow Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Orange Arrow Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		443278FE222F1CFC00E58225 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +52,9 @@
 		44327903222F1CFC00E58225 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		44327908222F1CFE00E58225 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4432790A222F1CFE00E58225 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4465A68C224ABE7400F0E827 /* Orange Arrow MobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Orange Arrow MobileUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4465A68E224ABE7400F0E827 /* Orange_Arrow_MobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orange_Arrow_MobileUITests.swift; sourceTree = "<group>"; };
+		4465A690224ABE7400F0E827 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44A479C122306EC6009D944F /* UpdateUserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserInfoVC.swift; sourceTree = "<group>"; };
 		44A479C322306EE3009D944F /* NavigationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationVC.swift; sourceTree = "<group>"; };
 		44A479C522306EF4009D944F /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
@@ -75,6 +89,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4465A689224ABE7400F0E827 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -82,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				443278FD222F1CFC00E58225 /* Orange Arrow Mobile */,
+				4465A68D224ABE7400F0E827 /* Orange Arrow MobileUITests */,
 				443278FC222F1CFC00E58225 /* Products */,
 				91E9C3E735738FE5EA8E6650 /* Pods */,
 				73B276CC78E9DA517C54B211 /* Frameworks */,
@@ -92,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				443278FB222F1CFC00E58225 /* Orange Arrow Mobile.app */,
+				4465A68C224ABE7400F0E827 /* Orange Arrow MobileUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,6 +131,15 @@
 				44A479BD22306DA0009D944F /* Model */,
 			);
 			path = "Orange Arrow Mobile";
+			sourceTree = "<group>";
+		};
+		4465A68D224ABE7400F0E827 /* Orange Arrow MobileUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4465A68E224ABE7400F0E827 /* Orange_Arrow_MobileUITests.swift */,
+				4465A690224ABE7400F0E827 /* Info.plist */,
+			);
+			path = "Orange Arrow MobileUITests";
 			sourceTree = "<group>";
 		};
 		44A479BD22306DA0009D944F /* Model */ = {
@@ -216,6 +248,24 @@
 			productReference = 443278FB222F1CFC00E58225 /* Orange Arrow Mobile.app */;
 			productType = "com.apple.product-type.application";
 		};
+		4465A68B224ABE7400F0E827 /* Orange Arrow MobileUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4465A695224ABE7400F0E827 /* Build configuration list for PBXNativeTarget "Orange Arrow MobileUITests" */;
+			buildPhases = (
+				4465A688224ABE7400F0E827 /* Sources */,
+				4465A689224ABE7400F0E827 /* Frameworks */,
+				4465A68A224ABE7400F0E827 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4465A692224ABE7400F0E827 /* PBXTargetDependency */,
+			);
+			name = "Orange Arrow MobileUITests";
+			productName = "Orange Arrow MobileUITests";
+			productReference = 4465A68C224ABE7400F0E827 /* Orange Arrow MobileUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -228,6 +278,10 @@
 				TargetAttributes = {
 					443278FA222F1CFC00E58225 = {
 						CreatedOnToolsVersion = 10.1;
+					};
+					4465A68B224ABE7400F0E827 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 443278FA222F1CFC00E58225;
 					};
 				};
 			};
@@ -245,6 +299,7 @@
 			projectRoot = "";
 			targets = (
 				443278FA222F1CFC00E58225 /* Orange Arrow Mobile */,
+				4465A68B224ABE7400F0E827 /* Orange Arrow MobileUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -260,6 +315,13 @@
 				44A479DD22307F3D009D944F /* LoginVC.xib in Resources */,
 				44327904222F1CFC00E58225 /* Main.storyboard in Resources */,
 				44A479EA2231BD70009D944F /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4465A68A224ABE7400F0E827 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +342,7 @@
 				"${BUILT_PRODUCTS_DIR}/CircleMenu/CircleMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
@@ -287,6 +350,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/LGButton/LGButton.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -298,6 +362,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CircleMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
@@ -305,6 +370,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LGButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,7 +450,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4465A688224ABE7400F0E827 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4465A68F224ABE7400F0E827 /* Orange_Arrow_MobileUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4465A692224ABE7400F0E827 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 443278FA222F1CFC00E58225 /* Orange Arrow Mobile */;
+			targetProxy = 4465A691224ABE7400F0E827 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		44327902222F1CFC00E58225 /* Main.storyboard */ = {
@@ -560,6 +642,44 @@
 			};
 			name = Release;
 		};
+		4465A693224ABE7400F0E827 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 532W942Q8W;
+				INFOPLIST_FILE = "Orange Arrow MobileUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.pitt.xiangliu90.Orange-Arrow-MobileUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Orange Arrow Mobile";
+			};
+			name = Debug;
+		};
+		4465A694224ABE7400F0E827 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 532W942Q8W;
+				INFOPLIST_FILE = "Orange Arrow MobileUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.pitt.xiangliu90.Orange-Arrow-MobileUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Orange Arrow Mobile";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -577,6 +697,15 @@
 			buildConfigurations = (
 				4432790E222F1CFE00E58225 /* Debug */,
 				4432790F222F1CFE00E58225 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4465A695224ABE7400F0E827 /* Build configuration list for PBXNativeTarget "Orange Arrow MobileUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4465A693224ABE7400F0E827 /* Debug */,
+				4465A694224ABE7400F0E827 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
