@@ -10,21 +10,20 @@ import UIKit
 
 class LeadingBoardVC: UIViewController {
 
+    @IBOutlet weak var navigationBar: UINavigationBar!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let navItem = Utilities.setupNavigationBar(image: "icon_ranking", tappedFunc: #selector(backBtnTapped), handler: self)
+        navigationBar.setItems([navItem], animated: false)
+        // on the right bar item, should include a new one which is for change different categories
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func backBtnTapped(){
+        dismiss(animated: true, completion: nil)
+        Utilities.changeStatusBarColor(color: UIColor(named: "oaColor")!)
+        // the color looks so different tho???
     }
-    */
 
 }

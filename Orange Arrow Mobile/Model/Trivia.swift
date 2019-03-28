@@ -7,3 +7,17 @@
 //
 
 import Foundation
+
+class Trivia{
+    let contentPool = [[Question]]()
+    let selectedNumberForEachLevel = 15
+    var randomIndexes = [Int]()
+    var currentPoints = 0
+    var accuracy = 0.0
+    var currentLevel = 1
+    
+    func generateRandomIndex()->[Int]{
+        return []
+    }
+    
+}

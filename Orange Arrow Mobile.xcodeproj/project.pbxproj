@@ -11,6 +11,7 @@
 		44327901222F1CFC00E58225 /* RegisterLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44327900222F1CFC00E58225 /* RegisterLoginVC.swift */; };
 		44327904222F1CFC00E58225 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44327902222F1CFC00E58225 /* Main.storyboard */; };
 		44327909222F1CFE00E58225 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44327907222F1CFE00E58225 /* LaunchScreen.storyboard */; };
+		443E094E224C39D700BAD30F /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E094D224C39D700BAD30F /* Question.swift */; };
 		4465A68F224ABE7400F0E827 /* Orange_Arrow_MobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4465A68E224ABE7400F0E827 /* Orange_Arrow_MobileUITests.swift */; };
 		44A479C222306EC6009D944F /* UpdateUserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479C122306EC6009D944F /* UpdateUserInfoVC.swift */; };
 		44A479C422306EE3009D944F /* NavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479C322306EE3009D944F /* NavigationVC.swift */; };
@@ -52,6 +53,7 @@
 		44327903222F1CFC00E58225 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		44327908222F1CFE00E58225 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4432790A222F1CFE00E58225 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		443E094D224C39D700BAD30F /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		4465A68C224ABE7400F0E827 /* Orange Arrow MobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Orange Arrow MobileUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4465A68E224ABE7400F0E827 /* Orange_Arrow_MobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orange_Arrow_MobileUITests.swift; sourceTree = "<group>"; };
 		4465A690224ABE7400F0E827 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				44A479D322307043009D944F /* Trivia.swift */,
 				44A479D522307061009D944F /* WordScramble.swift */,
 				44A479D72230706F009D944F /* ImagePuzzle.swift */,
+				443E094D224C39D700BAD30F /* Question.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				44A479CA22306F5F009D944F /* ImagePuzzleVC.swift in Sources */,
 				44A479E52230C615009D944F /* Utilities.swift in Sources */,
 				44A479CC22306F70009D944F /* WordScrambleVC.swift in Sources */,
+				443E094E224C39D700BAD30F /* Question.swift in Sources */,
 				443278FF222F1CFC00E58225 /* AppDelegate.swift in Sources */,
 				44A479C822306F47009D944F /* TriviaVC.swift in Sources */,
 				44A479D422307043009D944F /* Trivia.swift in Sources */,

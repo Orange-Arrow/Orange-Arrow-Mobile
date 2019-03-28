@@ -21,7 +21,7 @@ class NavigationVC: UIViewController, CircleMenuDelegate {
         ("icon_word", Utilities.hexStringToUIColor(hex: "00FDFF"), "this is the rule of word scramble game", "menuToWordScrambleSegue"),
         ("icon_ranking", Utilities.hexStringToUIColor(hex: "0096FF"), "this will show various game ranking", "menuToLeadingBoardSegue"),
         ("icon_achievement", Utilities.hexStringToUIColor(hex: "9437FF"), "check out your own achievement to unlock various awesome badges", "menuToAchievementSegue"),
-        ("icon_setting", Utilities.hexStringToUIColor(hex: "FF40FF"), "contact us or view various policy or just check settings", "menuToLeadingSettingSegue"),
+        ("icon_setting", Utilities.hexStringToUIColor(hex: "FF40FF"), "contact us or view various policy or just check settings", "menuToSettingSegue"),
         ("icon_logout", Utilities.hexStringToUIColor(hex: "FF2F92"), "this will help you log out the app,simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",""),
     ]
 

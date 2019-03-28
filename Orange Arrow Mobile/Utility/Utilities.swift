@@ -37,4 +37,41 @@ class Utilities{
         )
     }
     
+    
+    
+    //MARK -- change the status bar color
+    static func changeStatusBarColor(color:UIColor){
+        guard let statusBarView = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else {
+            return
+        }
+        statusBarView.backgroundColor = color
+    }
+    
+    
+    // MARK -- to make navigation bar item
+    static func setupNavigationBar(image:String, tappedFunc:Selector, handler:AnyObject) -> UINavigationItem{
+        
+        let navItem = UINavigationItem(title: "")
+        
+        let titleImageView = UIImageView(image: UIImage(named:image))
+        titleImageView.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        titleImageView.contentMode = .scaleAspectFit
+        navItem.titleView = titleImageView
+        
+        let backButton = UIButton(type: .system)
+        backButton.setImage(UIImage(named:"backBtn"), for: .normal)
+        backButton.imageView?.contentMode = .scaleAspectFit
+        backButton.tintColor = .white
+        backButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        backButton.addTarget(handler, action: tappedFunc, for: .touchUpInside)
+        navItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+        return navItem
+        
+    }
+    
+
+
+    
+    
+    
 }
