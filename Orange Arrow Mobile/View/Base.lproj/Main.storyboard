@@ -756,7 +756,14 @@
                         <viewLayoutGuide key="safeArea" id="jlO-Ym-7JL"/>
                     </view>
                     <connections>
+                        <outlet property="gamePorgressBar" destination="cK2-Qu-Ft3" id="BfE-jz-Udh"/>
+                        <outlet property="gameView" destination="5dL-Kb-uaq" id="wcW-qU-COp"/>
+                        <outlet property="hintImageView" destination="6Ch-ep-fLe" id="WOC-7U-glw"/>
+                        <outlet property="levelLabel" destination="BF7-R8-qXn" id="U3V-oL-Lb5"/>
+                        <outlet property="levelProgressBar" destination="MBK-Je-sNN" id="soF-jT-9vS"/>
                         <outlet property="navigationBar" destination="KNe-gp-ahP" id="Dbn-w9-vo6"/>
+                        <outlet property="pointsLabel" destination="Xff-Ug-x94" id="nYp-b9-Tf5"/>
+                        <outlet property="timeLabel" destination="rNA-k3-U5c" id="6NV-pL-feI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RY7-jm-fn3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -863,13 +870,13 @@
                                 <rect key="frame" x="20" y="84" width="335" height="563"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Us" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWd-D0-vbY">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="moo-XG-esx" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                        <rect key="frame" x="0.0" y="40.5" width="335" height="50"/>
+                                        <rect key="frame" x="0.0" y="20" width="335" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="8xj-5A-qOk"/>
@@ -907,7 +914,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4Y1-E4-zhp">
-                                        <rect key="frame" x="0.0" y="110.5" width="335" height="200"/>
+                                        <rect key="frame" x="0.0" y="90" width="335" height="200"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="SoG-8J-vyN"/>
@@ -918,38 +925,38 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Wsf-8r-K6R">
-                                        <rect key="frame" x="0.0" y="330.5" width="335" height="232.5"/>
+                                        <rect key="frame" x="0.0" y="310" width="335" height="253"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9TK-hK-oTP" customClass="LGButton" customModule="LGButton">
-                                                <rect key="frame" x="0.0" y="0.0" width="335" height="30.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="34.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="titleString" value="Send Messages"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="htj-S5-t65" customClass="LGButton" customModule="LGButton">
-                                                <rect key="frame" x="0.0" y="50.5" width="335" height="30.5"/>
+                                                <rect key="frame" x="0.0" y="54.5" width="335" height="34.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="titleString" value="Delete My Account"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uss-PM-5fv" customClass="LGButton" customModule="LGButton">
-                                                <rect key="frame" x="0.0" y="101" width="335" height="30.5"/>
+                                                <rect key="frame" x="0.0" y="109" width="335" height="35"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="titleString" value="FAQ"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xdf-Pm-lrK" customClass="LGButton" customModule="LGButton">
-                                                <rect key="frame" x="0.0" y="151.5" width="335" height="30.5"/>
+                                                <rect key="frame" x="0.0" y="164" width="335" height="34.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="titleString" value="Privacy Policy"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7kF-zf-wEO" customClass="LGButton" customModule="LGButton">
-                                                <rect key="frame" x="0.0" y="202" width="335" height="30.5"/>
+                                                <rect key="frame" x="0.0" y="218.5" width="335" height="34.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="titleString" value="Term &amp; Conditions"/>
@@ -1019,8 +1026,8 @@
                                             <action selector="imageBtnTapped:" destination="z2M-9t-egS" eventType="touchUpInside" id="AeR-5s-Vcm"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xFo-L1-04S" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                        <rect key="frame" x="0.0" y="113.5" width="295" height="42.5"/>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xFo-L1-04S" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                        <rect key="frame" x="0.0" y="108" width="295" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
@@ -1052,8 +1059,8 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="First Name"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mIw-Kx-WCo" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                        <rect key="frame" x="0.0" y="189.5" width="295" height="42.5"/>
+                                    <view tag="1" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mIw-Kx-WCo" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                        <rect key="frame" x="0.0" y="186.5" width="295" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
@@ -1085,8 +1092,8 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="Last Name"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Nic-mH-81y">
-                                        <rect key="frame" x="20" y="265.5" width="255" height="40"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Nic-mH-81y">
+                                        <rect key="frame" x="20" y="264.5" width="255" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZZ-E8-Yfl">
                                                 <rect key="frame" x="0.0" y="0.0" width="107.5" height="40"/>
@@ -1109,8 +1116,8 @@
                                             <constraint firstAttribute="height" constant="40" id="ZLu-FC-7ni"/>
                                         </constraints>
                                     </stackView>
-                                    <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CU7-2Y-2cq" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                        <rect key="frame" x="0.0" y="338.5" width="295" height="43"/>
+                                    <view tag="2" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CU7-2Y-2cq" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                        <rect key="frame" x="0.0" y="332.5" width="295" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
@@ -1142,8 +1149,8 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="Date of Birth"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sud-52-P9n" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                        <rect key="frame" x="0.0" y="415" width="295" height="42.5"/>
+                                    <view tag="3" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sud-52-P9n" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                        <rect key="frame" x="0.0" y="410.5" width="295" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
@@ -1175,8 +1182,8 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="School"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfZ-uq-FOm" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                        <rect key="frame" x="0.0" y="491" width="295" height="42.5"/>
+                                    <view tag="4" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qfZ-uq-FOm" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                        <rect key="frame" x="0.0" y="489" width="295" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">

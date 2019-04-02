@@ -11,12 +11,14 @@ import UIKit
 class TriviaVC: UIViewController {
 
     @IBOutlet weak var navigationBar: UINavigationBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //update navigation bar
         let navItem = Utilities.setupNavigationBar(image: "icon_trivia", tappedFunc: #selector(backBtnTapped), handler: self)
         navigationBar.setItems([navItem], animated: false)
-        // Do any additional setup after loading the view.
+
     }
     
     @objc func backBtnTapped(){
