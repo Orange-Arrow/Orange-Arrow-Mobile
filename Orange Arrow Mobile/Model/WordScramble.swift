@@ -33,9 +33,9 @@ class WordScramble {
     let selectedLevelForEachLevel = 15
     var currentPoints = 0
     
-    func generateRandomIndex()->[Int]{
-        return []
-    }
+//    func generateRandomIndex()->[Int]{
+//        return []
+//    }
     
     init(level:Int) {
         self.currentLevel = level

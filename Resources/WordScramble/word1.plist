@@ -12,19 +12,19 @@
 		</dict>
 		<dict>
 			<key>hint</key>
-			<string>zone</string>
+			<string>animal</string>
 			<key>word</key>
 			<string>zoo</string>
 		</dict>
 		<dict>
 			<key>hint</key>
-			<string>mlb</string>
+			<string>harden</string>
 			<key>word</key>
 			<string>basketball</string>
 		</dict>
 		<dict>
 			<key>hint</key>
-			<string>reality show</string>
+			<string>realityshow</string>
 			<key>word</key>
 			<string>survivor</string>
 		</dict>
@@ -38,7 +38,7 @@
 			<key>word</key>
 			<string>china</string>
 			<key>hint</key>
-			<string>peach</string>
+			<string>chinese</string>
 		</dict>
 		<dict>
 			<key>word</key>

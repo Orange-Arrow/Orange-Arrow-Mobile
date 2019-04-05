@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>puzzlelist</key>
+	<array>
+		<dict>
+			<key>quesText</key>
+			<string>vucevic</string>
+			<key>options</key>
+			<array>
+				<string>Nikola Vučević</string>
+				<string>Dirk Nowitzki
+Dirk Nowitzki</string>
+				<string>Tony Parker</string>
+				<string>Nikola Jokic</string>
+			</array>
+			<key>answer</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>quesText</key>
+			<string>harden</string>
+			<key>options</key>
+			<array>
+				<string>Kawhi Leonard</string>
+				<string>Chris Paul</string>
+				<string>Carlos Boozer</string>
+				<string>James Harden</string>
+			</array>
+			<key>answer</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>answer</key>
+			<integer>1</integer>
+			<key>options</key>
+			<array>
+				<string>James Harden</string>
+				<string>Sindy Crosby</string>
+				<string>Alex Ovechkin</string>
+				<string>Andy Roddick</string>
+			</array>
+			<key>quesText</key>
+			<string>crosby</string>
+		</dict>
+		<dict>
+			<key>answer</key>
+			<integer>3</integer>
+			<key>options</key>
+			<array>
+				<string>Yao Ming</string>
+				<string>Tom Wilson</string>
+				<string>John Carlson</string>
+				<string>Bryan Rust</string>
+			</array>
+			<key>quesText</key>
+			<string>rust</string>
+		</dict>
+		<dict>
+			<key>answer</key>
+			<integer>0</integer>
+			<key>options</key>
+			<array>
+				<string>Kris Letang</string>
+				<string>Steve Curry</string>
+				<string>Justin Schultz</string>
+				<string>Patric Hornqvist</string>
+			</array>
+			<key>quesText</key>
+			<string>letang</string>
+		</dict>
+	</array>
+</dict>
+</plist>

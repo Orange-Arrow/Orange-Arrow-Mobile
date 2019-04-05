@@ -18,6 +18,13 @@ class WordScrambleVC: UIViewController {
     @IBOutlet weak var levelProgressBar: UIView!
     @IBOutlet weak var gamePorgressBar: UIView!
     @IBOutlet weak var gameView: UIView!
+    @IBOutlet weak var originalBar: UIView!
+    @IBOutlet weak var levelBar: UIView!
+    @IBOutlet weak var gameBar: UIView!
+    
+    @IBOutlet weak var gameBarCon: NSLayoutConstraint!
+    @IBOutlet weak var levelBarCon: NSLayoutConstraint!
+    
     
     //set up timer
     var countdownTimer = TimerOfGame()
@@ -28,11 +35,19 @@ class WordScrambleVC: UIViewController {
     private var tiles = [TileView]()
     private var targets = [TargetView]()
 
-    let TileMargin: CGFloat = 20.0
+    let TileMargin: CGFloat = 10.0
+    
     var shuffedSelectedQues: [NSDictionary]?
     var currentNumberOfQuestion = 0
     
-    var hud: HUDView!
+    var hud:HUDView! {
+        didSet {
+            //connect the Hint button
+            hud.hintButton.addTarget(self, action: #selector(actionHint), for:.touchUpInside)
+            hud.hintButton.isEnabled = false
+        }
+    }
+
     
     //stopwatch variables
     private var secondsLeft = 60
@@ -51,8 +66,6 @@ class WordScrambleVC: UIViewController {
         super.viewDidLoad()
         
         audioController.preloadAudioEffects(effectFileNames: AudioEffectFiles)
-
-        
         
         //start to count the time
         countdownTimer.startTimer(handler: self, selector: #selector(updateTime))
@@ -72,24 +85,27 @@ class WordScrambleVC: UIViewController {
             let pool = questions.contentPool.list
             assert(pool.count > 0, "no level loaded")
             self.shuffedSelectedQues = pool.choose(questions.selectedLevelForEachLevel)
-            addLetterBox(currentQuest: 0)
+            
+            addLetterBox(currentQuest: currentNumberOfQuestion, completion: addHUDView)
             
             //add one view for all hud and controls
-            let hudView = HUDView(frame: CGRect(x: 0, y: 0, width: gameView.bounds.size.width, height: gameView.bounds.size.height))
-            gameView.addSubview(hudView)
-            self.hud = hudView
+            
             //start the timer
             self.startStopwatch()
 
         }else{
             print("this is wrong")
         }
-        
-
 
     }
     
     
+    func addHUDView(){
+        let hudView = HUDView(frame: CGRect(x: gameView.bounds.origin.x, y: gameView.bounds.origin.y, width: gameView.bounds.size.width, height: gameView.bounds.size.height))
+        gameView.addSubview(hudView)
+        self.hud = hudView
+        hud.hintButton.isEnabled = true
+    }
     
     
     
@@ -106,27 +122,88 @@ class WordScrambleVC: UIViewController {
         initialTime += 1
     }
     
+    // MARK -- func for hint button
+    //the user pressed the hint button
+    @objc func actionHint() {
+        //1
+        hud.hintButton.isEnabled = false
+        
+        //2
+//        data.points -= 1
+        //hint button only use once
+//        pointsLabel.text = "Points: \(data.points)"
+        
+        //3 find the first unmatched target and matching tile
+        var foundTarget:TargetView? = nil
+        for target in targets {
+            if !target.isMatched {
+                foundTarget = target
+                break
+            }
+        }
+        
+        //4 find the first tile matching the target
+        var foundTile:TileView? = nil
+        for tile in tiles {
+            if !tile.isMatched && tile.letter == foundTarget?.letter {
+                foundTile = tile
+                break
+            }
+        }
+        
+        //ensure there is a matching tile and target
+        if let target = foundTarget, let tile = foundTile {
+            
+            //5 don't want the tile sliding under other tiles
+            gameView.bringSubviewToFront(tile)
+            
+            //6 show the animation to the user
+            UIView.animate(withDuration: 1.5,
+                                       delay:0.0,
+                                       options:UIView.AnimationOptions.curveEaseOut,
+                                       animations:{
+                                        tile.center = target.center
+            }, completion: {
+                (value:Bool) in
+                
+                //7 adjust view on spot
+                self.placeTile(tileView: tile, targetView: target)
+                
+                //8 re-enable the button
+                // in the new rule this is not allowed
+//                self.hud.hintButton.isEnabled = true
+                
+                //9 check for finished game
+                self.checkForSuccess()
+                
+            })
+        }
+    }
+
+    
     
     // MARK --  to add the letter in the guessing area
-    func addLetterBox (currentQuest : Int) {
+    func addLetterBox (currentQuest : Int, completion:()->()) {
         
         guard let queue = shuffedSelectedQues else {return}
         let hint = queue[currentQuest]["hint"] as! String
         print("the hint is \(hint)")
         // update the image of hint
-        hintImageView.image = UIImage(named: hint)
+        hintImageView.image = UIImage(named: "\(hint).jpg")
+        hintImageView.contentMode = .scaleToFill
+        hintImageView.clipsToBounds = true
         
         let word = queue[currentQuest]["word"] as! String
         let wordArr = Array(word)
         let shuffedword = word.shuffled()
         let length = word.count
         
-        print("the word is \(word) and the length is \(length) and the shuffed word is \(shuffedword)")
+//        print("the word is \(word) and the length is \(length) and the shuffed word is \(shuffedword)")
         
         //calculate the tile size
-        let tileSide = ceil(gameView.frame.size.width * 0.9 / CGFloat(length)) - TileMargin
+        let tileSide = ceil(gameView.bounds.size.width * 0.8 / CGFloat(length)) - TileMargin
         //get the left margin for first tile
-        var xOffset = (gameView.frame.size.width - CGFloat(length) * (tileSide + TileMargin)) / 2.0
+        var xOffset = (gameView.bounds.size.width - CGFloat(length) * (tileSide + TileMargin)) / 2.0
         //adjust for tile center (instead of the tile's origin)
         xOffset += tileSide / 2.0
 
@@ -139,7 +216,9 @@ class WordScrambleVC: UIViewController {
                 let tile = TileView(letter: letter, sideLength: tileSide)
                 tile.randomize()
                 tile.dragDelegate = self
-                tile.center = CGPoint(x:xOffset + CGFloat(index)*(tileSide + TileMargin), y:gameView.frame.size.height/4*3)
+                tile.center = CGPoint(x:xOffset + CGFloat(index)*(tileSide + TileMargin), y:gameView.bounds.size.height - 10.0 - tileSide/2)
+                print("========\(gameView.bounds.size.height)")
+//                gameView.bounds.size.height/4*3
                 
                 //4
                 gameView.addSubview(tile)
@@ -154,12 +233,16 @@ class WordScrambleVC: UIViewController {
         for (index, letter) in word.enumerated() {
             if letter != " " {
                 let target = TargetView(letter: letter, sideLength: tileSide)
-                target.center = CGPoint(x:xOffset + CGFloat(index)*(tileSide + TileMargin), y:gameView.frame.size.height/4)
+                target.center = CGPoint(x:xOffset + CGFloat(index)*(tileSide + TileMargin), y:100)
+//                gameView.frame.size.height/4
                 
                 gameView.addSubview(target)
                 targets.append(target)
             }
         }
+        
+        completion()
+//        hud.hintButton.isEnabled = true
 
     }
     
@@ -196,6 +279,19 @@ class WordScrambleVC: UIViewController {
             //game finished
             stars.removeFromSuperview()
         })
+        
+        hud.hintButton.isEnabled = false
+        
+        //goto next question
+        currentNumberOfQuestion += 1
+        addLetterBox(currentQuest: currentNumberOfQuestion, completion: addHUDView)
+        //to check how to remove the view to next question
+        
+        //add one view for all hud and controls
+        
+        //start the timer
+        self.startStopwatch()
+        
 
 
 

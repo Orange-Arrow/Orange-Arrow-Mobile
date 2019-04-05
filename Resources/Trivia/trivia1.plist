@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>trivialist</key>
+	<array>
+		<dict>
+			<key>answer</key>
+			<integer>3</integer>
+			<key>options</key>
+			<array>
+				<string>hide yourself</string>
+				<string>give it to others</string>
+				<string>delay and push off until the deadline</string>
+				<string>make reasonable choice and finish important things first</string>
+			</array>
+			<key>quesText</key>
+			<string>How to deal with limited time?</string>
+		</dict>
+		<dict>
+			<key>answer</key>
+			<integer>2</integer>
+			<key>options</key>
+			<array>
+				<string>call 911</string>
+				<string>run away as soon as possible</string>
+				<string>listen and try to help them in public place</string>
+				<string>ask for money then help</string>
+			</array>
+			<key>quesText</key>
+			<string>a stranger asks you for help:</string>
+		</dict>
+		<dict>
+			<key>quesText</key>
+			<string>When walking with a lady: </string>
+			<key>options</key>
+			<array>
+				<string>In front of her</string>
+				<string>On the outside of her</string>
+				<string>Behind her</string>
+				<string>It doesn’t matter</string>
+			</array>
+			<key>answer</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>quesText</key>
+			<string>When eating dinner at a restaurant you should: </string>
+			<key>options</key>
+			<array>
+				<string>Chew loudly and with your mouth open</string>
+				<string>Eat with your elbows on the table</string>
+				<string>Comb your hair at the table</string>
+				<string>Wipe your mouth with the corners of your napkin</string>
+			</array>
+			<key>answer</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>quesText</key>
+			<string>When at a theater (play, movie, etc…) you should: </string>
+			<key>options</key>
+			<array>
+				<string>Turn your phone on silent and be respectful of others in the theater during the performance</string>
+				<string>Answer your phone during the performance</string>
+				<string>Keep your phone on ring</string>
+				<string>Talk to your friends during the show</string>
+			</array>
+			<key>answer</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+</dict>
+</plist>
