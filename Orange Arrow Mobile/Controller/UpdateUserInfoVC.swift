@@ -36,7 +36,8 @@ class UpdateUserInfoVC: UIViewController {
         super.viewDidLoad()
         
         //delegation for calendar view
-
+         genderButtonGroup[0].backgroundColor = Utilities.hexStringToUIColor(hex: "D6D6D6")
+        
         
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
@@ -50,6 +51,10 @@ class UpdateUserInfoVC: UIViewController {
         imageButton.imageView?.contentMode = .scaleAspectFill
  
         // Do any additional setup after loading the view.
+        
+        
+        
+//        first to check if anything on database and put it on display
     }
     
     // TODO -- user clicked update profile button
@@ -84,6 +89,70 @@ class UpdateUserInfoVC: UIViewController {
             pickUp(sportsTextfield)
         }
     }
+    
+    
+    private func registerUserInfoWithUID(uid: String, values: [String: AnyObject]){
+        
+        let userDB = Utilities.ref_db.child("users_information").child(uid)
+        userDB.updateChildValues(values) { (error, ref) in
+            if error != nil {
+                print("user information can't be stored at firebase with error: \(error!)")
+                return
+            }
+            print("additional user info was saved in firebase")
+            // goto menu
+            self.gotoMenu()
+           
+        }
+    }
+    
+    private func gotoMenu(){
+//         dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "updateToNavigationSegue", sender: self)
+       
+    }
+    
+    
+    //MARK -- func to update profile
+    @IBAction func updateProfileBtnTapped(_ sender: LGButton) {
+        // to check every value is not nil
+        guard let firstName = firstNameTextfield.text else{return}
+        guard let lastName = lastNameTextfield.text else{return}
+        guard let dateOfBirth = birthDateTextfield.text else{return}
+        guard let school = schoolTextfield.text else{return}
+        guard let sports = sportsTextfield.text else{return}
+        
+        //to update database
+//         TODO: store profile img to storage
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        let imageName = NSUUID().uuidString
+        let storageRef = Storage.storage().reference().child("\(imageName).png")
+        
+        if let uploadData = imageButton.imageView!.image!.pngData(){
+            storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
+                if error != nil {
+                    print("Upload Image Error with reason \(error!.localizedDescription)")
+                    return
+                }
+                
+                storageRef.downloadURL(completion: { (url,error) in
+                    guard let downloadURL = url?.absoluteString else{
+                        print("there is a download url error \(error!.localizedDescription)")
+                        return
+                    }
+                    
+                    let userDictionary = ["First Name":firstName,"Last Name":lastName,"Birthday":dateOfBirth,"Gender":self.gender,"Sports":sports,"School":school,"ProfileImageUrl":downloadURL,"Levels":[1,1,1]] as [String : Any]
+                    
+                    self.registerUserInfoWithUID(uid:uid, values:userDictionary as [String : AnyObject])
+                    
+                })
+            })
+        }
+    }
+    // end of btn func 
+    
     
     
 }

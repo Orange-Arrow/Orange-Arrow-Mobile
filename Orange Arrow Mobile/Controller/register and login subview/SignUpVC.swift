@@ -78,7 +78,7 @@ class SignUpVC: UIViewController {
 //                    print("additional user info was saved in firebase")
 //                }
                 
-                Utilities.ref_db.child("abcd").setValue([uid:""])
+                Utilities.ref_db.child("users_information").updateChildValues([uid:""])
                 
                 
                 // go to next page to let user update their information

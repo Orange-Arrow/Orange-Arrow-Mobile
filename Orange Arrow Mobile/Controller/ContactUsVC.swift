@@ -7,12 +7,22 @@
 //
 
 import UIKit
+import MessageUI
+import LGButton
+import SkyFloatingLabelTextField
+import ProgressHUD
 
 class ContactUsVC: UIViewController {
 
     @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var titleTextfield: SkyFloatingLabelTextField!
+    @IBOutlet weak var messageTextfield: UITextView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupTextfieldDelegation()
 
         // Do any additional setup after loading the view.
         let navItem = Utilities.setupNavigationBar(image: "icon_setting", tappedFunc: #selector(backBtnTapped), handler: self)
@@ -24,6 +34,68 @@ class ContactUsVC: UIViewController {
         Utilities.changeStatusBarColor(color: UIColor(named: "oaColor")!)
         // the color looks so different tho???
     }
+    
+    
+    //MARK -- function when send message tapped
+    @IBAction func sendMessBtnTapped(_ sender: LGButton) {
+        // to check title and contents not nil
+        if titleTextfield.text != "" && messageTextfield.text != ""{
+            sendEmail(title: titleTextfield.text!, message: messageTextfield.text!)
+        }
+    }
+    
 
 
+}
+
+
+extension ContactUsVC: MFMailComposeViewControllerDelegate{
+    
+    func sendEmail(title:String, message:String) {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["xiang@orangearrow.org"])
+            mail.setSubject("From OA App: \(title)")
+            mail.setMessageBody("<p>\(message)<p>", isHTML: true)
+            
+            present(mail, animated: true)
+        } else {
+            // show failure alert
+            print("user didnt setup email association")
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        titleTextfield.text = ""
+        messageTextfield.text = ""
+        controller.dismiss(animated: true)
+        // empty the textfield
+        ProgressHUD.showSuccess()
+        
+    }
+}
+
+
+extension ContactUsVC: UITextFieldDelegate, UITextViewDelegate {
+    
+    func setupTextfieldDelegation() {
+        titleTextfield.delegate = self
+        messageTextfield.delegate = self
+        titleTextfield.returnKeyType = .next
+        messageTextfield.returnKeyType = .done
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            messageTextfield.becomeFirstResponder()
+            return false
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
 }

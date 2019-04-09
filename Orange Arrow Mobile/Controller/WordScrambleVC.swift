@@ -278,22 +278,26 @@ class WordScrambleVC: UIViewController {
         }, completion: {(value:Bool) in
             //game finished
             stars.removeFromSuperview()
+            // to clear current board
+            self.clearBoard()
+
+            self.currentNumberOfQuestion += 1
+            self.addLetterBox(currentQuest: self.currentNumberOfQuestion, completion: self.addHUDView)
+            self.secondsLeft = 60
+            self.startStopwatch()
+            
         })
         
-        hud.hintButton.isEnabled = false
+//        hud.hintButton.isEnabled = false
         
         //goto next question
-        currentNumberOfQuestion += 1
-        addLetterBox(currentQuest: currentNumberOfQuestion, completion: addHUDView)
+
         //to check how to remove the view to next question
         
         //add one view for all hud and controls
         
         //start the timer
-        self.startStopwatch()
         
-
-
 
 
     }
@@ -353,6 +357,17 @@ class WordScrambleVC: UIViewController {
             
             //4 set the timer to update the value
             timer = Timer.scheduledTimer(timeInterval: interval, target: self, selector:#selector(updateValue), userInfo: nil, repeats: true)
+        }
+    }
+    
+    
+    //clear the tiles and targets
+    func clearBoard() {
+        tiles.removeAll(keepingCapacity: false)
+        targets.removeAll(keepingCapacity: false)
+        
+        for view in gameView.subviews  {
+            view.removeFromSuperview()
         }
     }
 

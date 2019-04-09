@@ -81,6 +81,70 @@ class Utilities{
     
     
     // to check the result
+    
+    
+    //mark -- get level
+    static func getLevel(num:Int, completion:@escaping (_ level:Int)->()){
+        let userID = Auth.auth().currentUser?.uid
+        
+        self.ref_db.child("users_information").child(userID!).child("Levels").observe(.value) { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSArray ?? []
+            
+            let levelToBeOpen = value[num] as! Int
+            
+            completion(levelToBeOpen)
+        }
+      
+    }
+    
+    // to store the data of game
+    static func storeResult(gameName:String, level:Int, points:Int, time:String, gameIndictorNum:Int){
+        let targetDB = self.ref_db.child(gameName).child(String(level))
+        guard let userID = Auth.auth().currentUser?.uid else { fatalError("No User Sign In") }
+        
+        //to format date
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE, MMMM, dd, yyyy HH:mm:ss a"
+        let date = formatter.string(from: Date())
+        
+        let resultDictionary = ["time":time,"points":points,"date":date] as [String : Any]
+        targetDB.child("\(userID)").setValue(resultDictionary)
+        
+        self.ref_db.child("users_information/\(userID)/Levels/\(gameIndictorNum)").setValue(level+1)
+
+    }
+    
+    //to show the success alert
+    static func showSuccessAlert(level:Int, points:Int, gameTime:String, targetVC:UIViewController, goback:@escaping ()->(), nextLevel:@escaping (_ isSuccess: Bool)->() ){
+        
+        //to start
+        let message = "You finished level\(level)'s all questions with \(points) points in \(gameTime)."
+        let alert = UIAlertController(title: "Congrats", message: message, preferredStyle: .alert)
+        let nextLevelAction = UIAlertAction(title: "Go to play next level", style: .default, handler: { (UIAlertAction) in nextLevel(true) })
+        let goBackAction = UIAlertAction(title: "Go back to main menu", style: .default, handler: { (UIAlertAction) in goback() })
+        alert.addAction(nextLevelAction)
+        alert.addAction(goBackAction)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
+            targetVC.present(alert, animated: true, completion: nil)
+        }
+    }
+    //to show the failure alert
+    static func showFailureAlert(level:Int, points:Int, gameTime:String, targetVC:UIViewController,  goback:@escaping ()->(), tryagain:@escaping (_ isSuccess:Bool)->() ){
+        
+        //to start
+        let message = "You finished level\(level)'s all questions with \(points) points in \(gameTime). And you didn't pass this level this time."
+        let alert = UIAlertController(title: "Sorry", message: message, preferredStyle: .alert)
+        let tryagainAction = UIAlertAction(title: "Try it again !", style: .default, handler: { (UIAlertAction) in tryagain(false) })
+        let goBackAction = UIAlertAction(title: "Go back to main menu", style: .default, handler: { (UIAlertAction) in goback() })
+        alert.addAction(tryagainAction)
+        alert.addAction(goBackAction)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
+            targetVC.present(alert, animated: true, completion: nil)
+        }
+    }
 
     
     

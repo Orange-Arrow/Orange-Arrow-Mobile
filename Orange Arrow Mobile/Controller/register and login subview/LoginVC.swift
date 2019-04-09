@@ -61,7 +61,7 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
                 print(error!.localizedDescription)
                 return
             }
-            // to do -- check user info if any of are empty rhen go to update info page otherwise goto menu page
+            // to do -- check user info if any of are empty then go to update info page otherwise goto menu page
             // should be done by super view
             print("user has been signed in")
         }
