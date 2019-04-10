@@ -14,8 +14,15 @@ import GoogleSignIn
 import FacebookLogin
 import FacebookCore
 
+//MARK -- protocol for send signal to superview conduct segue to next page
+protocol LoginViewControllerDelegate: class {
+    func loginBtnTapped()
+}
+
 
 class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
+    
+       weak var delegate: LoginViewControllerDelegate?
     
     @IBOutlet weak var forgetPasswordLink: UIButton!
     @IBOutlet weak var loginButton: LGButton!
@@ -64,6 +71,9 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
             // to do -- check user info if any of are empty then go to update info page otherwise goto menu page
             // should be done by super view
             print("user has been signed in")
+            
+              self.delegate?.loginBtnTapped()
+            
         }
     }
     

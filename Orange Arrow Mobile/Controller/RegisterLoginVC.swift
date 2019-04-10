@@ -9,7 +9,12 @@
 import UIKit
 import BetterSegmentedControl
 
-class RegisterLoginVC: UIViewController, SignUpViewControllerDelegate {
+class RegisterLoginVC: UIViewController, SignUpViewControllerDelegate, LoginViewControllerDelegate {
+    
+    func loginBtnTapped() {
+        performSegue(withIdentifier: "landingToMenuSegue", sender: self)
+    }
+    
     
 
     @IBOutlet weak var segmentedControl: BetterSegmentedControl!
@@ -22,6 +27,7 @@ class RegisterLoginVC: UIViewController, SignUpViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         signupVC.delegate = self
+        loginVC.delegate = self
 
         //change the value of segmented control
         segmentedControl.segments = LabelSegment.segments(withTitles: ["Login", "Sign Up"],

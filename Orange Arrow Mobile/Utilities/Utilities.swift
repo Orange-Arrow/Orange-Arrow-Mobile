@@ -87,7 +87,7 @@ class Utilities{
     static func getLevel(num:Int, completion:@escaping (_ level:Int)->()){
         let userID = Auth.auth().currentUser?.uid
         
-        self.ref_db.child("users_information").child(userID!).child("Levels").observe(.value) { (snapshot) in
+        self.ref_db.child("users_information").child(userID!).child("Levels").observeSingleEvent(of: .value) { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSArray ?? []
             

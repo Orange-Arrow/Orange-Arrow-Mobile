@@ -26,8 +26,8 @@ class ImagePuzzleVC: UIViewController {
     
     //to update the level val
     var currentLevel = 1 {
-        didSet(val){
-            levelLabel.text = "Level \(val)"
+        willSet(newValue){
+            levelLabel.text = "Level \(newValue)"
         }
     }
     
@@ -48,16 +48,21 @@ class ImagePuzzleVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Utilities.getLevel(num: 1) { (level) in
+            self.currentLevel = level
+            print("the current level is \(self.currentLevel)")
+            self.puzzle = LoadingData(level: self.currentLevel, count: selectedCount, game: "puzzle")
+            
+            guard let pools = self.puzzle?.selectedPool else{return}
+            self.pool = pools
+            
+            //update the UI
+            self.updateQuestion()
+            
+        }
         
         
         audioController.preloadAudioEffects(effectFileNames: AudioEffectFiles)
-        
-        self.puzzle = LoadingData(level: currentLevel, count: selectedCount, game:"puzzle")
-        guard let pools = puzzle?.selectedPool else{return}
-        self.pool = pools
-        
-        //update the UI
-        updateQuestion()
         
         // Do any additional setup after loading the view.
         let navItem = Utilities.setupNavigationBar(image: "icon_puzzle", tappedFunc: #selector(backBtnTapped), handler: self)
@@ -88,6 +93,36 @@ class ImagePuzzleVC: UIViewController {
 
     
     }
+    
+    
+    //func to go to next level
+    private func gotoNextStep(isSuccess:Bool){
+        if isSuccess{
+            self.currentLevel += 1
+            self.puzzle = LoadingData(level: self.currentLevel, count: selectedCount, game: "puzzle")
+            
+        }else{
+            self.puzzle = LoadingData(level: self.currentLevel, count: selectedCount, game: "puzzle")
+            
+        }
+        
+        guard let pools = puzzle?.selectedPool else{return}
+        self.pool = pools
+        totalTime = 0
+        totalTimer.startTimer(handler: self, selector: #selector(beginGame))
+        points = 0
+        currentQuesIndex = 0
+        secondsLeft = 0
+        
+        updateQuestion()
+        
+    }
+    private func goback(){
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
     
     //update questions and ui
     func updateQuestion(){
@@ -190,6 +225,47 @@ class ImagePuzzleVC: UIViewController {
         
         if currentQuesIndex == pool.count-1{
             // check the result and calculate the result and do the alerts
+            
+            if sender.tag == pool[currentQuesIndex].answer{
+                self.points += 2
+                pointsLabel.text = "Points: \(points)"
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    ProgressHUD.showSuccess("Awesome, Correct!")
+                    self.audioController.playEffect(name: SoundDing)
+                }
+                
+            }else{
+                self.points -= 1
+                pointsLabel.text = "Points: \(points)"
+                let rightAnswer = pool[currentQuesIndex].options[pool[currentQuesIndex].answer]
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    ProgressHUD.showError("The correct answer is \n\(rightAnswer)")
+                    self.audioController.playEffect(name: SoundWrong)
+                    
+                }
+            }
+            // stop the timer
+            totalTimer.endTimer()
+            // end left timer
+            guard let totaltime = timeLabel.text else {return}
+            
+            //to check if it is over certain point
+            if self.points >= pointsToPassPuzzle {
+                // firt store the data
+                Utilities.storeResult(gameName: "Puzzle", level: currentLevel, points: self.points, time: totaltime, gameIndictorNum: 1)
+                //show alert about choice of next level or go back
+                Utilities.showSuccessAlert(level: currentLevel, points: points, gameTime: totaltime, targetVC: self, goback: goback){_ in
+                    self.gotoNextStep(isSuccess: true)
+                }
+             
+                
+
+            }else{
+                //show alert
+                Utilities.showFailureAlert(level: currentLevel, points: points, gameTime: totaltime, targetVC: self, goback: goback){
+                    _ in self.gotoNextStep(isSuccess: false)
+                }
+            }
             
             // so this will be last question should calculate the
 //            accuracy to see if pass 90% and if so then ask say congrats and give optiion to

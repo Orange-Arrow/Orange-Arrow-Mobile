@@ -63,6 +63,13 @@
 		44A479E82230CB1F009D944F /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479E72230CB1F009D944F /* Checkbox.swift */; };
 		44A479EA2231BD70009D944F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44A479E92231BD70009D944F /* GoogleService-Info.plist */; };
 		44BFA74E224EB2080029C8BB /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BFA74D224EB2080029C8BB /* TileView.swift */; };
+		44E76021225D32A900DE9C0C /* davis.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44E76020225D32A900DE9C0C /* davis.jpg */; };
+		44E76023225D32AE00DE9C0C /* griffin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44E76022225D32AE00DE9C0C /* griffin.jpg */; };
+		44E76025225D32B500DE9C0C /* harper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44E76024225D32B500DE9C0C /* harper.jpg */; };
+		44E76027225D32B900DE9C0C /* federer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44E76026225D32B900DE9C0C /* federer.jpg */; };
+		44E76029225D32C400DE9C0C /* cervelli.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44E76028225D32C400DE9C0C /* cervelli.jpg */; };
+		44E7602D225D8B0D00DE9C0C /* AchievementsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E7602B225D8B0D00DE9C0C /* AchievementsTableViewCell.swift */; };
+		44E7602E225D8B0D00DE9C0C /* AchievementsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44E7602C225D8B0D00DE9C0C /* AchievementsTableViewCell.xib */; };
 		C7E4C2CFD4CC21E534F65B09 /* Pods_Orange_Arrow_Mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9786B864D982B98F6A227668 /* Pods_Orange_Arrow_Mobile.framework */; };
 /* End PBXBuildFile section */
 
@@ -137,6 +144,13 @@
 		44A479E72230CB1F009D944F /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		44A479E92231BD70009D944F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		44BFA74D224EB2080029C8BB /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
+		44E76020225D32A900DE9C0C /* davis.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = davis.jpg; sourceTree = "<group>"; };
+		44E76022225D32AE00DE9C0C /* griffin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = griffin.jpg; sourceTree = "<group>"; };
+		44E76024225D32B500DE9C0C /* harper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = harper.jpg; sourceTree = "<group>"; };
+		44E76026225D32B900DE9C0C /* federer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = federer.jpg; sourceTree = "<group>"; };
+		44E76028225D32C400DE9C0C /* cervelli.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cervelli.jpg; sourceTree = "<group>"; };
+		44E7602B225D8B0D00DE9C0C /* AchievementsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsTableViewCell.swift; sourceTree = "<group>"; };
+		44E7602C225D8B0D00DE9C0C /* AchievementsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AchievementsTableViewCell.xib; sourceTree = "<group>"; };
 		9786B864D982B98F6A227668 /* Pods_Orange_Arrow_Mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Orange_Arrow_Mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99D5D908681C76C7D0C316B5 /* Pods-Orange Arrow Mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Orange Arrow Mobile.release.xcconfig"; path = "Target Support Files/Pods-Orange Arrow Mobile/Pods-Orange Arrow Mobile.release.xcconfig"; sourceTree = "<group>"; };
 		A384CF8C3D2D8A5AEE79FCD5 /* Pods-Orange Arrow Mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Orange Arrow Mobile.debug.xcconfig"; path = "Target Support Files/Pods-Orange Arrow Mobile/Pods-Orange Arrow Mobile.debug.xcconfig"; sourceTree = "<group>"; };
@@ -230,8 +244,13 @@
 			isa = PBXGroup;
 			children = (
 				445E6BF7225538C900FD46AF /* vucevic.jpg */,
+				44E76028225D32C400DE9C0C /* cervelli.jpg */,
 				445E6BF322544B5700FD46AF /* crosby.jpg */,
 				445E6BF122544B5000FD46AF /* rust.jpg */,
+				44E76024225D32B500DE9C0C /* harper.jpg */,
+				44E76026225D32B900DE9C0C /* federer.jpg */,
+				44E76022225D32AE00DE9C0C /* griffin.jpg */,
+				44E76020225D32A900DE9C0C /* davis.jpg */,
 				445E6BF9225538CE00FD46AF /* harden.jpg */,
 				445E6BEF22544B4800FD46AF /* letang.jpg */,
 			);
@@ -304,6 +323,7 @@
 		44A479BF22306DB7009D944F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				44E7602A225D8AD500DE9C0C /* custom cell */,
 				44A479D922307F1A009D944F /* register and login subview */,
 				44327900222F1CFC00E58225 /* RegisterLoginVC.swift */,
 				44A479C122306EC6009D944F /* UpdateUserInfoVC.swift */,
@@ -363,6 +383,15 @@
 				445E6BE82252F7AC00FD46AF /* StardustView.swift */,
 			);
 			path = "Word Scramble";
+			sourceTree = "<group>";
+		};
+		44E7602A225D8AD500DE9C0C /* custom cell */ = {
+			isa = PBXGroup;
+			children = (
+				44E7602B225D8B0D00DE9C0C /* AchievementsTableViewCell.swift */,
+				44E7602C225D8B0D00DE9C0C /* AchievementsTableViewCell.xib */,
+			);
+			path = "custom cell";
 			sourceTree = "<group>";
 		};
 		73B276CC78E9DA517C54B211 /* Frameworks */ = {
@@ -469,6 +498,7 @@
 				445E6BE12252F28000FD46AF /* win.mp3 in Resources */,
 				445E6C0D2256F78100FD46AF /* double.jpg in Resources */,
 				445E6C002256E6BB00FD46AF /* puzzle2.plist in Resources */,
+				44E76021225D32A900DE9C0C /* davis.jpg in Resources */,
 				445E6C092256F76100FD46AF /* pie.jpg in Resources */,
 				445E6BD82252D24700FD46AF /* Comic_Andy.ttf in Resources */,
 				44327909222F1CFE00E58225 /* LaunchScreen.storyboard in Resources */,
@@ -482,16 +512,21 @@
 				445E6C052256F75800FD46AF /* penguins.jpg in Resources */,
 				445E6BFA225538CE00FD46AF /* harden.jpg in Resources */,
 				445E6BFE2256E6AA00FD46AF /* trivia2.plist in Resources */,
+				44E76029225D32C400DE9C0C /* cervelli.jpg in Resources */,
 				44A479DD22307F3D009D944F /* LoginVC.xib in Resources */,
 				445E6BE52252F29400FD46AF /* ding.mp3 in Resources */,
 				445E6BF222544B5000FD46AF /* rust.jpg in Resources */,
+				44E7602E225D8B0D00DE9C0C /* AchievementsTableViewCell.xib in Resources */,
 				44A2492B224DA347000FDB7B /* word1.plist in Resources */,
 				445E6BF022544B4800FD46AF /* letang.jpg in Resources */,
 				44327904222F1CFC00E58225 /* Main.storyboard in Resources */,
 				445E6BE32252F28A00FD46AF /* wrong.m4a in Resources */,
 				445E6BED225448AC00FD46AF /* puzzle1.plist in Resources */,
+				44E76027225D32B900DE9C0C /* federer.jpg in Resources */,
 				445E6BF622544DCC00FD46AF /* trivia1.plist in Resources */,
 				44A479EA2231BD70009D944F /* GoogleService-Info.plist in Resources */,
+				44E76025225D32B500DE9C0C /* harper.jpg in Resources */,
+				44E76023225D32AE00DE9C0C /* griffin.jpg in Resources */,
 				445E6BFC2256E69A00FD46AF /* word2.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -632,6 +667,7 @@
 				445E6BDE2252EEDE00FD46AF /* AudioController.swift in Sources */,
 				443E094E224C39D700BAD30F /* Question.swift in Sources */,
 				443278FF222F1CFC00E58225 /* AppDelegate.swift in Sources */,
+				44E7602D225D8B0D00DE9C0C /* AchievementsTableViewCell.swift in Sources */,
 				44A479C822306F47009D944F /* TriviaVC.swift in Sources */,
 				445E6BDC2252EE9A00FD46AF /* Config.swift in Sources */,
 				44A479D422307043009D944F /* LoadingData.swift in Sources */,

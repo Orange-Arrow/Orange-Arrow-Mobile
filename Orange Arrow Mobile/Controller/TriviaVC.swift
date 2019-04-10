@@ -38,6 +38,7 @@ class TriviaVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         Utilities.getLevel(num: 0) { (level) in
             self.currentLevel = level
             self.trivia = LoadingData(level: self.currentLevel, count: selectedCount, game: "trivia")

@@ -15,6 +15,8 @@ class LoadingData{
     init(level:Int, count:Int,game:String) {
         
         let stringPath = Bundle.main.path(forResource: "\(game)\(level)", ofType: "plist")
+        print("=======the string path is \(String(describing: stringPath))")
+        
         let url = URL(fileURLWithPath: stringPath!)
         let levelDictionary = NSDictionary(contentsOf: url)
         assert(levelDictionary != nil, "Level configuration file not found")

@@ -9,6 +9,74 @@
 -->
 <plist version="1.0">
     <dict>
+        <key>puzzlelist</key>
+        <array>
+            <dict>
+                <key>quesText</key>
+                <string>cervelli</string>
+                <key>options</key>
+                <array>
+                    <string>Francisco Cervelli</string>
+                    <string>Tony Parker</string>
+                    <string>Chris Paul</string>
+                    <string>Nikola Jokic</string>
+                </array>
+                <key>answer</key>
+                <integer>0</integer>
+            </dict>
+            <dict>
+                <key>quesText</key>
+                <string>harper</string>
+                <key>options</key>
+                <array>
+                    <string>Kawhi Leonard</string>
+                    <string>Chris Paul</string>
+                    <string>Carlos Boozer</string>
+                    <string>Bryce Harper</string>
+                </array>
+                <key>answer</key>
+                <integer>3</integer>
+            </dict>
+            <dict>
+                <key>answer</key>
+                <integer>1</integer>
+                <key>options</key>
+                <array>
+                    <string>James Harden</string>
+                    <string>Roger Federer</string>
+                    <string>Alex Ovechkin</string>
+                    <string>Andy Roddick</string>
+                </array>
+                <key>quesText</key>
+                <string>federer</string>
+            </dict>
+            <dict>
+                <key>answer</key>
+                <integer>3</integer>
+                <key>options</key>
+                <array>
+                    <string>Yao Ming</string>
+                    <string>Tom Wilson</string>
+                    <string>John Carlson</string>
+                    <string>Blake Griffin</string>
+                </array>
+                <key>quesText</key>
+                <string>griffin</string>
+            </dict>
+            <dict>
+                <key>answer</key>
+                <integer>0</integer>
+                <key>options</key>
+                <array>
+                    <string>Anthony Davis</string>
+                    <string>Steve Curry</string>
+                    <string>Justin Schultz</string>
+                    <string>Patric Hornqvist</string>
+                </array>
+                <key>quesText</key>
+                <string>davis</string>
+            </dict>
+        </array>
     
     </dict>
 </plist>
