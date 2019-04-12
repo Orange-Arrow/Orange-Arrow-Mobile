@@ -70,6 +70,9 @@
 		44E76029225D32C400DE9C0C /* cervelli.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44E76028225D32C400DE9C0C /* cervelli.jpg */; };
 		44E7602D225D8B0D00DE9C0C /* AchievementsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E7602B225D8B0D00DE9C0C /* AchievementsTableViewCell.swift */; };
 		44E7602E225D8B0D00DE9C0C /* AchievementsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44E7602C225D8B0D00DE9C0C /* AchievementsTableViewCell.xib */; };
+		44E76030225E8C5400DE9C0C /* badgeOfTime.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44E7602F225E8C5400DE9C0C /* badgeOfTime.plist */; };
+		44E7604E22602FFB00DE9C0C /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E7604C22602FFB00DE9C0C /* RankingTableViewCell.swift */; };
+		44E7604F22602FFB00DE9C0C /* RankingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44E7604D22602FFB00DE9C0C /* RankingTableViewCell.xib */; };
 		C7E4C2CFD4CC21E534F65B09 /* Pods_Orange_Arrow_Mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9786B864D982B98F6A227668 /* Pods_Orange_Arrow_Mobile.framework */; };
 /* End PBXBuildFile section */
 
@@ -151,6 +154,9 @@
 		44E76028225D32C400DE9C0C /* cervelli.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cervelli.jpg; sourceTree = "<group>"; };
 		44E7602B225D8B0D00DE9C0C /* AchievementsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsTableViewCell.swift; sourceTree = "<group>"; };
 		44E7602C225D8B0D00DE9C0C /* AchievementsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AchievementsTableViewCell.xib; sourceTree = "<group>"; };
+		44E7602F225E8C5400DE9C0C /* badgeOfTime.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = badgeOfTime.plist; sourceTree = "<group>"; };
+		44E7604C22602FFB00DE9C0C /* RankingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingTableViewCell.swift; sourceTree = "<group>"; };
+		44E7604D22602FFB00DE9C0C /* RankingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingTableViewCell.xib; sourceTree = "<group>"; };
 		9786B864D982B98F6A227668 /* Pods_Orange_Arrow_Mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Orange_Arrow_Mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99D5D908681C76C7D0C316B5 /* Pods-Orange Arrow Mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Orange Arrow Mobile.release.xcconfig"; path = "Target Support Files/Pods-Orange Arrow Mobile/Pods-Orange Arrow Mobile.release.xcconfig"; sourceTree = "<group>"; };
 		A384CF8C3D2D8A5AEE79FCD5 /* Pods-Orange Arrow Mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Orange Arrow Mobile.debug.xcconfig"; path = "Target Support Files/Pods-Orange Arrow Mobile/Pods-Orange Arrow Mobile.debug.xcconfig"; sourceTree = "<group>"; };
@@ -233,6 +239,7 @@
 		445E6BEB2254444F00FD46AF /* Puzzle */ = {
 			isa = PBXGroup;
 			children = (
+				44E76046225E9EDF00DE9C0C /* timeBadgeImage */,
 				445E6BEE22544B3400FD46AF /* images */,
 				445E6BEC225448AC00FD46AF /* puzzle1.plist */,
 				445E6BFF2256E6BB00FD46AF /* puzzle2.plist */,
@@ -282,6 +289,7 @@
 		44A24926224DA2C8000FDB7B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				44E7602F225E8C5400DE9C0C /* badgeOfTime.plist */,
 				445E6BEB2254444F00FD46AF /* Puzzle */,
 				445E6BEA2254444400FD46AF /* Trivia */,
 				44A24928224DA2E3000FDB7B /* WordScramble */,
@@ -292,6 +300,7 @@
 		44A24928224DA2E3000FDB7B /* WordScramble */ = {
 			isa = PBXGroup;
 			children = (
+				44E76047225E9EF200DE9C0C /* timeBadgeImage */,
 				445E6C012256F6A800FD46AF /* images */,
 				44A2492A224DA347000FDB7B /* word1.plist */,
 				445E6BFB2256E69900FD46AF /* word2.plist */,
@@ -390,8 +399,24 @@
 			children = (
 				44E7602B225D8B0D00DE9C0C /* AchievementsTableViewCell.swift */,
 				44E7602C225D8B0D00DE9C0C /* AchievementsTableViewCell.xib */,
+				44E7604C22602FFB00DE9C0C /* RankingTableViewCell.swift */,
+				44E7604D22602FFB00DE9C0C /* RankingTableViewCell.xib */,
 			);
 			path = "custom cell";
+			sourceTree = "<group>";
+		};
+		44E76046225E9EDF00DE9C0C /* timeBadgeImage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = timeBadgeImage;
+			sourceTree = "<group>";
+		};
+		44E76047225E9EF200DE9C0C /* timeBadgeImage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = timeBadgeImage;
 			sourceTree = "<group>";
 		};
 		73B276CC78E9DA517C54B211 /* Frameworks */ = {
@@ -501,6 +526,7 @@
 				44E76021225D32A900DE9C0C /* davis.jpg in Resources */,
 				445E6C092256F76100FD46AF /* pie.jpg in Resources */,
 				445E6BD82252D24700FD46AF /* Comic_Andy.ttf in Resources */,
+				44E76030225E8C5400DE9C0C /* badgeOfTime.plist in Resources */,
 				44327909222F1CFE00E58225 /* LaunchScreen.storyboard in Resources */,
 				445E6BF8225538C900FD46AF /* vucevic.jpg in Resources */,
 				445E6C032256F75200FD46AF /* realityshow.jpg in Resources */,
@@ -519,6 +545,7 @@
 				44E7602E225D8B0D00DE9C0C /* AchievementsTableViewCell.xib in Resources */,
 				44A2492B224DA347000FDB7B /* word1.plist in Resources */,
 				445E6BF022544B4800FD46AF /* letang.jpg in Resources */,
+				44E7604F22602FFB00DE9C0C /* RankingTableViewCell.xib in Resources */,
 				44327904222F1CFC00E58225 /* Main.storyboard in Resources */,
 				445E6BE32252F28A00FD46AF /* wrong.m4a in Resources */,
 				445E6BED225448AC00FD46AF /* puzzle1.plist in Resources */,
@@ -658,6 +685,7 @@
 				44A479D222306FD9009D944F /* AcievementVC.swift in Sources */,
 				44327901222F1CFC00E58225 /* RegisterLoginVC.swift in Sources */,
 				445E6BD42252CDE800FD46AF /* StopwatchView.swift in Sources */,
+				44E7604E22602FFB00DE9C0C /* RankingTableViewCell.swift in Sources */,
 				445E6BD62252CE5D00FD46AF /* HUDView.swift in Sources */,
 				44A479C422306EE3009D944F /* NavigationVC.swift in Sources */,
 				44A479E022307F4F009D944F /* SignUpVC.swift in Sources */,

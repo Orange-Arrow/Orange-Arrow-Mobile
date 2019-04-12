@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class AcievementVC: UIViewController {
 
@@ -31,9 +32,10 @@ class AcievementVC: UIViewController {
         setupDelegation()
         
         tableView.register(UINib(nibName: "AchievementsTableViewCell", bundle: nil), forCellReuseIdentifier: "customAchievementCell")
+        
         configureTableView()
         retrieveAchievements()
-        tableView.separatorStyle = .none
+//        tableView.separatorStyle = .none
         
         
         // Do any additional setup after loading the view.
@@ -47,25 +49,49 @@ class AcievementVC: UIViewController {
         // the color looks so different tho???
     }
     
-    //TODO: Create the retrieveMessages method here:
-    func retrieveAchievements(){
-//        let messageDB = Database.database().reference().child("Messages")
-//        messageDB.observe(.childAdded) { (snapshot) in
-//            let snapshotValue = snapshot.value as! Dictionary<String,String>
-//            let text = snapshotValue["MessageBody"]!
-//            let sender = snapshotValue["Sender"]!
-//            let message = Message()
-//            message.messageBody = text
-//            message.sender = sender
-//            self.messageArray.append(message)
-//            self.configureTableView()
-//            self.messageTableView.reloadData()
-//        }
+    private func checkIfGetBadgeOfTime(list:[Bool], gameName:String) {
+        for (index,item) in list.enumerated(){
+            if item{
+                //it has the badge
+                let achievement = Achievement()
+                achievement.title = "Quick Answer Warrior for \(gameName)"
+                achievement.image = "\(gameName) time\(index+1)"
+                achievement.level = "Level: \(index+1)"
+                self.achievementsArray.append(achievement)
+                
+                self.configureTableView()
+                self.tableView.reloadData()
+                
+            }
+        }
     }
     
-    
-    
+    //TODO: Create the retrieveMessages method here:
+    func retrieveAchievements(){
+        
+        let userID = Auth.auth().currentUser?.uid
+        
+        Utilities.ref_db.child("users_information").child(userID!).child("BadgesOfTime").observe(.value) { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            let triviaBadge = value?["trivia"] as? NSArray ?? []
+            let puzzleBadge = value?["puzzle"] as? NSArray ?? []
+            let wordsBadge = value?["words"] as? NSArray ?? []
+            
+            let triviaArray: [Bool] = triviaBadge.compactMap({ $0 as? Bool })
+            let puzzleArray: [Bool] = puzzleBadge.compactMap({ $0 as? Bool })
+            let wordsArray: [Bool] = wordsBadge.compactMap({ $0 as? Bool })
+            
+            
+            // for each array check which is right
+            self.checkIfGetBadgeOfTime(list: triviaArray, gameName: "Trivia")
+            self.checkIfGetBadgeOfTime(list: puzzleArray, gameName: "Puzzle")
+            self.checkIfGetBadgeOfTime(list: wordsArray, gameName: "Word Scramble")
+            
+          
+        }
 
+    }
 }
 
 
@@ -83,8 +109,10 @@ extension AcievementVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "customAchievementCell", for: indexPath) as! AchievementsTableViewCell
+      
         cell.levelLabel.text = achievementsArray[indexPath.row].level
         cell.badgeImage.image = UIImage(named: achievementsArray[indexPath.row].image)
+
         cell.titleLabel.text = achievementsArray[indexPath.row].title
         
         return cell
@@ -92,7 +120,7 @@ extension AcievementVC: UITableViewDelegate, UITableViewDataSource{
     
     func configureTableView(){
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 120.0
+        tableView.estimatedRowHeight = 120
     }
     
 }

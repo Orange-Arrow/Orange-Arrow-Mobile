@@ -122,6 +122,12 @@ class UpdateUserInfoVC: UIViewController {
         guard let school = schoolTextfield.text else{return}
         guard let sports = sportsTextfield.text else{return}
         
+        // initialize the time badge array
+        var badgeOfTime = [Bool]()
+        for _ in 1...totalLevelNum{
+            badgeOfTime.append(false)
+        }
+        
         //to update database
 //         TODO: store profile img to storage
         guard let uid = Auth.auth().currentUser?.uid else {
@@ -143,7 +149,7 @@ class UpdateUserInfoVC: UIViewController {
                         return
                     }
                     
-                    let userDictionary = ["First Name":firstName,"Last Name":lastName,"Birthday":dateOfBirth,"Gender":self.gender,"Sports":sports,"School":school,"ProfileImageUrl":downloadURL,"Levels":[1,1,1]] as [String : Any]
+                    let userDictionary = ["First Name":firstName,"Last Name":lastName,"Birthday":dateOfBirth,"Gender":self.gender,"Sports":sports,"School":school,"ProfileImageUrl":downloadURL,"Levels":[1,1,1], "BadgesOfTime":["trivia":badgeOfTime, "puzzle":badgeOfTime, "words":badgeOfTime]] as [String : Any]
                     
                     self.registerUserInfoWithUID(uid:uid, values:userDictionary as [String : AnyObject])
                     

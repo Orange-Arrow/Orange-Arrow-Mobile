@@ -247,14 +247,25 @@ class ImagePuzzleVC: UIViewController {
             // stop the timer
             totalTimer.endTimer()
             // end left timer
-            guard let totaltime = timeLabel.text else {return}
+//            guard let totaltime = timeLabel.text else {return}
             
             //to check if it is over certain point
             if self.points >= pointsToPassPuzzle {
+                
+                // to see if good for badge of time
+                // to check time is smaller than
+                let targetTime = Utilities.getTotalTimeForBadge(gameName: "puzzle", level: self.currentLevel)
+                
+                if self.totalTime <= targetTime{
+                    // you can earn the badge
+                    Utilities.updateTimeBadgeInFirebase(level: self.currentLevel, gameName: "puzzle")
+                    
+                }
+                
                 // firt store the data
-                Utilities.storeResult(gameName: "Puzzle", level: currentLevel, points: self.points, time: totaltime, gameIndictorNum: 1)
+                Utilities.storeResult(gameName: "Puzzle", level: currentLevel, points: self.points, time: totalTime, gameIndictorNum: 1)
                 //show alert about choice of next level or go back
-                Utilities.showSuccessAlert(level: currentLevel, points: points, gameTime: totaltime, targetVC: self, goback: goback){_ in
+                Utilities.showSuccessAlert(level: currentLevel, points: points, gameTime: totalTime, targetVC: self, goback: goback){_ in
                     self.gotoNextStep(isSuccess: true)
                 }
              
@@ -262,7 +273,7 @@ class ImagePuzzleVC: UIViewController {
 
             }else{
                 //show alert
-                Utilities.showFailureAlert(level: currentLevel, points: points, gameTime: totaltime, targetVC: self, goback: goback){
+                Utilities.showFailureAlert(level: currentLevel, points: points, gameTime: totalTime, targetVC: self, goback: goback){
                     _ in self.gotoNextStep(isSuccess: false)
                 }
             }

@@ -41,6 +41,7 @@ class NavigationVC: UIViewController, CircleMenuDelegate {
         circleMenu.setImage(UIImage(named: "menu"), for: .normal)
         circleMenu.setImage(UIImage(named: "cancel"), for: .selected)
         circleMenu.imageView?.contentMode = .scaleAspectFill
+
     
     }
     

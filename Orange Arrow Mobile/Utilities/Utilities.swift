@@ -69,6 +69,32 @@ class Utilities{
         
     }
     
+    // static --  to get the target time for certain game for badges
+    static func getTotalTimeForBadge(gameName:String, level:Int) -> Int{
+        
+        
+        let stringPath = Bundle.main.path(forResource: "badgeOfTime", ofType: "plist")
+//        print("=======the string path is \(String(describing: stringPath))")
+        
+        let url = URL(fileURLWithPath: stringPath!)
+        let gameDictionary = NSDictionary(contentsOf: url)
+        assert(gameDictionary != nil, "time badge configuration file not found")
+        let list = gameDictionary!["\(gameName)"] as! NSArray
+        let leveltotaltime = list[level-1] as! Int
+        return leveltotaltime
+        
+    }
+    
+    
+    // update user badge of time true or false
+    static func updateTimeBadgeInFirebase(level:Int, gameName:String){
+        
+        guard let userID = Auth.auth().currentUser?.uid else { fatalError("No User Sign In") }
+        let targetDB = self.ref_db.child("users_information").child(userID).child("BadgesOfTime").child(gameName).child(String(level-1))
+        
+        targetDB.setValue(true)
+        
+    }
     
     
     //MARK -- FUNCTION TO RETURN RIGHT FORMAT OF TIME
@@ -99,7 +125,7 @@ class Utilities{
     }
     
     // to store the data of game
-    static func storeResult(gameName:String, level:Int, points:Int, time:String, gameIndictorNum:Int){
+    static func storeResult(gameName:String, level:Int, points:Int, time:Int, gameIndictorNum:Int){
         let targetDB = self.ref_db.child(gameName).child(String(level))
         guard let userID = Auth.auth().currentUser?.uid else { fatalError("No User Sign In") }
         
@@ -116,10 +142,10 @@ class Utilities{
     }
     
     //to show the success alert
-    static func showSuccessAlert(level:Int, points:Int, gameTime:String, targetVC:UIViewController, goback:@escaping ()->(), nextLevel:@escaping (_ isSuccess: Bool)->() ){
+    static func showSuccessAlert(level:Int, points:Int, gameTime:Int, targetVC:UIViewController, goback:@escaping ()->(), nextLevel:@escaping (_ isSuccess: Bool)->() ){
         
         //to start
-        let message = "You finished level\(level)'s all questions with \(points) points in \(gameTime)."
+        let message = "You finished level\(level)'s all questions with \(points) points in \(Utilities.timeFormatted(gameTime))."
         let alert = UIAlertController(title: "Congrats", message: message, preferredStyle: .alert)
         let nextLevelAction = UIAlertAction(title: "Go to play next level", style: .default, handler: { (UIAlertAction) in nextLevel(true) })
         let goBackAction = UIAlertAction(title: "Go back to main menu", style: .default, handler: { (UIAlertAction) in goback() })
@@ -131,10 +157,10 @@ class Utilities{
         }
     }
     //to show the failure alert
-    static func showFailureAlert(level:Int, points:Int, gameTime:String, targetVC:UIViewController,  goback:@escaping ()->(), tryagain:@escaping (_ isSuccess:Bool)->() ){
+    static func showFailureAlert(level:Int, points:Int, gameTime:Int, targetVC:UIViewController,  goback:@escaping ()->(), tryagain:@escaping (_ isSuccess:Bool)->() ){
         
         //to start
-        let message = "You finished level\(level)'s all questions with \(points) points in \(gameTime). And you didn't pass this level this time."
+        let message = "You finished level\(level)'s all questions with \(points) points in \(Utilities.timeFormatted(gameTime)). And you didn't pass this level this time."
         let alert = UIAlertController(title: "Sorry", message: message, preferredStyle: .alert)
         let tryagainAction = UIAlertAction(title: "Try it again !", style: .default, handler: { (UIAlertAction) in tryagain(false) })
         let goBackAction = UIAlertAction(title: "Go back to main menu", style: .default, handler: { (UIAlertAction) in goback() })

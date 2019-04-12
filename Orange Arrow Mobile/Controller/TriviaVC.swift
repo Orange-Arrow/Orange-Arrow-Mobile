@@ -79,7 +79,10 @@ class TriviaVC: UIViewController {
     //func to go to next level
     private func gotoNextStep(isSuccess:Bool){
         if isSuccess{
-             self.trivia = LoadingData(level: self.currentLevel+1, count: selectedCount, game: "trivia")
+            self.currentLevel += 1
+            self.trivia = LoadingData(level: self.currentLevel, count: selectedCount, game: "trivia")
+            
+            
             
         }else{
              self.trivia = LoadingData(level: self.currentLevel, count: selectedCount, game: "trivia")
@@ -127,22 +130,34 @@ class TriviaVC: UIViewController {
             }
                 // stop the timer
                 totalTimer.endTimer()
-                guard let totaltime = totalTimeLabel.text else {return}
-
+//                guard let totaltime = totalTimeLabel.text else {return}
+            
 
                 
                 //to check if it is over certain point
                 if self.points >= pointsToPassTrivia {
+                    
+                    
+                    // to check time is smaller than
+                    let targetTime = Utilities.getTotalTimeForBadge(gameName: "trivia", level: self.currentLevel)
+            
+                    if self.totalTime <= targetTime{
+                        // you can earn the badge
+                        Utilities.updateTimeBadgeInFirebase(level: self.currentLevel, gameName: "trivia")
+                        
+                    }
+                    
+                    
                     // firt store the data
-                    Utilities.storeResult(gameName: "Trivia", level: currentLevel, points: self.points, time: totaltime, gameIndictorNum: 0)
+                    Utilities.storeResult(gameName: "Trivia", level: currentLevel, points: self.points, time: totalTime, gameIndictorNum: 0)
                     
                     //show alert about choice of next level or go back
-                    Utilities.showSuccessAlert(level: currentLevel, points: points, gameTime: totaltime, targetVC: self, goback: goback){_ in 
+                    Utilities.showSuccessAlert(level: currentLevel, points: points, gameTime: totalTime, targetVC: self, goback: goback){_ in
                         self.gotoNextStep(isSuccess: true)
                     }
                 }else{
                     //show alert
-                    Utilities.showFailureAlert(level: currentLevel, points: points, gameTime: totaltime, targetVC: self, goback: goback){
+                    Utilities.showFailureAlert(level: currentLevel, points: points, gameTime: totalTime, targetVC: self, goback: goback){
                         _ in self.gotoNextStep(isSuccess: false)
                     }
                 }
