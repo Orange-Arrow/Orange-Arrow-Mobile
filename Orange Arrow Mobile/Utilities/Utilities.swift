@@ -69,6 +69,29 @@ class Utilities{
         
     }
     
+    ///////
+    // MARK -- to make navigation bar item
+    static func setupNavigationBar(image:String, tappedFunc:Selector, handler:AnyObject, rightBar:Selector) -> UINavigationItem{
+        
+        let navItem = UINavigationItem(title: "")
+        
+        let titleImageView = UIImageView(image: UIImage(named:image))
+        titleImageView.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        titleImageView.contentMode = .scaleAspectFit
+        navItem.titleView = titleImageView
+        
+        let backButton = UIButton(type: .system)
+        backButton.setImage(UIImage(named:"backBtn"), for: .normal)
+        backButton.imageView?.contentMode = .scaleAspectFit
+        backButton.tintColor = .white
+        backButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        backButton.addTarget(handler, action: tappedFunc, for: .touchUpInside)
+        navItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+        navItem.rightBarButtonItem = UIBarButtonItem(title: "Category", style: .plain, target: handler, action: rightBar)
+        return navItem
+        
+    }
+    
     // static --  to get the target time for certain game for badges
     static func getTotalTimeForBadge(gameName:String, level:Int) -> Int{
         

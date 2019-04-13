@@ -8,40 +8,63 @@
 
 import UIKit
 import Firebase
+import SideMenu
 
 class LeadingBoardVC: UIViewController {
     
     class Ranking {
         var image = ""
-//        var image = UIImage()
         var name : String = ""
         var level : Int = 0
         var progress : Int = 0
         
     }
     
+    
+    
     var rankingArray = [Ranking](){
         willSet(newVal){
             // everytime check new value
         }
     }
-    var game_name = "Puzzle"
-    var selectedLevel = 1
     
-    
-    
+    // i think it should be a new class to contain all three
+    var game_name = "Puzzle"{
+        willSet(newVal){
+            
+        }
+    }
+    var selectedLevel = 1 {
+        willSet(newVal){
+            //do something to get the new data
+        }
+    }
+    var rankingType = ""
+ 
+
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationBar: UINavigationBar!
     
     var maxProgressTime = 0
     
+    var rootviewVC = CategoryTableViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // set up the delegation
+        
+//        guard let navigationController = self.navigationController else {
+//            return
+//        }
+//        navigationController.navigationBar.barTintColor = .black
+        
         // Do any additional setup after loading the view.
-        let navItem = Utilities.setupNavigationBar(image: "icon_ranking", tappedFunc: #selector(backBtnTapped), handler: self)
+        let navItem = Utilities.setupNavigationBar(image: "icon_ranking", tappedFunc: #selector(backBtnTapped), handler: self, rightBar: #selector(categoryTapped))
+        
         navigationBar.setItems([navItem], animated: false)
+ 
         // on the right bar item, should include a new one which is for change different categories
         
         setupDelegation()
@@ -50,8 +73,41 @@ class LeadingBoardVC: UIViewController {
     
         rankingByTime(gameName: game_name, level: selectedLevel)
         configureTableView()
+        
+//        showMore()
 
 
+    }
+    
+    @objc func categoryTapped(){
+        performSegue(withIdentifier: "rankingToSideSegue", sender: self)
+        
+    }
+    
+    // SET UP THE DELEGATION
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "rankingToSideSegue"{
+            let destinationVC = segue.destination as? UISideMenuNavigationController
+            guard let target = destinationVC?.viewControllers.first as? CategoryTableViewController else{return}
+            self.rootviewVC = target
+            self.rootviewVC.delegate = self
+        }
+    }
+    
+    
+    func showMore(){
+        // Define the menus
+
+        SideMenuManager.default.menuRightNavigationController = storyboard!.instantiateViewController(withIdentifier: "RightMenuNavigationController") as? UISideMenuNavigationController
+        
+//        SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
+//        SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+        
+        // Set up a cool background image for demo purposes
+        SideMenuManager.default.menuAnimationBackgroundColor = UIColor(patternImage: UIImage(named: "stars")!)
+        
+        print("@#####this is below")
+   
     }
     
     @objc func backBtnTapped(){
@@ -103,7 +159,19 @@ class LeadingBoardVC: UIViewController {
 
 
 
-
+extension LeadingBoardVC: CategoryDelegate{
+    
+    func setTheValueForRanking(level: Int, game: String, category: String) {
+        print("=========this is working")
+        print("\(level) and game \(game) and cate \(category)")
+        self.game_name = game
+        self.rankingType = category
+        self.selectedLevel = level
+        
+    }
+    
+    
+}
 
 
 extension LeadingBoardVC: UITableViewDelegate, UITableViewDataSource{

@@ -41,6 +41,9 @@
 		445E6C0B2256F77900FD46AF /* animal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 445E6C0A2256F77900FD46AF /* animal.jpg */; };
 		445E6C0D2256F78100FD46AF /* double.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 445E6C0C2256F78100FD46AF /* double.jpg */; };
 		4465A68F224ABE7400F0E827 /* Orange_Arrow_MobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4465A68E224ABE7400F0E827 /* Orange_Arrow_MobileUITests.swift */; };
+		4467662022614F670036D5B6 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4467661E22614F670036D5B6 /* CategoryTableViewCell.swift */; };
+		4467662122614F670036D5B6 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4467661F22614F670036D5B6 /* CategoryTableViewCell.xib */; };
+		44676623226150860036D5B6 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44676622226150860036D5B6 /* CategoryTableViewController.swift */; };
 		44A24925224D6F56000FDB7B /* TimerOfGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A24924224D6F56000FDB7B /* TimerOfGame.swift */; };
 		44A2492B224DA347000FDB7B /* word1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44A2492A224DA347000FDB7B /* word1.plist */; };
 		44A479C222306EC6009D944F /* UpdateUserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479C122306EC6009D944F /* UpdateUserInfoVC.swift */; };
@@ -125,6 +128,9 @@
 		4465A68C224ABE7400F0E827 /* Orange Arrow MobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Orange Arrow MobileUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4465A68E224ABE7400F0E827 /* Orange_Arrow_MobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orange_Arrow_MobileUITests.swift; sourceTree = "<group>"; };
 		4465A690224ABE7400F0E827 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4467661E22614F670036D5B6 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		4467661F22614F670036D5B6 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		44676622226150860036D5B6 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		44A24924224D6F56000FDB7B /* TimerOfGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerOfGame.swift; sourceTree = "<group>"; };
 		44A2492A224DA347000FDB7B /* word1.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = word1.plist; sourceTree = "<group>"; };
 		44A479C122306EC6009D944F /* UpdateUserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserInfoVC.swift; sourceTree = "<group>"; };
@@ -345,6 +351,7 @@
 				44A479CF22306FB0009D944F /* ContactUsVC.swift */,
 				44A479D122306FD9009D944F /* AcievementVC.swift */,
 				445E6BDD2252EEDE00FD46AF /* AudioController.swift */,
+				44676622226150860036D5B6 /* CategoryTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -401,6 +408,8 @@
 				44E7602C225D8B0D00DE9C0C /* AchievementsTableViewCell.xib */,
 				44E7604C22602FFB00DE9C0C /* RankingTableViewCell.swift */,
 				44E7604D22602FFB00DE9C0C /* RankingTableViewCell.xib */,
+				4467661E22614F670036D5B6 /* CategoryTableViewCell.swift */,
+				4467661F22614F670036D5B6 /* CategoryTableViewCell.xib */,
 			);
 			path = "custom cell";
 			sourceTree = "<group>";
@@ -523,6 +532,7 @@
 				445E6BE12252F28000FD46AF /* win.mp3 in Resources */,
 				445E6C0D2256F78100FD46AF /* double.jpg in Resources */,
 				445E6C002256E6BB00FD46AF /* puzzle2.plist in Resources */,
+				4467662122614F670036D5B6 /* CategoryTableViewCell.xib in Resources */,
 				44E76021225D32A900DE9C0C /* davis.jpg in Resources */,
 				445E6C092256F76100FD46AF /* pie.jpg in Resources */,
 				445E6BD82252D24700FD46AF /* Comic_Andy.ttf in Resources */,
@@ -590,6 +600,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/LGButton/LGButton.framework",
 				"${BUILT_PRODUCTS_DIR}/ProgressHUD/ProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -611,6 +622,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LGButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -674,6 +686,7 @@
 				445E6BE72252F34D00FD46AF /* ExplodeView.swift in Sources */,
 				44A479D622307061009D944F /* WordScramble.swift in Sources */,
 				44BFA74E224EB2080029C8BB /* TileView.swift in Sources */,
+				44676623226150860036D5B6 /* CategoryTableViewController.swift in Sources */,
 				44A479C622306EF4009D944F /* ProfileVC.swift in Sources */,
 				44A479E82230CB1F009D944F /* Checkbox.swift in Sources */,
 				44A24925224D6F56000FDB7B /* TimerOfGame.swift in Sources */,
@@ -693,6 +706,7 @@
 				44A479E52230C615009D944F /* Utilities.swift in Sources */,
 				44A479CC22306F70009D944F /* WordScrambleVC.swift in Sources */,
 				445E6BDE2252EEDE00FD46AF /* AudioController.swift in Sources */,
+				4467662022614F670036D5B6 /* CategoryTableViewCell.swift in Sources */,
 				443E094E224C39D700BAD30F /* Question.swift in Sources */,
 				443278FF222F1CFC00E58225 /* AppDelegate.swift in Sources */,
 				44E7602D225D8B0D00DE9C0C /* AchievementsTableViewCell.swift in Sources */,
