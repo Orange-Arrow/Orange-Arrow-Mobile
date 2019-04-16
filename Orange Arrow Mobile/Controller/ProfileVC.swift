@@ -25,7 +25,9 @@ class ProfileVC: UIViewController {
     @IBOutlet var barWidthConstraintCollection: [NSLayoutConstraint]!
     @IBOutlet var levelBarCollection: [UIView]!
     
-    
+    @IBOutlet weak var badgeCollectionView: UICollectionView!
+    var badgeArr = [String]()
+    let gameName = ["trivia","puzzle","words"]
 
     
     override func viewDidLoad() {
@@ -67,6 +69,17 @@ class ProfileVC: UIViewController {
             let school = value?["School"] as? String ?? ""
             let sports  = value?["Sports"] as? String ?? ""
             let level = value?["Levels"] as? NSArray ?? [0,0,0]
+            let badgeOfTime = value?["BadgesOfTime"] as? NSDictionary ?? [:]
+            for name in self.gameName{
+                let badgeBool = badgeOfTime[name] as? NSArray ?? []
+                for level in 1...totalLevelNum{
+                    if badgeBool[level-1] as! Bool == true{
+                        //get the badge
+                        self.badgeArr.append("\(name.capitalized) time\(level)")
+                    }
+                }
+            }
+            self.badgeCollectionView.reloadData()
             
             self.updateUI(name: "\(firstName) \(lastName)", image: imageurl, school: school, sports: sports, levels: level)
         }
@@ -97,11 +110,24 @@ class ProfileVC: UIViewController {
             constraint.constant = (originalBar.frame.size.width / CGFloat(totalLevelNum)) * CGFloat(levelsInNum[index])
             levelBarCollection[index].layoutIfNeeded()
         }
-
-        
-        
     }
 
+    
 
 
+}
+
+extension ProfileVC:UICollectionViewDelegate, UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.badgeArr.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! CollectionViewCell
+        cell.badgeImg.image = UIImage(named: badgeArr[indexPath.item])
+        return cell
+        
+    }
+    
+    
 }

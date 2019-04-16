@@ -44,6 +44,7 @@
                     <constraint firstItem="mDp-oK-rSY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="y3o-af-1js"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="gameNameImage" destination="mDp-oK-rSY" id="Y7U-p0-RdU"/>

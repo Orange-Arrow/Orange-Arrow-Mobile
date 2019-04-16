@@ -13,6 +13,7 @@ import SkyFloatingLabelTextField
 import GoogleSignIn
 import FacebookLogin
 import FacebookCore
+import ProgressHUD
 
 //MARK -- protocol for send signal to superview conduct segue to next page
 protocol LoginViewControllerDelegate: class {
@@ -38,6 +39,9 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         //initialize the delegation for ui textfield
         passwordTextfield.delegate = self
         emailTextfield.delegate = self
+        //to check error message
+        emailTextfield.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        passwordTextfield.addTarget(self, action: #selector(passwordFieldDidChange(_:)), for: .editingChanged)
         
         //customize textfield
         passwordTextfield.textContentType = .password
@@ -66,16 +70,18 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if error != nil {
                 print(error!.localizedDescription)
+                ProgressHUD.showError(error!.localizedDescription)
                 return
             }
             // to do -- check user info if any of are empty then go to update info page otherwise goto menu page
             // should be done by super view
-            print("user has been signed in")
+            ProgressHUD.showSuccess("Weclome Back")
             
-              self.delegate?.loginBtnTapped()
+            self.delegate?.loginBtnTapped()
             
         }
     }
+    
     
     @objc func googleBtnTapped(){
         GIDSignIn.sharedInstance().delegate = self
@@ -104,6 +110,7 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
 //            let email = user.profile.email
 
         if let error = error {
+            ProgressHUD.showError(error.localizedDescription)
             print("there is a error with google sign in \(error.localizedDescription)")
             return
         }
@@ -116,9 +123,11 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
             if let error = error {
                 print("there is an error with firebase google sign in \(error.localizedDescription)")
+                ProgressHUD.showError(error.localizedDescription)
                 return
             }
             print("google user has signed in")
+            ProgressHUD.showSuccess("Welcome back")
             //todo -- check current user has a complete user profile or not, if not then go to update if yes, then go to menu page
         }
     }
@@ -131,19 +140,22 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         loginManager.logIn(readPermissions: [ReadPermission.publicProfile], viewController: self) { loginResult in
             switch loginResult {
             case .failed(let error):
-                print(error)
+                ProgressHUD.showError(error.localizedDescription)
             case .cancelled:
                 print("User cancelled login.")
             case .success(let grantedPermissions, let declinedPermissions, let accessToken):
                 print("Logged in!")
+            
                 //login into firebase
                 let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.authenticationToken)
                 Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
                     if let error = error {
                         print("there is an error with facebook login to firebase \(error)")
+                        ProgressHUD.showSuccess(error.localizedDescription)
                         return
                     }
                     print("facebook user signed in")
+                    ProgressHUD.showSuccess("Welcome back")
                     //todo -- check user logged info
                 }
             }
@@ -155,6 +167,42 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
 
 // MARK -- CUSTOM THE KEYBOARD RETURN KEY
 extension LoginVC: UITextFieldDelegate {
+    
+    
+    
+    // This will notify us when something has changed on the textfield
+    @objc func textFieldDidChange(_ textfield: UITextField) {
+        if let text = textfield.text {
+            if let floatingLabelTextField = textfield as? SkyFloatingLabelTextField {
+                if(text.count < 3 || !text.contains("@")) {
+                    floatingLabelTextField.errorMessage = "Invalid email"
+                    loginButton.isEnabled = false
+                }
+                else {
+                    // The error message will only disappear when we reset it to nil or empty string
+                    loginButton.isEnabled = true
+                    floatingLabelTextField.errorMessage = ""
+                }
+            }
+        }
+    }
+    
+    // This will notify us when something has changed on the textfield
+    @objc func passwordFieldDidChange(_ textfield: UITextField) {
+        if let text = textfield.text {
+            if let floatingLabelTextField = textfield as? SkyFloatingLabelTextField {
+                if(text.count < 6) {
+                    floatingLabelTextField.errorMessage = "should more than 5 characters"
+                    loginButton.isEnabled = false
+                }
+                else {
+                    // The error message will only disappear when we reset it to nil or empty string
+                    floatingLabelTextField.errorMessage = ""
+                    loginButton.isEnabled = true
+                }
+            }
+        }
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == emailTextfield {

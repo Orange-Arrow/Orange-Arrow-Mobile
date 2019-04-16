@@ -29,6 +29,7 @@ class CategoryTableViewController: UITableViewController {
         tableView.register(UINib(nibName: "CategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "categoryCell")
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 120
+  
 
       
     }
@@ -73,6 +74,12 @@ class CategoryTableViewController: UITableViewController {
         return cell
     }
     
+
+//    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//         cell.backgroundColor = UIColor.clear
+//    }
+    
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("the level is \(indexPath.section+1)")
         print("the game Name \(choicesArray[indexPath.section][indexPath.row].0)")
@@ -87,11 +94,15 @@ class CategoryTableViewController: UITableViewController {
         default:
             return
         }
-        print("======the value is and \(game) \(cate)")
+    
         self.delegate?.setTheValueForRanking(level: indexPath.section+1, game: String(game), category: cate)
-        //////to pass the value to ranking table view controller 
+        //////to pass the value to ranking table view controller
+//        dismiss(animated: true, completion: nil)
     }
+    
+    
 
+    
 
 
 }

@@ -66,6 +66,7 @@
 		44A479E82230CB1F009D944F /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A479E72230CB1F009D944F /* Checkbox.swift */; };
 		44A479EA2231BD70009D944F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44A479E92231BD70009D944F /* GoogleService-Info.plist */; };
 		44BFA74E224EB2080029C8BB /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BFA74D224EB2080029C8BB /* TileView.swift */; };
+		44CC746E22657B87009528CB /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CC746D22657B87009528CB /* CollectionViewCell.swift */; };
 		44E76021225D32A900DE9C0C /* davis.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44E76020225D32A900DE9C0C /* davis.jpg */; };
 		44E76023225D32AE00DE9C0C /* griffin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44E76022225D32AE00DE9C0C /* griffin.jpg */; };
 		44E76025225D32B500DE9C0C /* harper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44E76024225D32B500DE9C0C /* harper.jpg */; };
@@ -153,6 +154,7 @@
 		44A479E72230CB1F009D944F /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		44A479E92231BD70009D944F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		44BFA74D224EB2080029C8BB /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
+		44CC746D22657B87009528CB /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		44E76020225D32A900DE9C0C /* davis.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = davis.jpg; sourceTree = "<group>"; };
 		44E76022225D32AE00DE9C0C /* griffin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = griffin.jpg; sourceTree = "<group>"; };
 		44E76024225D32B500DE9C0C /* harper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = harper.jpg; sourceTree = "<group>"; };
@@ -410,6 +412,7 @@
 				44E7604D22602FFB00DE9C0C /* RankingTableViewCell.xib */,
 				4467661E22614F670036D5B6 /* CategoryTableViewCell.swift */,
 				4467661F22614F670036D5B6 /* CategoryTableViewCell.xib */,
+				44CC746D22657B87009528CB /* CollectionViewCell.swift */,
 			);
 			path = "custom cell";
 			sourceTree = "<group>";
@@ -715,6 +718,7 @@
 				44A479D422307043009D944F /* LoadingData.swift in Sources */,
 				44A479D022306FB0009D944F /* ContactUsVC.swift in Sources */,
 				44A479DC22307F3D009D944F /* LoginVC.swift in Sources */,
+				44CC746E22657B87009528CB /* CollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

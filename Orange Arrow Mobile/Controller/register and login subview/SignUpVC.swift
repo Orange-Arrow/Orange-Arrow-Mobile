@@ -10,6 +10,7 @@ import UIKit
 import SkyFloatingLabelTextField
 import LGButton
 import Firebase
+import ProgressHUD
 
 //MARK -- protocol for send signal to superview conduct segue to next page
 protocol SignUpViewControllerDelegate: class {
@@ -33,6 +34,9 @@ class SignUpVC: UIViewController {
         passwordTextfield.delegate = self
         emailTextfield.delegate = self
         repeatPasswordTextfield.delegate = self
+        emailTextfield.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        passwordTextfield.addTarget(self, action: #selector(passwordFieldDidChange(_:)), for: .editingChanged)
+        repeatPasswordTextfield.addTarget(self, action: #selector(repeatFieldDidChange(_:)), for: .editingChanged)
         
         //customize textfield
         passwordTextfield.textContentType = .password
@@ -59,6 +63,7 @@ class SignUpVC: UIViewController {
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if error != nil{
                     print("there is an error with firebase signup \(error!)")
+                    ProgressHUD.showError(error?.localizedDescription)
                     return
                 }
                 // create user info node on database
@@ -79,6 +84,7 @@ class SignUpVC: UIViewController {
 //                }
                 
                 Utilities.ref_db.child("users_information").updateChildValues([uid:""])
+                ProgressHUD.showSuccess("Sign Up is Completed")
                 
                 
                 // go to next page to let user update their information
@@ -94,6 +100,53 @@ class SignUpVC: UIViewController {
 
 // MARK -- CUSTOM THE KEYBOARD RETURN KEY
 extension SignUpVC: UITextFieldDelegate {
+    
+    // This will notify us when something has changed on the textfield
+    @objc func textFieldDidChange(_ textfield: UITextField) {
+        if let text = textfield.text {
+            if let floatingLabelTextField = textfield as? SkyFloatingLabelTextField {
+                if(text.count < 3 || !text.contains("@")) {
+                    floatingLabelTextField.errorMessage = "Invalid email"
+                    signupButton.isEnabled = false
+                }
+                else {
+                    // The error message will only disappear when we reset it to nil or empty string
+                    signupButton.isEnabled = true
+                    floatingLabelTextField.errorMessage = ""
+                }
+            }
+        }
+    }
+    @objc func passwordFieldDidChange(_ textfield: UITextField) {
+        if let text = textfield.text {
+            if let floatingLabelTextField = textfield as? SkyFloatingLabelTextField {
+                if(text.count < 6) {
+                    floatingLabelTextField.errorMessage = "Should more than 5 characters"
+                    signupButton.isEnabled = false
+                }
+                else {
+                    // The error message will only disappear when we reset it to nil or empty string
+                    signupButton.isEnabled = true
+                    floatingLabelTextField.errorMessage = ""
+                }
+            }
+        }
+    }
+    @objc func repeatFieldDidChange(_ textfield: UITextField) {
+        if let text = textfield.text {
+            if let floatingLabelTextField = textfield as? SkyFloatingLabelTextField {
+                if(text != passwordTextfield.text) {
+                    floatingLabelTextField.errorMessage = "Passwords don't match"
+                    signupButton.isEnabled = false
+                }
+                else {
+                    // The error message will only disappear when we reset it to nil or empty string
+                    signupButton.isEnabled = true
+                    floatingLabelTextField.errorMessage = ""
+                }
+            }
+        }
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == emailTextfield {

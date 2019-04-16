@@ -11,6 +11,7 @@ import MessageUI
 import LGButton
 import SkyFloatingLabelTextField
 import ProgressHUD
+import SafariServices
 
 class ContactUsVC: UIViewController {
 
@@ -42,6 +43,24 @@ class ContactUsVC: UIViewController {
         if titleTextfield.text != "" && messageTextfield.text != ""{
             sendEmail(title: titleTextfield.text!, message: messageTextfield.text!)
         }
+    }
+    
+    
+    @IBAction func settingBtnTapped(_ sender: LGButton) {
+        print("this is called")
+        var url = "http://www.orangearrow.org"
+        switch sender.tag{
+        case 2: url += "/about-oa"
+        case 3: url += "//oa-board"
+        case 4: url += "/term"
+        default: print("doing nothing")
+        }
+
+        if let url = URL(string: url) {
+            let svc = SFSafariViewController(url: url)
+            present(svc, animated: true, completion: nil)
+        }
+     
     }
     
 
