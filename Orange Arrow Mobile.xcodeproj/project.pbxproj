@@ -37,7 +37,7 @@
 		445E6C032256F75200FD46AF /* realityshow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 445E6C022256F75200FD46AF /* realityshow.jpg */; };
 		445E6C052256F75800FD46AF /* penguins.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 445E6C042256F75800FD46AF /* penguins.jpg */; };
 		445E6C072256F75D00FD46AF /* chinese.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 445E6C062256F75D00FD46AF /* chinese.jpg */; };
-		445E6C092256F76100FD46AF /* pie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 445E6C082256F76000FD46AF /* pie.jpg */; };
+		445E6C092256F76100FD46AF /* apple.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 445E6C082256F76000FD46AF /* apple.jpg */; };
 		445E6C0B2256F77900FD46AF /* animal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 445E6C0A2256F77900FD46AF /* animal.jpg */; };
 		445E6C0D2256F78100FD46AF /* double.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 445E6C0C2256F78100FD46AF /* double.jpg */; };
 		4465A68F224ABE7400F0E827 /* Orange_Arrow_MobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4465A68E224ABE7400F0E827 /* Orange_Arrow_MobileUITests.swift */; };
@@ -67,6 +67,8 @@
 		44A479EA2231BD70009D944F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44A479E92231BD70009D944F /* GoogleService-Info.plist */; };
 		44BFA74E224EB2080029C8BB /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BFA74D224EB2080029C8BB /* TileView.swift */; };
 		44CC746E22657B87009528CB /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CC746D22657B87009528CB /* CollectionViewCell.swift */; };
+		44CC7470226655EB009528CB /* badgeOfPoints.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44CC746F226655EB009528CB /* badgeOfPoints.plist */; };
+		44CC74722266CD6E009528CB /* loser.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44CC74712266CD6E009528CB /* loser.jpg */; };
 		44E76021225D32A900DE9C0C /* davis.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44E76020225D32A900DE9C0C /* davis.jpg */; };
 		44E76023225D32AE00DE9C0C /* griffin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44E76022225D32AE00DE9C0C /* griffin.jpg */; };
 		44E76025225D32B500DE9C0C /* harper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44E76024225D32B500DE9C0C /* harper.jpg */; };
@@ -123,7 +125,7 @@
 		445E6C022256F75200FD46AF /* realityshow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = realityshow.jpg; sourceTree = "<group>"; };
 		445E6C042256F75800FD46AF /* penguins.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = penguins.jpg; sourceTree = "<group>"; };
 		445E6C062256F75D00FD46AF /* chinese.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chinese.jpg; sourceTree = "<group>"; };
-		445E6C082256F76000FD46AF /* pie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pie.jpg; sourceTree = "<group>"; };
+		445E6C082256F76000FD46AF /* apple.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = apple.jpg; sourceTree = "<group>"; };
 		445E6C0A2256F77900FD46AF /* animal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animal.jpg; sourceTree = "<group>"; };
 		445E6C0C2256F78100FD46AF /* double.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = double.jpg; sourceTree = "<group>"; };
 		4465A68C224ABE7400F0E827 /* Orange Arrow MobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Orange Arrow MobileUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +157,8 @@
 		44A479E92231BD70009D944F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		44BFA74D224EB2080029C8BB /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		44CC746D22657B87009528CB /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		44CC746F226655EB009528CB /* badgeOfPoints.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = badgeOfPoints.plist; sourceTree = "<group>"; };
+		44CC74712266CD6E009528CB /* loser.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loser.jpg; sourceTree = "<group>"; };
 		44E76020225D32A900DE9C0C /* davis.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = davis.jpg; sourceTree = "<group>"; };
 		44E76022225D32AE00DE9C0C /* griffin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = griffin.jpg; sourceTree = "<group>"; };
 		44E76024225D32B500DE9C0C /* harper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = harper.jpg; sourceTree = "<group>"; };
@@ -247,7 +251,6 @@
 		445E6BEB2254444F00FD46AF /* Puzzle */ = {
 			isa = PBXGroup;
 			children = (
-				44E76046225E9EDF00DE9C0C /* timeBadgeImage */,
 				445E6BEE22544B3400FD46AF /* images */,
 				445E6BEC225448AC00FD46AF /* puzzle1.plist */,
 				445E6BFF2256E6BB00FD46AF /* puzzle2.plist */,
@@ -272,17 +275,18 @@
 			path = images;
 			sourceTree = "<group>";
 		};
-		445E6C012256F6A800FD46AF /* images */ = {
+		445E6C012256F6A800FD46AF /* images(hint) */ = {
 			isa = PBXGroup;
 			children = (
 				445E6C062256F75D00FD46AF /* chinese.jpg */,
 				445E6C0A2256F77900FD46AF /* animal.jpg */,
 				445E6C0C2256F78100FD46AF /* double.jpg */,
+				44CC74712266CD6E009528CB /* loser.jpg */,
 				445E6C042256F75800FD46AF /* penguins.jpg */,
-				445E6C082256F76000FD46AF /* pie.jpg */,
+				445E6C082256F76000FD46AF /* apple.jpg */,
 				445E6C022256F75200FD46AF /* realityshow.jpg */,
 			);
-			path = images;
+			path = "images(hint)";
 			sourceTree = "<group>";
 		};
 		4465A68D224ABE7400F0E827 /* Orange Arrow MobileUITests */ = {
@@ -298,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				44E7602F225E8C5400DE9C0C /* badgeOfTime.plist */,
+				44CC746F226655EB009528CB /* badgeOfPoints.plist */,
 				445E6BEB2254444F00FD46AF /* Puzzle */,
 				445E6BEA2254444400FD46AF /* Trivia */,
 				44A24928224DA2E3000FDB7B /* WordScramble */,
@@ -308,8 +313,7 @@
 		44A24928224DA2E3000FDB7B /* WordScramble */ = {
 			isa = PBXGroup;
 			children = (
-				44E76047225E9EF200DE9C0C /* timeBadgeImage */,
-				445E6C012256F6A800FD46AF /* images */,
+				445E6C012256F6A800FD46AF /* images(hint) */,
 				44A2492A224DA347000FDB7B /* word1.plist */,
 				445E6BFB2256E69900FD46AF /* word2.plist */,
 			);
@@ -415,20 +419,6 @@
 				44CC746D22657B87009528CB /* CollectionViewCell.swift */,
 			);
 			path = "custom cell";
-			sourceTree = "<group>";
-		};
-		44E76046225E9EDF00DE9C0C /* timeBadgeImage */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = timeBadgeImage;
-			sourceTree = "<group>";
-		};
-		44E76047225E9EF200DE9C0C /* timeBadgeImage */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = timeBadgeImage;
 			sourceTree = "<group>";
 		};
 		73B276CC78E9DA517C54B211 /* Frameworks */ = {
@@ -537,7 +527,7 @@
 				445E6C002256E6BB00FD46AF /* puzzle2.plist in Resources */,
 				4467662122614F670036D5B6 /* CategoryTableViewCell.xib in Resources */,
 				44E76021225D32A900DE9C0C /* davis.jpg in Resources */,
-				445E6C092256F76100FD46AF /* pie.jpg in Resources */,
+				445E6C092256F76100FD46AF /* apple.jpg in Resources */,
 				445E6BD82252D24700FD46AF /* Comic_Andy.ttf in Resources */,
 				44E76030225E8C5400DE9C0C /* badgeOfTime.plist in Resources */,
 				44327909222F1CFE00E58225 /* LaunchScreen.storyboard in Resources */,
@@ -557,7 +547,9 @@
 				445E6BF222544B5000FD46AF /* rust.jpg in Resources */,
 				44E7602E225D8B0D00DE9C0C /* AchievementsTableViewCell.xib in Resources */,
 				44A2492B224DA347000FDB7B /* word1.plist in Resources */,
+				44CC74722266CD6E009528CB /* loser.jpg in Resources */,
 				445E6BF022544B4800FD46AF /* letang.jpg in Resources */,
+				44CC7470226655EB009528CB /* badgeOfPoints.plist in Resources */,
 				44E7604F22602FFB00DE9C0C /* RankingTableViewCell.xib in Resources */,
 				44327904222F1CFC00E58225 /* Main.storyboard in Resources */,
 				445E6BE32252F28A00FD46AF /* wrong.m4a in Resources */,

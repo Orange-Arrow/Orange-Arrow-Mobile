@@ -112,6 +112,37 @@ class UpdateUserInfoVC: UIViewController {
        
     }
     
+    private func updateUserInfo(){
+        let userID = Auth.auth().currentUser?.uid
+        
+        if userID != nil{
+        Utilities.ref_db.child("users_information").child(userID!).observeSingleEvent(of: .value) { (snapshot) in
+                // Get user value
+                let value = snapshot.value as? NSDictionary
+                let firstName = value?["First Name"] as? String ?? ""
+                let lastName = value?["Last Name"] as? String ?? ""
+                let imageurl = value?["ProfileImageUrl"] as? String ?? ""
+                let school = value?["School"] as? String ?? ""
+                let birthday = value?["Birthday"] as? String ?? ""
+                let sports  = value?["Sports"] as? String ?? ""
+                let level = value?["Levels"] as? NSArray ?? [0,0,0]
+                let badgeOfTime = value?["BadgeOfTime"] as? NSDictionary ?? [:]
+                let badgeOfPoints = value?["BadgeOfPoints"] as? NSDictionary ?? [:]
+            //
+            self.firstNameTextfield.text = firstName
+            self.lastNameTextfield.text = lastName
+            self.schoolTextfield.text = school
+            self.sportsTextfield.text = sports
+            self.birthDateTextfield.text = birthday
+            //update gender and image
+            // set the global value of badge and level to keep track
+                
+            }
+        }else{
+            
+        }
+    }
+    
     
     //MARK -- func to update profile
     @IBAction func updateProfileBtnTapped(_ sender: LGButton) {
@@ -149,7 +180,7 @@ class UpdateUserInfoVC: UIViewController {
                         return
                     }
                     
-                    let userDictionary = ["First Name":firstName,"Last Name":lastName,"Birthday":dateOfBirth,"Gender":self.gender,"Sports":sports,"School":school,"ProfileImageUrl":downloadURL,"Levels":[1,1,1], "BadgesOfTime":["trivia":badgeOfTime, "puzzle":badgeOfTime, "words":badgeOfTime]] as [String : Any]
+                    let userDictionary = ["First Name":firstName,"Last Name":lastName,"Birthday":dateOfBirth,"Gender":self.gender,"Sports":sports,"School":school,"ProfileImageUrl":downloadURL,"Levels":[1,1,1], "BadgeOfTime":["trivia":badgeOfTime, "puzzle":badgeOfTime, "words":badgeOfTime], "BadgeOfPoints":["trivia":badgeOfTime, "puzzle":badgeOfTime, "words":badgeOfTime]] as [String : Any]
                     
                     self.registerUserInfoWithUID(uid:uid, values:userDictionary as [String : AnyObject])
                     

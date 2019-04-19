@@ -14,6 +14,7 @@ protocol TileDragDelegateProtocol {
 }
 
 class TileView:UIImageView{
+    var index : Int
     var letter : Character
     var isMatched = false
     
@@ -28,8 +29,9 @@ class TileView:UIImageView{
     required init(coder aDecoder: NSCoder) {
         fatalError("use init(letter:, sideLength:")
     }
-    init(letter:Character, sideLength:CGFloat){
+    init(letter:Character, sideLength:CGFloat, index:Int){
         self.letter = letter
+        self.index = index
         let image = UIImage(named: "tile")!
         super.init(image:image)
         let scale = sideLength / image.size.width
@@ -100,7 +102,7 @@ class TileView:UIImageView{
         if let touch = touches.first {
             let point = touch.location(in: self.superview)
             self.center = CGPoint(x:point.x - xOffset, y:point.y - yOffset)
-            dragDelegate?.tileView(tileView: self, didDragToPoint: self.center)
+//            dragDelegate?.tileView(tileView: self, didDragToPoint: self.center)
 
         }
     }
@@ -111,7 +113,14 @@ class TileView:UIImageView{
         //restore the original transform
         self.transform = tempTransform
         
-        self.touchesMoved(touches, with: event)
+//        self.touchesMoved(touches, with: event)
+        if let touch = touches.first {
+            let point = touch.location(in: self.superview)
+            self.center = CGPoint(x:point.x - xOffset, y:point.y - yOffset)
+            dragDelegate?.tileView(tileView: self, didDragToPoint: self.center)
+            
+        }
+//        dragDelegate?.tileView(tileView: self, didDragToPoint: self.center)
         
         self.layer.shadowOpacity = 0.0
 

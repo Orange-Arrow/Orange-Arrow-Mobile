@@ -30,11 +30,13 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     @IBOutlet weak var googleButton: LGButton!
     @IBOutlet weak var facebookButton: LGButton!
     
+    
     @IBOutlet weak var emailTextfield: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet weak var passwordTextfield: SkyFloatingLabelTextFieldWithIcon!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        readDefaults()
         
         //initialize the delegation for ui textfield
         passwordTextfield.delegate = self
@@ -75,10 +77,24 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
             }
             // to do -- check user info if any of are empty then go to update info page otherwise goto menu page
             // should be done by super view
-            ProgressHUD.showSuccess("Weclome Back")
-            
+            DispatchQueue.main.async {
+                    ProgressHUD.showSuccess("Weclome Back")
+            }
+        
             self.delegate?.loginBtnTapped()
             
+        }
+    }
+    
+    private func readDefaults(){
+
+         let defaults = UserDefaults.standard
+        if let email = defaults.string(forKey: "email"){
+            if let password = defaults.string(forKey: "password"){
+//                print("the email is \(email) and password is \(password)")
+               self.emailTextfield.text = email
+                self.passwordTextfield.text = password
+            }
         }
     }
     
@@ -87,6 +103,27 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().signIn()
+    }
+    
+    
+    @IBAction func checkBoxTapped(_ sender: CheckBox) {
+
+         let defaults = UserDefaults.standard
+        if sender.isChecked{
+      
+            defaults.set(nil, forKey: "email")
+            defaults.set(nil, forKey: "password")
+    
+        }else{
+            
+            //save user data
+
+            guard let email = emailTextfield.text else{return}
+            guard let password = passwordTextfield.text else{return}
+            
+            defaults.set(email, forKey: "email")
+            defaults.set(password, forKey: "password")
+        }
     }
     
     //MARK:- Google Delegate
@@ -127,7 +164,10 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
                 return
             }
             print("google user has signed in")
-            ProgressHUD.showSuccess("Welcome back")
+            DispatchQueue.main.async {
+                ProgressHUD.showSuccess("Welcome back")
+            }
+            self.delegate?.loginBtnTapped()
             //todo -- check current user has a complete user profile or not, if not then go to update if yes, then go to menu page
         }
     }
@@ -155,7 +195,10 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
                         return
                     }
                     print("facebook user signed in")
-                    ProgressHUD.showSuccess("Welcome back")
+                    DispatchQueue.main.async {
+                         ProgressHUD.showSuccess("Welcome back")
+                    }
+                     self.delegate?.loginBtnTapped()
                     //todo -- check user logged info
                 }
             }

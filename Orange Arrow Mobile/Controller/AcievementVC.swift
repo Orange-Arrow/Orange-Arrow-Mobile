@@ -22,6 +22,7 @@ class AcievementVC: UIViewController {
         var level : String = ""
         
     }
+    var handle : UInt?
 
     var achievementsArray = [Achievement]()
     
@@ -30,7 +31,7 @@ class AcievementVC: UIViewController {
         super.viewDidLoad()
         
         setupDelegation()
-        
+        tableView.isUserInteractionEnabled = false
         tableView.register(UINib(nibName: "AchievementsTableViewCell", bundle: nil), forCellReuseIdentifier: "customAchievementCell")
         
         configureTableView()
@@ -44,18 +45,37 @@ class AcievementVC: UIViewController {
     }
     
     @objc func backBtnTapped(){
+        if let handle = self.handle{
+            // Use this to remove the observer when you are done
+            Utilities.ref_db.child("users_information").removeObserver(withHandle: handle)
+        }
         dismiss(animated: true, completion: nil)
         Utilities.changeStatusBarColor(color: UIColor(named: "oaColor")!)
         // the color looks so different tho???
     }
     
-    private func checkIfGetBadgeOfTime(list:[Bool], gameName:String) {
+    private func checkIfGetBadgeOfTime(list:[Bool], gameName:String, measure:String) {
         for (index,item) in list.enumerated(){
             if item{
                 //it has the badge
+                // quick answer warrior
+                // 100% points GOAT
+                var meaString = ""
+                if measure == "BadgeOfTime"{
+                    meaString += "Quick Answer Warrior"
+                }else if measure == "BadgeOfPoints"{
+                    meaString += "100% Points GOAT"
+                }
+                var meaImg = ""
+                if measure == "BadgeOfTime"{
+                    meaImg += "time"
+                }else if measure == "BadgeOfPoints"{
+                    meaImg += "points"
+                }
+                
                 let achievement = Achievement()
-                achievement.title = "Quick Answer Warrior for \(gameName)"
-                achievement.image = "\(gameName) time\(index+1)"
+                achievement.title = "\(meaString) for \(gameName)"
+                achievement.image = "\(gameName) \(meaImg)\(index+1)"
                 achievement.level = "Level: \(index+1)"
                 self.achievementsArray.append(achievement)
                 
@@ -66,12 +86,10 @@ class AcievementVC: UIViewController {
         }
     }
     
-    //TODO: Create the retrieveMessages method here:
-    func retrieveAchievements(){
-        
+    private func findAndAddBadgeFromDB(measure:String){
         let userID = Auth.auth().currentUser?.uid
         
-        Utilities.ref_db.child("users_information").child(userID!).child("BadgesOfTime").observe(.value) { (snapshot) in
+        self.handle = Utilities.ref_db.child("users_information").child(userID!).child(measure).observe(.value) { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
             let triviaBadge = value?["trivia"] as? NSArray ?? []
@@ -84,13 +102,19 @@ class AcievementVC: UIViewController {
             
             
             // for each array check which is right
-            self.checkIfGetBadgeOfTime(list: triviaArray, gameName: "Trivia")
-            self.checkIfGetBadgeOfTime(list: puzzleArray, gameName: "Puzzle")
-            self.checkIfGetBadgeOfTime(list: wordsArray, gameName: "Word Scramble")
+            self.checkIfGetBadgeOfTime(list: triviaArray, gameName: "Trivia", measure: measure)
+            self.checkIfGetBadgeOfTime(list: puzzleArray, gameName: "Puzzle", measure: measure)
+            self.checkIfGetBadgeOfTime(list: wordsArray, gameName: "Word", measure: measure)
             
-          
+            
         }
-
+        
+    }
+    
+    //TODO: Create the retrieveMessages method here:
+    func retrieveAchievements(){
+        findAndAddBadgeFromDB(measure: "BadgeOfTime")
+        findAndAddBadgeFromDB(measure: "BadgeOfPoints")
     }
 }
 

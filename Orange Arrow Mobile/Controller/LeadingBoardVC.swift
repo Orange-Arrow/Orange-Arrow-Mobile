@@ -26,7 +26,7 @@ class LeadingBoardVC: UIViewController {
     var game_name = "Puzzle"
     var selectedLevel = 1
     var rankingType = "time"
-    
+    var handle : UInt?
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -45,6 +45,7 @@ class LeadingBoardVC: UIViewController {
         //            return
         //        }
         //        navigationController.navigationBar.barTintColor = .black
+        tableView.isUserInteractionEnabled = false
         
         // Do any additional setup after loading the view.
         let navItem = Utilities.setupNavigationBar(image: "icon_ranking", tappedFunc: #selector(backBtnTapped), handler: self, rightBar: #selector(categoryTapped))
@@ -113,6 +114,10 @@ class LeadingBoardVC: UIViewController {
     }
     
     @objc func backBtnTapped(){
+        if let handle = self.handle{
+            // Use this to remove the observer when you are done
+            Utilities.ref_db.child(self.game_name).removeObserver(withHandle: handle)
+        }
         dismiss(animated: true, completion: nil)
         Utilities.changeStatusBarColor(color: UIColor(named: "oaColor")!)
         // the color looks so different tho???
@@ -130,7 +135,7 @@ class LeadingBoardVC: UIViewController {
             resultSorted = Utilities.ref_db.child(gameName).child(String(level)).queryOrdered(byChild: strategy).queryLimited(toLast: 10)
         }
         
-        resultSorted.observe(.value) { snapshot in
+        self.handle = resultSorted.observe(.value) { snapshot in
             
             for child in snapshot.children.allObjects as! [DataSnapshot] {
                 let uid = child.key

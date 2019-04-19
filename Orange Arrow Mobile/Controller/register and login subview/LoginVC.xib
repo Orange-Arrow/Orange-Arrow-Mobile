@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,8 +30,8 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5u4-pW-roD">
                     <rect key="frame" x="20" y="40" width="335" height="587"/>
                     <subviews>
-                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iv4-X8-XFb" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                            <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iv4-X8-XFb" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
+                            <rect key="frame" x="0.0" y="0.0" width="335" height="43"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="iconTypeValue">
@@ -70,8 +70,8 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Email"/>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4KC-tX-Ksf" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                            <rect key="frame" x="0.0" y="112.5" width="335" height="50"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4KC-tX-Ksf" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
+                            <rect key="frame" x="0.0" y="109" width="335" height="42.5"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="iconTypeValue">
@@ -110,8 +110,8 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Password"/>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="seJ-jA-dsM" customClass="LGButton" customModule="LGButton">
-                            <rect key="frame" x="0.0" y="225" width="335" height="50"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="seJ-jA-dsM" customClass="LGButton" customModule="LGButton">
+                            <rect key="frame" x="0.0" y="218" width="335" height="46"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
@@ -154,8 +154,8 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Xdm-VS-pxC">
-                            <rect key="frame" x="0.0" y="337" width="335" height="35"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Xdm-VS-pxC">
+                            <rect key="frame" x="0.0" y="330" width="335" height="35"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Fyv-pR-vvP">
                                     <rect key="frame" x="0.0" y="0.0" width="109" height="35"/>
@@ -167,6 +167,9 @@
                                                 <constraint firstAttribute="width" constant="35" id="bse-dL-WHO"/>
                                                 <constraint firstAttribute="height" constant="35" id="lfT-5S-X68"/>
                                             </constraints>
+                                            <connections>
+                                                <action selector="checkBoxTapped:" destination="-1" eventType="touchUpInside" id="E5l-mJ-6hW"/>
+                                            </connections>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jka-AP-yvo">
                                             <rect key="frame" x="43" y="0.0" width="66" height="35"/>
@@ -183,16 +186,16 @@
                                 </button>
                             </subviews>
                         </stackView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="---------- OR ----------" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebo-cz-xTg">
-                            <rect key="frame" x="0.0" y="434.5" width="335" height="24"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---------- OR ----------" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebo-cz-xTg">
+                            <rect key="frame" x="0.0" y="431" width="335" height="24"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="lUG-iy-iWr">
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="lUG-iy-iWr">
                             <rect key="frame" x="0.0" y="521" width="335" height="66"/>
                             <subviews>
-                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D8A-jO-92w" customClass="LGButton" customModule="LGButton">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8A-jO-92w" customClass="LGButton" customModule="LGButton">
                                     <rect key="frame" x="0.0" y="0.0" width="147.5" height="66"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <userDefinedRuntimeAttributes>
@@ -216,7 +219,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0hB-PO-HrE" customClass="LGButton" customModule="LGButton">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hB-PO-HrE" customClass="LGButton" customModule="LGButton">
                                     <rect key="frame" x="187.5" y="0.0" width="147.5" height="66"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <userDefinedRuntimeAttributes>
@@ -258,9 +261,9 @@
         </view>
     </objects>
     <resources>
-        <image name="emailIcon" width="256" height="256"/>
-        <image name="facebookIcon" width="256" height="256"/>
-        <image name="googleIcon" width="256" height="256"/>
-        <image name="passwordIcon" width="256" height="256"/>
+        <image name="emailIcon" width="128" height="128"/>
+        <image name="facebookIcon" width="128" height="128"/>
+        <image name="googleIcon" width="128" height="128"/>
+        <image name="passwordIcon" width="128" height="128"/>
     </resources>
 </document>

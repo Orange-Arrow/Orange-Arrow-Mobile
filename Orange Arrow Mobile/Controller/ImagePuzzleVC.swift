@@ -27,6 +27,7 @@ class ImagePuzzleVC: UIViewController {
     //to update the level val
     var currentLevel = 1 {
         willSet(newValue){
+            levelLabel.fadeTransition(0.5)
             levelLabel.text = "Level \(newValue)"
         }
     }
@@ -34,7 +35,12 @@ class ImagePuzzleVC: UIViewController {
     var puzzle : LoadingData?
     var currentQuesIndex = 0
     var pool = [Question]()
-    var points = 0
+    var points = 0{
+        willSet(newValue){
+            pointsLabel.fadeTransition(0.5)
+            pointsLabel.text = "Points: \(newValue)"
+        }
+    }
     private var audioController = AudioController()
     //stopwatch variables
     private var secondsLeft = 10
@@ -73,6 +79,7 @@ class ImagePuzzleVC: UIViewController {
     }
     
     @objc func beginGame(){
+        timeLabel.fadeTransition(0.5)
             timeLabel.text = "Time: \(Utilities.timeFormatted(totalTime))"
         
         totalTime += 1
@@ -84,6 +91,7 @@ class ImagePuzzleVC: UIViewController {
         if leftTimer.countdownTimer != nil{
             leftTimer.endTimer()
             ProgressHUD.dismiss()
+            totalTimer.endTimer()
         }
 
         
@@ -118,6 +126,11 @@ class ImagePuzzleVC: UIViewController {
         
     }
     private func goback(){
+        if leftTimer.countdownTimer != nil{
+            leftTimer.endTimer()
+            ProgressHUD.dismiss()
+            totalTimer.endTimer()
+        }
         dismiss(animated: true, completion: nil)
     }
     
@@ -156,6 +169,7 @@ class ImagePuzzleVC: UIViewController {
         
         // update the options
         for (index,btn) in optionsButtons.enumerated(){
+            btn.fadeTransition(0.5)
             btn.setTitle(pool[currentQuesIndex].options[index], for: .normal)
         }
         // update the progress
@@ -254,12 +268,16 @@ class ImagePuzzleVC: UIViewController {
                 
                 // to see if good for badge of time
                 // to check time is smaller than
-                let targetTime = Utilities.getTotalTimeForBadge(gameName: "puzzle", level: self.currentLevel)
+                let targetTime = Utilities.getTargetForBadge(gameName: "puzzle", level: self.currentLevel, measure:"badgeOfTime")
+                let targetPoints = Utilities.getTargetForBadge(gameName: "puzzle", level: self.currentLevel, measure: "badgeOfPoints")
                 
                 if self.totalTime <= targetTime{
                     // you can earn the badge
-                    Utilities.updateTimeBadgeInFirebase(level: self.currentLevel, gameName: "puzzle")
+                    Utilities.updateBadgeInFirebase(level: self.currentLevel, gameName: "puzzle", measure: "BadgeOfTime")
                     
+                }
+                if self.points >= targetPoints{
+                    Utilities.updateBadgeInFirebase(level: self.currentLevel, gameName: "puzzle", measure: "BadgeOfPoints")
                 }
                 
                 // firt store the data

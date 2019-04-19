@@ -35,6 +35,7 @@ class NavigationVC: UIViewController, CircleMenuDelegate {
         
         circleMenu.delegate = self
         // Do any additional setup after loading the view.
+        menuTextview.fadeTransition(0.8)
         menuTextview.text = "Welcome to Orange Arrow Game Center, please click the house to start your journey"
        
         
@@ -49,10 +50,8 @@ class NavigationVC: UIViewController, CircleMenuDelegate {
     // MARK: <CircleMenuDelegate>
     func circleMenu(_: CircleMenu, willDisplay button: UIButton, atIndex: Int) {
         
-     
         
         button.backgroundColor = items[atIndex].color
-        
         button.setImage(UIImage(named: items[atIndex].icon), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         button.imageEdgeInsets = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
@@ -64,17 +63,28 @@ class NavigationVC: UIViewController, CircleMenuDelegate {
     }
     
     func circleMenu(_: CircleMenu, buttonWillSelected _: UIButton, atIndex: Int) {
+        
+        // This will fade
+        menuTextview.fadeTransition(0.8)
        
         menuTextview.text = items[atIndex].content
     }
     
     func circleMenu(_: CircleMenu, buttonDidSelected _: UIButton, atIndex: Int) {
         
+        circleMenu.isSelected = false
+        menuTextview.fadeTransition(0.8)
+        menuTextview.text = "Welcome to Orange Arrow Game Center, please click the house to start your journey"
         switch atIndex {
         case 7: signout()
         default: performSegue(withIdentifier: items[atIndex].segue, sender: self)
         }
         
+    }
+    
+    func menuCollapsed(_ circleMenu: CircleMenu){
+      
+        circleMenu.isSelected = false
     }
     
     
@@ -98,7 +108,6 @@ class NavigationVC: UIViewController, CircleMenuDelegate {
 
 
 }
-
 
 
 

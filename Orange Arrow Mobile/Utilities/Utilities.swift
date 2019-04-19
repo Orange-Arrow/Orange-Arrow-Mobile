@@ -92,28 +92,26 @@ class Utilities{
         
     }
     
-    // static --  to get the target time for certain game for badges
-    static func getTotalTimeForBadge(gameName:String, level:Int) -> Int{
-        
-        
-        let stringPath = Bundle.main.path(forResource: "badgeOfTime", ofType: "plist")
-//        print("=======the string path is \(String(describing: stringPath))")
+    // static --  to get the target time and points for certain game for badges
+    static func getTargetForBadge(gameName:String, level:Int, measure:String) -> Int {
+        // badgeOfTime , badgeOfPoints
+        let stringPath = Bundle.main.path(forResource: measure, ofType: "plist")
         
         let url = URL(fileURLWithPath: stringPath!)
         let gameDictionary = NSDictionary(contentsOf: url)
-        assert(gameDictionary != nil, "time badge configuration file not found")
+        assert(gameDictionary != nil, "badge configuration file not found")
         let list = gameDictionary!["\(gameName)"] as! NSArray
-        let leveltotaltime = list[level-1] as! Int
-        return leveltotaltime
+        let leveltarget = list[level-1] as! Int
+        return leveltarget
         
     }
     
     
     // update user badge of time true or false
-    static func updateTimeBadgeInFirebase(level:Int, gameName:String){
-        
+    static func updateBadgeInFirebase(level:Int, gameName:String, measure:String){
+        // BadgeOfTime, BadgeOfPoints
         guard let userID = Auth.auth().currentUser?.uid else { fatalError("No User Sign In") }
-        let targetDB = self.ref_db.child("users_information").child(userID).child("BadgesOfTime").child(gameName).child(String(level-1))
+        let targetDB = self.ref_db.child("users_information").child(userID).child(measure).child(gameName).child(String(level-1))
         
         targetDB.setValue(true)
         
@@ -217,4 +215,16 @@ extension Array {
     }
     var chooseOne: Element { return self[Int(arc4random_uniform(UInt32(count)))] }
     func choose(_ n: Int) -> Array { return Array(shuffled.prefix(n)) }
+}
+
+
+extension UIView {
+    func fadeTransition(_ duration:CFTimeInterval) {
+        let animation = CATransition()
+        animation.timingFunction = CAMediaTimingFunction(name:
+            CAMediaTimingFunctionName.easeInEaseOut)
+        animation.type = CATransitionType.fade
+        animation.duration = duration
+        layer.add(animation, forKey: CATransitionType.fade.rawValue)
+    }
 }

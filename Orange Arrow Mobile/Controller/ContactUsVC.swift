@@ -12,6 +12,7 @@ import LGButton
 import SkyFloatingLabelTextField
 import ProgressHUD
 import SafariServices
+import Firebase
 
 class ContactUsVC: UIViewController {
 
@@ -63,7 +64,46 @@ class ContactUsVC: UIViewController {
      
     }
     
-
+    
+    //mark -- to delete the user account
+    @IBAction func deleteAccountTapped(_ sender: LGButton) {
+        //show a alert to confirm
+        //and if it is yes then delete
+        //to start
+        let message = "All of your information will be deleted. Are you sure to delete?"
+        let alert = UIAlertController(title: "Alert!", message: message, preferredStyle: .alert)
+        let nextLevelAction = UIAlertAction(title: "Yes", style: .default, handler: { (UIAlertAction) in self.deleteAccount() })
+        let goBackAction = UIAlertAction(title: "No", style: .cancel, handler: { (UIAlertAction) in alert.dismiss(animated: true, completion: nil) })
+        alert.addAction(nextLevelAction)
+        alert.addAction(goBackAction)
+        
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
+    private func deleteAccount(){
+        guard let userID = Auth.auth().currentUser?.uid else { fatalError("No User Sign In") }
+        Utilities.ref_db.child("users_information").child(userID).setValue(nil)
+        let gameName = ["Trivia","Puzzle","Word"]
+        for name in gameName{
+            for level in 1...totalLevelNum{
+                Utilities.ref_db.child(name).child(String(level)).child(userID).setValue(nil)
+            }
+        }
+        
+        let user = Auth.auth().currentUser
+        user?.delete { error in
+            if let error = error {
+                // An error happened.
+                ProgressHUD.showError(error.localizedDescription)
+            } else {
+                // Account deleted.
+                ProgressHUD.showSuccess("Your OA account has been deleted")
+                self.dismiss(animated: true, completion: nil)
+                //might have error here
+            }
+        }     
+    }
 
 }
 

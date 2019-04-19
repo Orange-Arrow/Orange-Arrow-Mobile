@@ -30,7 +30,7 @@ class WordScramble {
     let randomIndexes = [Int]()
     var currentLevel = 1
     var accuracy = 0.0
-    let selectedLevelForEachLevel = 15
+    let selectedLevelForEachLevel = 3
     var currentPoints = 0
     
 //    func generateRandomIndex()->[Int]{

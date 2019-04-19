@@ -21,14 +21,14 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aew-X8-1Lt" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
                                 <rect key="frame" x="48" y="80" width="279" height="40"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="1" green="0.82035219410000004" blue="0.38978428370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="x8W-Fd-r4z"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="indicatorViewBackgroundColor">
-                                        <color key="value" red="0.99607843137254903" green="0.76470588235294112" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="value" red="0.99607843139999996" green="0.76470588240000004" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="indicatorViewInset">
                                         <real key="value" value="0.0"/>
@@ -48,7 +48,7 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.50980392156862742" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" name="oaColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KiX-Qn-Sff" secondAttribute="bottom" constant="150" id="05p-Er-6OF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Aew-X8-1Lt" secondAttribute="trailing" constant="48" id="8i6-ky-KQE"/>
@@ -858,11 +858,13 @@
                     <connections>
                         <outlet property="gameBar" destination="A0n-50-hfd" id="cfA-JX-WYv"/>
                         <outlet property="gameBarCon" destination="spJ-M4-J5G" id="fc9-OD-R3f"/>
+                        <outlet property="gameBarLabel" destination="zAE-Tr-bdO" id="kmp-hL-t9o"/>
                         <outlet property="gamePorgressBar" destination="cK2-Qu-Ft3" id="BfE-jz-Udh"/>
                         <outlet property="gameView" destination="5dL-Kb-uaq" id="wcW-qU-COp"/>
                         <outlet property="hintImageView" destination="6Ch-ep-fLe" id="WOC-7U-glw"/>
                         <outlet property="levelBar" destination="lw6-F0-le9" id="yaG-yC-78K"/>
                         <outlet property="levelBarCon" destination="dlK-5f-6qu" id="HGl-e9-n3L"/>
+                        <outlet property="levelBarLabel" destination="oms-up-E0s" id="VUi-Bz-84a"/>
                         <outlet property="levelLabel" destination="BF7-R8-qXn" id="U3V-oL-Lb5"/>
                         <outlet property="levelProgressBar" destination="MBK-Je-sNN" id="soF-jT-9vS"/>
                         <outlet property="navigationBar" destination="KNe-gp-ahP" id="Dbn-w9-vo6"/>
@@ -1061,6 +1063,9 @@
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="titleString" value="Delete My Account"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="deleteAccountTapped:" destination="OZD-6H-mde" eventType="touchUpInside" id="cfL-1V-hNj"/>
+                                                </connections>
                                             </view>
                                             <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uss-PM-5fv" customClass="LGButton" customModule="LGButton">
                                                 <rect key="frame" x="0.0" y="101" width="335" height="30.5"/>
@@ -1158,8 +1163,8 @@
                                             <action selector="imageBtnTapped:" destination="z2M-9t-egS" eventType="touchUpInside" id="AeR-5s-Vcm"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xFo-L1-04S" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                        <rect key="frame" x="0.0" y="113.5" width="295" height="42.5"/>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xFo-L1-04S" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                        <rect key="frame" x="0.0" y="108" width="295" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
@@ -1191,8 +1196,8 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="First Name"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mIw-Kx-WCo" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                        <rect key="frame" x="0.0" y="189.5" width="295" height="42.5"/>
+                                    <view tag="1" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mIw-Kx-WCo" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                        <rect key="frame" x="0.0" y="186.5" width="295" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
@@ -1224,8 +1229,8 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="Last Name"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Nic-mH-81y">
-                                        <rect key="frame" x="20" y="265.5" width="255" height="40"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Nic-mH-81y">
+                                        <rect key="frame" x="20" y="264.5" width="255" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZZ-E8-Yfl">
                                                 <rect key="frame" x="0.0" y="0.0" width="107.5" height="40"/>
@@ -1248,8 +1253,8 @@
                                             <constraint firstAttribute="height" constant="40" id="ZLu-FC-7ni"/>
                                         </constraints>
                                     </stackView>
-                                    <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CU7-2Y-2cq" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                        <rect key="frame" x="0.0" y="338.5" width="295" height="43"/>
+                                    <view tag="2" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CU7-2Y-2cq" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                        <rect key="frame" x="0.0" y="332.5" width="295" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
@@ -1281,8 +1286,8 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="Date of Birth"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sud-52-P9n" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                        <rect key="frame" x="0.0" y="415" width="295" height="42.5"/>
+                                    <view tag="3" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sud-52-P9n" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                        <rect key="frame" x="0.0" y="410.5" width="295" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
@@ -1314,8 +1319,8 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="School"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfZ-uq-FOm" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                        <rect key="frame" x="0.0" y="491" width="295" height="42.5"/>
+                                    <view tag="4" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qfZ-uq-FOm" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                        <rect key="frame" x="0.0" y="489" width="295" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
@@ -1850,6 +1855,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="KGZ-cE-Srt"/>
-        <segue reference="J4r-w1-41A"/>
+        <segue reference="inT-7z-Rbv"/>
     </inferredMetricsTieBreakers>
 </document>

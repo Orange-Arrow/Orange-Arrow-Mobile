@@ -26,9 +26,19 @@ class TriviaVC: UIViewController {
     @IBOutlet weak var levelBarWidthCon: NSLayoutConstraint!
     
     
-    var currentLevel = 1
+    var currentLevel = 1{
+        willSet(newVal){
+            levelLabel.fadeTransition(0.5)
+            levelLabel.text = "Level: \(newVal)"
+        }
+    }
     var currentQuestionIndex = 0
-    var points = 0
+    var points = 0 {
+        willSet(newVal){
+            pointsLabel.fadeTransition(0.5)
+            pointsLabel.text = "Points: \(newVal)"
+        }
+    }
     var totalTime = 0
     var totalTimer = TimerOfGame()
     var pool = [Question]()
@@ -66,11 +76,15 @@ class TriviaVC: UIViewController {
     }
     
     @objc func beginGame(){
+        totalTimeLabel.fadeTransition(0.5)
         totalTimeLabel.text = "Time: \(Utilities.timeFormatted(totalTime))"
         totalTime += 1
     }
     
     @objc func backBtnTapped(){
+        totalTimer.endTimer()
+        ProgressHUD.dismiss()
+
         dismiss(animated: true, completion: nil)
         Utilities.changeStatusBarColor(color: UIColor(named: "oaColor")!)
         // the color looks so different tho???
@@ -139,12 +153,17 @@ class TriviaVC: UIViewController {
                     
                     
                     // to check time is smaller than
-                    let targetTime = Utilities.getTotalTimeForBadge(gameName: "trivia", level: self.currentLevel)
+                    let targetTime = Utilities.getTargetForBadge(gameName: "trivia", level: self.currentLevel, measure: "badgeOfTime")
+                    let targetPoints = Utilities.getTargetForBadge(gameName: "trivia", level: self.currentLevel, measure: "badgeOfPoints")
             
                     if self.totalTime <= targetTime{
                         // you can earn the badge
-                        Utilities.updateTimeBadgeInFirebase(level: self.currentLevel, gameName: "trivia")
+                        Utilities.updateBadgeInFirebase(level: self.currentLevel, gameName: "trivia", measure: "BadgeOfTime")
                         
+                    }
+                    
+                    if self.points >= targetPoints{
+                        Utilities.updateBadgeInFirebase(level: self.currentLevel, gameName: "trivia", measure: "BadgeOfPoints")
                     }
                     
                     
@@ -206,19 +225,23 @@ class TriviaVC: UIViewController {
     func updateQuestion(){
         
         //update question
+        questionCounterLabel.fadeTransition(0.5)
         questionCounterLabel.text = "Question \(currentQuestionIndex+1)"
         questionAreaLabel.lineBreakMode = .byWordWrapping
         questionAreaLabel.numberOfLines = 0
         
         //update the questions
+        questionAreaLabel.fadeTransition(0.5)
         questionAreaLabel.text = pool[currentQuestionIndex].questText
         
+        pointsLabel.fadeTransition(0.5)
         pointsLabel.text = "Points: \(self.points)"
         
         // update the options
         for (index,btn) in optionButtons.enumerated(){
             btn.titleLabel?.numberOfLines = 0
             btn.titleLabel?.lineBreakMode = .byWordWrapping
+            btn.fadeTransition(0.5)
             btn.setTitle(pool[currentQuestionIndex].options[index], for: .normal)
         }
         // update the progress

@@ -1,14 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   word2.plist
-   Orange Arrow Mobile
-
-   Created by 刘祥 on 4/4/19.
-   Copyright (c) 2019 xiangliu90. All rights reserved.
--->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-    
-    </dict>
+<dict>
+	<key>wordslist</key>
+	<array>
+		<dict>
+			<key>hint</key>
+			<string>loser</string>
+			<key>word</key>
+			<string>penguins</string>
+		</dict>
+		<dict>
+			<key>hint</key>
+			<string>animal</string>
+			<key>word</key>
+			<string>zoo</string>
+		</dict>
+		<dict>
+			<key>hint</key>
+			<string>harden</string>
+			<key>word</key>
+			<string>basketball</string>
+		</dict>
+		<dict>
+			<key>hint</key>
+			<string>realityshow</string>
+			<key>word</key>
+			<string>survivor</string>
+		</dict>
+		<dict>
+			<key>hint</key>
+			<string>penguins</string>
+			<key>word</key>
+			<string>crosby</string>
+		</dict>
+		<dict>
+			<key>word</key>
+			<string>china</string>
+			<key>hint</key>
+			<string>chinese</string>
+		</dict>
+		<dict>
+			<key>word</key>
+			<string>pie</string>
+			<key>hint</key>
+			<string>apple</string>
+		</dict>
+	</array>
+</dict>
 </plist>

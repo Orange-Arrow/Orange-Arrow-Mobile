@@ -28,6 +28,7 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var badgeCollectionView: UICollectionView!
     var badgeArr = [String]()
     let gameName = ["trivia","puzzle","words"]
+    var handle : UInt?
 
     
     override func viewDidLoad() {
@@ -47,6 +48,10 @@ class ProfileVC: UIViewController {
     }
     
     @objc func backBtnTapped(){
+        if let handle = self.handle{
+            // Use this to remove the observer when you are done
+            Utilities.ref_db.child("users_information").removeObserver(withHandle: handle)
+        }
         dismiss(animated: true, completion: nil)
         Utilities.changeStatusBarColor(color: UIColor(named: "oaColor")!)
         // the color looks so different tho???
@@ -56,11 +61,14 @@ class ProfileVC: UIViewController {
         performSegue(withIdentifier: "updateProfileFromProfileSegue", sender: self)
     }
     
+
+
+    
     //MARK -- TO GET THE USER DATA
     private func retrivalUserData(){
         let userID = Auth.auth().currentUser?.uid
         
-        Utilities.ref_db.child("users_information").child(userID!).observe(.value) { (snapshot) in
+        self.handle = Utilities.ref_db.child("users_information").child(userID!).observe(.value) { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
             let firstName = value?["First Name"] as? String ?? ""
@@ -69,13 +77,18 @@ class ProfileVC: UIViewController {
             let school = value?["School"] as? String ?? ""
             let sports  = value?["Sports"] as? String ?? ""
             let level = value?["Levels"] as? NSArray ?? [0,0,0]
-            let badgeOfTime = value?["BadgesOfTime"] as? NSDictionary ?? [:]
+            let badgeOfTime = value?["BadgeOfTime"] as? NSDictionary ?? [:]
+            let badgeOfPoints = value?["BadgeOfPoints"] as? NSDictionary ?? [:]
             for name in self.gameName{
                 let badgeBool = badgeOfTime[name] as? NSArray ?? []
+                let badgeBoolPoints = badgeOfPoints[name] as? NSArray ?? []
                 for level in 1...totalLevelNum{
                     if badgeBool[level-1] as! Bool == true{
                         //get the badge
                         self.badgeArr.append("\(name.capitalized) time\(level)")
+                    }
+                    if badgeBoolPoints[level-1] as! Bool == true{
+                        self.badgeArr.append("\(name.capitalized) points\(level)")
                     }
                 }
             }
