@@ -12,7 +12,7 @@ import BetterSegmentedControl
 class RegisterLoginVC: UIViewController, SignUpViewControllerDelegate, LoginViewControllerDelegate {
     
     func loginBtnTapped() {
-        performSegue(withIdentifier: "landingToMenuSegue", sender: self)
+        performSegue(withIdentifier: "landingToMenuSegue", sender: nil)
     }
     
     

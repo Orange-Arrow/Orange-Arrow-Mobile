@@ -59,15 +59,25 @@ class ImagePuzzleVC: UIViewController {
         statusBarView.backgroundColor = Utilities.hexStringToUIColor(hex: "FEC341")
         
         Utilities.getLevel(num: 1) { (level) in
-            self.currentLevel = level
-            print("the current level is \(self.currentLevel)")
-            self.puzzle = LoadingData(level: self.currentLevel, count: selectedCount, game: "puzzle")
             
-            guard let pools = self.puzzle?.selectedPool else{return}
-            self.pool = pools
-            
-            //update the UI
-            self.updateQuestion()
+            if level >= totalLevelNum{
+                //no more levels
+                Utilities.showOutofQuestionAlert(level: nil, points: nil, gameTime: nil, targetVC: self, goback: self.goback)
+                
+            }else{
+                
+                self.currentLevel = level
+                print("the current level is \(self.currentLevel)")
+                self.puzzle = LoadingData(level: self.currentLevel, count: selectedCount, game: "puzzle")
+                
+                guard let pools = self.puzzle?.selectedPool else{return}
+                self.pool = pools
+                
+                //update the UI
+                self.updateQuestion()
+                
+            }
+
             
         }
         
@@ -285,14 +295,24 @@ class ImagePuzzleVC: UIViewController {
                     Utilities.updateBadgeInFirebase(level: self.currentLevel, gameName: "puzzle", measure: "BadgeOfPoints")
                 }
                 
-                // firt store the data
-                Utilities.storeResult(gameName: "Puzzle", level: currentLevel, points: self.points, time: totalTime, gameIndictorNum: 1)
-                //show alert about choice of next level or go back
-                Utilities.showSuccessAlert(level: currentLevel, points: points, gameTime: totalTime, targetVC: self, goback: goback){_ in
-                    self.gotoNextStep(isSuccess: true)
+                // IF IT is the last level then you can access
+                if self.currentLevel == totalLevelNum{
+                    // show alert that you should go back
+                    // firt store the data
+                    // firt store the data
+                    Utilities.storeResult(gameName: "Puzzle", level: currentLevel, points: self.points, time: totalTime, gameIndictorNum: 1, levelFull: true)
+         
+                    Utilities.showOutofQuestionAlert(level: currentLevel, points: points, gameTime: totalTime, targetVC: self, goback: goback)
+                }else{
+                    //show alert about choice of next level or go back
+                    Utilities.showSuccessAlert(level: currentLevel, points: points, gameTime: totalTime, targetVC: self, goback: goback){_ in
+                        self.gotoNextStep(isSuccess: true)
+                    }
+                    // firt store the data
+                    Utilities.storeResult(gameName: "Puzzle", level: currentLevel, points: self.points, time: totalTime, gameIndictorNum: 1, levelFull: false)
+                    
                 }
-             
-                
+  
 
             }else{
                 //show alert

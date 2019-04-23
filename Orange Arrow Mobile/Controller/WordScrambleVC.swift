@@ -106,29 +106,40 @@ class WordScrambleVC: UIViewController {
         
         //get the current level and update the level first
         Utilities.getLevel(num: 2) { (level) in
-            self.currentLevel = level
-            self.questions = WordScramble(level: self.currentLevel)
-            if let questions = self.questions{
-                let firstEle = questions.contentPool.list[0] as NSDictionary
-                print(firstEle["hint"] as! String)
-                // to make the questions shuffed and selected
-                let pool = questions.contentPool.list
-                assert(pool.count > 0, "no level loaded")
-                self.shuffedSelectedQues = pool.choose(questions.selectedLevelForEachLevel)
-                //add one view for all hud and controls
-                self.addLetterBox(currentQuest: self.currentNumberOfQuestion, completion: self.addHUDView)
-                
-                //update gameBar
-                self.updateGameBar(index: self.currentNumberOfQuestion)
-
-                //start the timer
-                self.startStopwatch()
-                
-
+            
+            if level >= totalLevelNum{
+                //no more levels
+                Utilities.showOutofQuestionAlert(level: nil, points: nil, gameTime: nil, targetVC: self, goback: self.goback)
                 
             }else{
-                print("this is wrong")
+                
+                
+                self.currentLevel = level
+                self.questions = WordScramble(level: self.currentLevel)
+                if let questions = self.questions{
+                    let firstEle = questions.contentPool.list[0] as NSDictionary
+                    print(firstEle["hint"] as! String)
+                    // to make the questions shuffed and selected
+                    let pool = questions.contentPool.list
+                    assert(pool.count > 0, "no level loaded")
+                    self.shuffedSelectedQues = pool.choose(questions.selectedLevelForEachLevel)
+                    //add one view for all hud and controls
+                    self.addLetterBox(currentQuest: self.currentNumberOfQuestion, completion: self.addHUDView)
+                    
+                    //update gameBar
+                    self.updateGameBar(index: self.currentNumberOfQuestion)
+                    
+                    //start the timer
+                    self.startStopwatch()
+                    
+                    
+                    
+                }else{
+                    print("this is wrong")
+                }
+                
             }
+
         }
     }
     
@@ -298,12 +309,24 @@ class WordScrambleVC: UIViewController {
                     Utilities.updateBadgeInFirebase(level: self.currentLevel, gameName: "words", measure: "BadgeOfPoints")
                 }
                 
-                // firt store the data
-                Utilities.storeResult(gameName: "Word", level: self.currentLevel, points: self.points, time: self.initialTime, gameIndictorNum: 2)
-                //show alert about choice of next level or go back
-                Utilities.showSuccessAlert(level: self.currentLevel, points: self.points, gameTime: self.initialTime, targetVC: self, goback: self.goback){_ in
-                    self.gotoNextStep(isSuccess: true)
+                
+                // IF IT is the last level then you can access
+                if self.currentLevel == totalLevelNum{
+
+                    // firt store the data
+                    Utilities.storeResult(gameName: "Word", level: self.currentLevel, points: self.points, time: self.initialTime, gameIndictorNum: 2, levelFull: true)
+                    
+                    Utilities.showOutofQuestionAlert(level: currentLevel, points: points, gameTime: initialTime, targetVC: self, goback: goback)
+                }else{
+                    //show alert about choice of next level or go back
+                    Utilities.showSuccessAlert(level: self.currentLevel, points: self.points, gameTime: self.initialTime, targetVC: self, goback: self.goback){_ in
+                        self.gotoNextStep(isSuccess: true)
+                    }
+                    // firt store the data
+                    Utilities.storeResult(gameName: "Word", level: currentLevel, points: self.points, time: initialTime, gameIndictorNum: 2, levelFull: false)
+                    
                 }
+
                 
             }else{
                 // didnt pass the level
@@ -407,9 +430,14 @@ class WordScrambleVC: UIViewController {
     }
     private func goback(){
         ProgressHUD.dismiss()
-        leftTimer.endTimer()
+
+                 leftTimer.endTimer()
+        
+   
         countdownTimer.endTimer()
         dismiss(animated: true, completion: nil)
+              Utilities.changeStatusBarColor(color: UIColor(named: "oaColor")!)
+        
     }
     
     func startStopwatch() {

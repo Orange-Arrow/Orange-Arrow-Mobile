@@ -14,6 +14,8 @@ import FSCalendar
 
 class UpdateUserInfoVC: UIViewController {
     
+
+    
     fileprivate weak var calendar: FSCalendar!
 
     @IBOutlet weak var imageButton: UIButton!
@@ -107,9 +109,14 @@ class UpdateUserInfoVC: UIViewController {
     }
     
     private func gotoMenu(){
-//         dismiss(animated: true, completion: nil)
-        performSegue(withIdentifier: "updateToNavigationSegue", sender: self)
-       
+
+        let root = self.view?.window?.rootViewController
+        dismiss(animated: true) {
+            
+            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "NavigationVC") as? NavigationVC{
+                root?.present(vc, animated: true, completion: nil)
+            }
+        }
     }
     
     private func updateUserInfo(){

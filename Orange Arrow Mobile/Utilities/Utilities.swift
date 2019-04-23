@@ -127,7 +127,7 @@ class Utilities{
     }
     
     
-    // to check the result
+
     
     
     //mark -- get level
@@ -146,7 +146,7 @@ class Utilities{
     }
     
     // to store the data of game
-    static func storeResult(gameName:String, level:Int, points:Int, time:Int, gameIndictorNum:Int){
+    static func storeResult(gameName:String, level:Int, points:Int, time:Int, gameIndictorNum:Int, levelFull:Bool){
         let targetDB = self.ref_db.child(gameName).child(String(level))
         guard let userID = Auth.auth().currentUser?.uid else { fatalError("No User Sign In") }
         
@@ -158,7 +158,14 @@ class Utilities{
         let resultDictionary = ["time":time,"points":points,"date":date] as [String : Any]
         targetDB.child("\(userID)").setValue(resultDictionary)
         
-        self.ref_db.child("users_information/\(userID)/Levels/\(gameIndictorNum)").setValue(level+1)
+        
+    // higher the level
+        if levelFull{
+            print("level is full")
+        }else{
+            self.ref_db.child("users_information/\(userID)/Levels/\(gameIndictorNum)").setValue(level+1)
+        }
+       
 
     }
     
@@ -186,6 +193,26 @@ class Utilities{
         let tryagainAction = UIAlertAction(title: "Try it again !", style: .default, handler: { (UIAlertAction) in tryagain(false) })
         let goBackAction = UIAlertAction(title: "Go back to main menu", style: .default, handler: { (UIAlertAction) in goback() })
         alert.addAction(tryagainAction)
+        alert.addAction(goBackAction)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
+            targetVC.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    //to show the alert for our of questions
+    static func showOutofQuestionAlert(level:Int?, points:Int?, gameTime:Int?, targetVC:UIViewController, goback:@escaping ()->() ){
+        
+        //to start
+        var message:String?
+        if let levelAlert = level, let pointsAlert = points, let timeAlert = gameTime{
+             message = "You finished level\(levelAlert)'s all questions with \(pointsAlert) points in \(Utilities.timeFormatted(timeAlert)). And you reached our highest level for this game!"
+        }else{
+            message = "You reached our highest level for this game! Come back next time"
+        }
+       
+        let alert = UIAlertController(title: "Congrats", message: message!, preferredStyle: .alert)
+        let goBackAction = UIAlertAction(title: "Go back to main menu", style: .default, handler: { (UIAlertAction) in goback() })
         alert.addAction(goBackAction)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {

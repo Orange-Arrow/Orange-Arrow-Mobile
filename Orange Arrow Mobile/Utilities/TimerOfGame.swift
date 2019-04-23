@@ -10,14 +10,17 @@ import Foundation
 
 class TimerOfGame {
     
-    var countdownTimer : Timer!
+    var countdownTimer : Timer?
     
     func startTimer(handler:AnyObject, selector:Selector) {
         self.countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: handler, selector: selector, userInfo: nil, repeats: true)
     }
     
     func endTimer() {
-        self.countdownTimer.invalidate()
+        if let timer = self.countdownTimer{
+            timer.invalidate()
+        }
+//        self.countdownTimer.invalidate()
     }
     
 }

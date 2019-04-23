@@ -10,7 +10,7 @@ import UIKit
 import ProgressHUD
 
 class TriviaVC: UIViewController {
-
+    
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var pointsLabel: UILabel!
@@ -54,22 +54,27 @@ class TriviaVC: UIViewController {
         statusBarView.backgroundColor = Utilities.hexStringToUIColor(hex: "FEC341")
         
         Utilities.getLevel(num: 0) { (level) in
-            self.currentLevel = level
-            self.trivia = LoadingData(level: self.currentLevel, count: selectedCount, game: "trivia")
+            if level >= totalLevelNum{
+                //no more levels
+                Utilities.showOutofQuestionAlert(level: nil, points: nil, gameTime: nil, targetVC: self, goback: self.goback)
+                
+            }else{
+                self.currentLevel = level
+                self.trivia = LoadingData(level: self.currentLevel, count: selectedCount, game: "trivia")
+                
+                guard let pools = self.trivia?.selectedPool else{return}
+                self.pool = pools
+                
+                //update the UI
+                self.updateQuestion()
+                
+            }
             
-            guard let pools = self.trivia?.selectedPool else{return}
-            self.pool = pools
-            
-            //update the UI
-            self.updateQuestion()
             
         }
-
+        
         
         audioController.preloadAudioEffects(effectFileNames: AudioEffectFiles)
-        
-
-
         
         //update navigation bar
         let navItem = Utilities.setupNavigationBar(image: "icon_trivia", tappedFunc: #selector(backBtnTapped), handler: self)
@@ -77,7 +82,7 @@ class TriviaVC: UIViewController {
         navigationBar.barTintColor = Utilities.hexStringToUIColor(hex: "FEC341")
         
         totalTimer.startTimer(handler: self, selector: #selector(beginGame))
-
+        
     }
     
     @objc func beginGame(){
@@ -89,7 +94,7 @@ class TriviaVC: UIViewController {
     @objc func backBtnTapped(){
         totalTimer.endTimer()
         ProgressHUD.dismiss()
-
+        
         dismiss(animated: true, completion: nil)
         Utilities.changeStatusBarColor(color: UIColor(named: "oaColor")!)
         // the color looks so different tho???
@@ -104,10 +109,10 @@ class TriviaVC: UIViewController {
             
             
         }else{
-             self.trivia = LoadingData(level: self.currentLevel, count: selectedCount, game: "trivia")
+            self.trivia = LoadingData(level: self.currentLevel, count: selectedCount, game: "trivia")
             
         }
-       
+        
         guard let pools = trivia?.selectedPool else{return}
         self.pool = pools
         totalTime = 0
@@ -118,17 +123,19 @@ class TriviaVC: UIViewController {
         
     }
     private func goback(){
+        totalTimer.endTimer()
+        ProgressHUD.dismiss()
+        
         dismiss(animated: true, completion: nil)
+        Utilities.changeStatusBarColor(color: UIColor(named: "oaColor")!)
     }
-
+    
     
     
     @IBAction func optionBtnTapped(_ sender: UIButton) {
         // to check if it is the last question
-//        and if not, then check the result and update ui
-        
+        //        and if not, then check the result and update ui
         if currentQuestionIndex == pool.count-1{
-            
             if sender.tag == pool[currentQuestionIndex].answer{
                 self.points += 2
                 pointsLabel.text = "Points: \(points)"
@@ -136,7 +143,6 @@ class TriviaVC: UIViewController {
                     ProgressHUD.showSuccess("Awesome, Correct!")
                     self.audioController.playEffect(name: SoundDing)
                 }
-                
             }else{
                 self.points -= 1
                 pointsLabel.text = "Points: \(points)"
@@ -144,52 +150,52 @@ class TriviaVC: UIViewController {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     ProgressHUD.showError("The correct answer is \n\(rightAnswer)")
                     self.audioController.playEffect(name: SoundWrong)
-                    
                 }
             }
-                // stop the timer
-                totalTimer.endTimer()
-//                guard let totaltime = totalTimeLabel.text else {return}
-            
-
+            // stop the timer
+            totalTimer.endTimer()
+            //to check if it is over certain point
+            if self.points >= pointsToPassTrivia {
                 
-                //to check if it is over certain point
-                if self.points >= pointsToPassTrivia {
-                    
-                    
-                    // to check time is smaller than
-                    let targetTime = Utilities.getTargetForBadge(gameName: "trivia", level: self.currentLevel, measure: "badgeOfTime")
-                    let targetPoints = Utilities.getTargetForBadge(gameName: "trivia", level: self.currentLevel, measure: "badgeOfPoints")
-            
-                    if self.totalTime <= targetTime{
-                        // you can earn the badge
-                        Utilities.updateBadgeInFirebase(level: self.currentLevel, gameName: "trivia", measure: "BadgeOfTime")
-                        
-                    }
-                    
-                    if self.points >= targetPoints{
-                        Utilities.updateBadgeInFirebase(level: self.currentLevel, gameName: "trivia", measure: "BadgeOfPoints")
-                    }
-                    
-                    
+                // to check time is smaller than
+                let targetTime = Utilities.getTargetForBadge(gameName: "trivia", level: self.currentLevel, measure: "badgeOfTime")
+                let targetPoints = Utilities.getTargetForBadge(gameName: "trivia", level: self.currentLevel, measure: "badgeOfPoints")
+                
+                if self.totalTime <= targetTime{
+                    // you can earn the badge
+                    Utilities.updateBadgeInFirebase(level: self.currentLevel, gameName: "trivia", measure: "BadgeOfTime")
+                }
+                if self.points >= targetPoints{
+                    Utilities.updateBadgeInFirebase(level: self.currentLevel, gameName: "trivia", measure: "BadgeOfPoints")
+                }
+                
+                // IF IT is the last level then you can access
+                if self.currentLevel == totalLevelNum{
+                    // show alert that you should go back
                     // firt store the data
-                    Utilities.storeResult(gameName: "Trivia", level: currentLevel, points: self.points, time: totalTime, gameIndictorNum: 0)
-                    
+                    Utilities.storeResult(gameName: "Trivia", level: currentLevel, points: self.points, time: totalTime, gameIndictorNum: 0, levelFull: true)
+                    print("=======the level is \(self.currentLevel)")
+                    Utilities.showOutofQuestionAlert(level: currentLevel, points: points, gameTime: totalTime, targetVC: self, goback: goback)
+                }else{
                     //show alert about choice of next level or go back
+             
                     Utilities.showSuccessAlert(level: currentLevel, points: points, gameTime: totalTime, targetVC: self, goback: goback){_ in
                         self.gotoNextStep(isSuccess: true)
                     }
-                }else{
-                    //show alert
-                    Utilities.showFailureAlert(level: currentLevel, points: points, gameTime: totalTime, targetVC: self, goback: goback){
-                        _ in self.gotoNextStep(isSuccess: false)
-                    }
+                    // firt store the data
+                    Utilities.storeResult(gameName: "Trivia", level: currentLevel, points: self.points, time: totalTime, gameIndictorNum: 0, levelFull: false)
+                    
                 }
-
+            }else{
+                //show alert
+                Utilities.showFailureAlert(level: currentLevel, points: points, gameTime: totalTime, targetVC: self, goback: goback){
+                    _ in self.gotoNextStep(isSuccess: false)
+                }
+            }
+            
         }else{
             // check the result and update to next question
             if sender.tag == pool[currentQuestionIndex].answer{
-                
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     ProgressHUD.showSuccess("Awesome, Correct!")
                     self.audioController.playEffect(name: SoundDing)
@@ -198,9 +204,7 @@ class TriviaVC: UIViewController {
                 
                 self.points += 2
                 self.currentQuestionIndex += 1
-                
                 pointsLabel.text = "Points: \(points)"
-                
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                     self.updateQuestion()
                 }
@@ -215,7 +219,6 @@ class TriviaVC: UIViewController {
                 }
                 points -= 1
                 currentQuestionIndex += 1
-                
                 pointsLabel.text = "Points: \(points)"
                 DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
                     self.updateQuestion()
@@ -223,23 +226,22 @@ class TriviaVC: UIViewController {
                 }
             }
         }
-        
     }
     
     
     func updateQuestion(){
         
         //update question
-        questionCounterLabel.fadeTransition(0.5)
+        questionCounterLabel.fadeTransition(0.2)
         questionCounterLabel.text = "Question \(currentQuestionIndex+1)"
         questionAreaLabel.lineBreakMode = .byWordWrapping
         questionAreaLabel.numberOfLines = 0
         
         //update the questions
-        questionAreaLabel.fadeTransition(0.5)
+        questionAreaLabel.fadeTransition(0.2)
         questionAreaLabel.text = pool[currentQuestionIndex].questText
         
-        pointsLabel.fadeTransition(0.5)
+        pointsLabel.fadeTransition(0.2)
         pointsLabel.text = "Points: \(self.points)"
         
         // update the options
@@ -254,13 +256,10 @@ class TriviaVC: UIViewController {
         gameBarWidthCon.constant = (originalBar.frame.size.width / CGFloat(pool.count)) * CGFloat(currentQuestionIndex+1)
         gameBar.layoutIfNeeded()
         //update level .....
-
+        
         levelBarWidthCon.constant = (originalBar.frame.size.width / CGFloat(10)) * CGFloat(currentLevel)
         levelBar.layoutIfNeeded()
         
     }
-    
-    
-
-
+ 
 }

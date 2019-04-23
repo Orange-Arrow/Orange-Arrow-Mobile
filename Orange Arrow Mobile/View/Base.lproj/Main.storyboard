@@ -14,7 +14,7 @@
         <!--Register LoginVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="RegisterLoginVC" customModule="Orange_Arrow_Mobile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterLoginVC" id="BYZ-38-t0r" customClass="RegisterLoginVC" customModule="Orange_Arrow_Mobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -73,13 +73,13 @@
                     <connections>
                         <outlet property="container" destination="KiX-Qn-Sff" id="Soc-xK-rMT"/>
                         <outlet property="segmentedControl" destination="Aew-X8-1Lt" id="6EU-9C-QSm"/>
-                        <segue destination="z2M-9t-egS" kind="showDetail" identifier="signupToUpdateinfoSegue" id="inT-7z-Rbv"/>
-                        <segue destination="qNm-sA-q2u" kind="show" identifier="landingToMenuSegue" id="KGZ-cE-Srt"/>
+                        <segue destination="z2M-9t-egS" kind="presentation" identifier="signupToUpdateinfoSegue" id="inT-7z-Rbv"/>
+                        <segue destination="qNm-sA-q2u" kind="presentation" identifier="landingToMenuSegue" id="KGZ-cE-Srt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-358" y="-406"/>
+            <point key="canvasLocation" x="-690" y="-106"/>
         </scene>
         <!--TriviaVC-->
         <scene sceneID="LVY-yn-wD3">
@@ -1649,12 +1649,11 @@
                         <outlet property="sportsTextfield" destination="qfZ-uq-FOm" id="JXk-3C-vx3"/>
                         <outletCollection property="genderButtonGroup" destination="kZZ-E8-Yfl" collectionClass="NSMutableArray" id="iZy-d2-HUt"/>
                         <outletCollection property="genderButtonGroup" destination="wZl-S4-xr6" collectionClass="NSMutableArray" id="J8Z-Dr-gEv"/>
-                        <segue destination="qNm-sA-q2u" kind="show" identifier="updateToNavigationSegue" id="LOl-l4-TZv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4YU-tQ-zUj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="453.60000000000002" y="-406.14692653673166"/>
+            <point key="canvasLocation" x="263" y="-499"/>
         </scene>
         <!--ProfileVC-->
         <scene sceneID="fYY-v3-Iuv">
@@ -1977,7 +1976,7 @@
                         <outletCollection property="levelBarCollection" destination="abL-Yg-59I" collectionClass="NSMutableArray" id="zNS-b8-u09"/>
                         <outletCollection property="levelBarCollection" destination="00C-U2-eIM" collectionClass="NSMutableArray" id="q0N-H8-2BF"/>
                         <outletCollection property="levelBarCollection" destination="LsY-yR-sRg" collectionClass="NSMutableArray" id="uc3-M1-8T3"/>
-                        <segue destination="z2M-9t-egS" kind="show" identifier="updateProfileFromProfileSegue" id="J4r-w1-41A"/>
+                        <segue destination="z2M-9t-egS" kind="presentation" identifier="updateProfileFromProfileSegue" id="J4r-w1-41A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DeS-xE-Cqp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1987,7 +1986,7 @@
         <!--NavigationVC-->
         <scene sceneID="ChH-PN-Kro">
             <objects>
-                <viewController id="qNm-sA-q2u" customClass="NavigationVC" customModule="Orange_Arrow_Mobile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NavigationVC" id="qNm-sA-q2u" customClass="NavigationVC" customModule="Orange_Arrow_Mobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cdb-Qs-WVF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2058,7 +2057,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LtE-yU-0Qw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1223" y="44"/>
+            <point key="canvasLocation" x="1345" y="79"/>
         </scene>
         <!--Leading BoardVC-->
         <scene sceneID="QxX-0Q-Vx6">
@@ -2129,7 +2128,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LOl-l4-TZv"/>
         <segue reference="J4r-w1-41A"/>
     </inferredMetricsTieBreakers>
 </document>
