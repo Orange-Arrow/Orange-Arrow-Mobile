@@ -29,6 +29,10 @@ class AcievementVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let statusBarView = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else {
+            return
+        }
+        statusBarView.backgroundColor = Utilities.hexStringToUIColor(hex: "FEC341")
         
         setupDelegation()
         tableView.isUserInteractionEnabled = false
@@ -42,6 +46,7 @@ class AcievementVC: UIViewController {
         // Do any additional setup after loading the view.
         let navItem = Utilities.setupNavigationBar(image: "icon_achievement", tappedFunc: #selector(backBtnTapped), handler: self)
         navigationBar.setItems([navItem], animated: false)
+        navigationBar.barTintColor = Utilities.hexStringToUIColor(hex: "FEC341")
     }
     
     @objc func backBtnTapped(){

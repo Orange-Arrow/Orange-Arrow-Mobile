@@ -48,6 +48,10 @@ class TriviaVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let statusBarView = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else {
+            return
+        }
+        statusBarView.backgroundColor = Utilities.hexStringToUIColor(hex: "FEC341")
         
         Utilities.getLevel(num: 0) { (level) in
             self.currentLevel = level
@@ -70,6 +74,7 @@ class TriviaVC: UIViewController {
         //update navigation bar
         let navItem = Utilities.setupNavigationBar(image: "icon_trivia", tappedFunc: #selector(backBtnTapped), handler: self)
         navigationBar.setItems([navItem], animated: false)
+        navigationBar.barTintColor = Utilities.hexStringToUIColor(hex: "FEC341")
         
         totalTimer.startTimer(handler: self, selector: #selector(beginGame))
 

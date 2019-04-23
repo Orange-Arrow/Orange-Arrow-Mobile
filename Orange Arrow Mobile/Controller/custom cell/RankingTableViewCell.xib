@@ -35,7 +35,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w7d-OR-BQq">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="30"/>
-                                        <color key="backgroundColor" red="0.40000000000000002" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.99607843139999996" green="0.76470588240000004" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" priority="900" constant="40" id="mjL-ze-L2T"/>
                                         </constraints>
@@ -102,6 +102,7 @@
                     <constraint firstItem="w4h-Gq-KRl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="lLw-Wc-p2K"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="levelLabel" destination="sXr-hB-g7W" id="mN2-Am-JM0"/>
@@ -117,7 +118,7 @@
     </objects>
     <resources>
         <namedColor name="oaColor">
-            <color red="1" green="0.50980392156862742" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.50999999046325684" blue="0.078000001609325409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

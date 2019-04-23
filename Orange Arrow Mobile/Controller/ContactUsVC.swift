@@ -23,12 +23,17 @@ class ContactUsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let statusBarView = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else {
+            return
+        }
+        statusBarView.backgroundColor = Utilities.hexStringToUIColor(hex: "FEC341")
         
         setupTextfieldDelegation()
 
         // Do any additional setup after loading the view.
         let navItem = Utilities.setupNavigationBar(image: "icon_setting", tappedFunc: #selector(backBtnTapped), handler: self)
         navigationBar.setItems([navItem], animated: false)
+        navigationBar.barTintColor = Utilities.hexStringToUIColor(hex: "FEC341")
     }
     
     @objc func backBtnTapped(){

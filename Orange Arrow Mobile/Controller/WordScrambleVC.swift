@@ -89,6 +89,11 @@ class WordScrambleVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //set up the audio effect
+        guard let statusBarView = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else {
+            return
+        }
+        statusBarView.backgroundColor = Utilities.hexStringToUIColor(hex: "FEC341")
+        
         audioController.preloadAudioEffects(effectFileNames: AudioEffectFiles)
         
         //start to count the time
@@ -97,6 +102,7 @@ class WordScrambleVC: UIViewController {
         // update navigation bar
         let navItem = Utilities.setupNavigationBar(image: "icon_word", tappedFunc: #selector(backBtnTapped), handler: self)
         navigationBar.setItems([navItem], animated: false)
+        navigationBar.barTintColor = Utilities.hexStringToUIColor(hex: "FEC341")
         
         //get the current level and update the level first
         Utilities.getLevel(num: 2) { (level) in
@@ -141,9 +147,10 @@ class WordScrambleVC: UIViewController {
     }
     //MARK -- navigation bar back button
     @objc func backBtnTapped(){
-        leftTimer.endTimer()
-        countdownTimer.endTimer()
         ProgressHUD.dismiss()
+        self.leftTimer.endTimer()
+        self.countdownTimer.endTimer()
+     
         
         dismiss(animated: true, completion: nil)
         Utilities.changeStatusBarColor(color: UIColor(named: "oaColor")!)
@@ -420,17 +427,17 @@ class WordScrambleVC: UIViewController {
         
         if secondsLeft == 0{
             leftTimer.endTimer()
-            DispatchQueue.main.async {
+//            DispatchQueue.main.async {
                 guard let queue = self.shuffedSelectedQues else {return}
                 let word = queue[self.currentNumberOfQuestion]["word"] as! String
 
                 ProgressHUD.showError("Time Out! The answer is \(word)")
-            }
+//            }
             //end of time and didnt finished for sure its lose
       
             
             //to check if its last one
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
                 self.points-=1
                 self.checkIfLastQuestion()
             })

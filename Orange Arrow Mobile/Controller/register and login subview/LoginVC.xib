@@ -63,7 +63,7 @@
                                     <real key="value" value="1"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
-                                    <real key="value" value="2"/>
+                                    <real key="value" value="2.5"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Email"/>
                                 <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Enter Your Email"/>
@@ -71,7 +71,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4KC-tX-Ksf" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                            <rect key="frame" x="0.0" y="109" width="335" height="42.5"/>
+                            <rect key="frame" x="0.0" y="107.5" width="335" height="43"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="iconTypeValue">
@@ -103,7 +103,7 @@
                                     <real key="value" value="1"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
-                                    <real key="value" value="2"/>
+                                    <real key="value" value="2.5"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Password"/>
                                 <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Enter Your Password"/>
@@ -111,7 +111,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="seJ-jA-dsM" customClass="LGButton" customModule="LGButton">
-                            <rect key="frame" x="0.0" y="218" width="335" height="46"/>
+                            <rect key="frame" x="0.0" y="215.5" width="335" height="52"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
@@ -143,7 +143,7 @@
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="string" keyPath="titleString" value="Login"/>
                                 <userDefinedRuntimeAttribute type="number" keyPath="titleFontSize">
-                                    <real key="value" value="15"/>
+                                    <real key="value" value="30"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="image" keyPath="leftImageSrc" value="emailIcon"/>
                                 <userDefinedRuntimeAttribute type="number" keyPath="leftImageWidth">
@@ -155,7 +155,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Xdm-VS-pxC">
-                            <rect key="frame" x="0.0" y="330" width="335" height="35"/>
+                            <rect key="frame" x="0.0" y="332" width="335" height="35"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Fyv-pR-vvP">
                                     <rect key="frame" x="0.0" y="0.0" width="109" height="35"/>
@@ -187,7 +187,7 @@
                             </subviews>
                         </stackView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---------- OR ----------" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebo-cz-xTg">
-                            <rect key="frame" x="0.0" y="431" width="335" height="24"/>
+                            <rect key="frame" x="0.0" y="432" width="335" height="24"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -257,7 +257,7 @@
                 <constraint firstAttribute="trailing" secondItem="5u4-pW-roD" secondAttribute="trailing" constant="20" id="fx2-vY-m1l"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="-370" y="27"/>
+            <point key="canvasLocation" x="-1121" y="-86"/>
         </view>
     </objects>
     <resources>

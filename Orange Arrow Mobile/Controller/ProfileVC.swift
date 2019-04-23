@@ -39,10 +39,12 @@ class ProfileVC: UIViewController {
         guard let statusBarView = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else {
             return
         }
-        statusBarView.backgroundColor = .gray
+        statusBarView.backgroundColor = Utilities.hexStringToUIColor(hex: "FEC341")
         
         let navItem = Utilities.setupNavigationBar(image: "icon_profile", tappedFunc: #selector(backBtnTapped), handler: self)
         navigationBar.setItems([navItem], animated: false)
+        navigationBar.barTintColor = Utilities.hexStringToUIColor(hex: "FEC341")
+        
 
         // Do any additional setup after loading the view.
     }
@@ -99,7 +101,7 @@ class ProfileVC: UIViewController {
     }
     
     private func updateUI(name:String, image:String, school:String, sports:String, levels:NSArray){
-        nameLabel.text = "Hello, \(name)"
+        nameLabel.text = "\(name)"
         schoolLabel.text = "School: \(school)"
         sportsLabel.text = "Sports: \(sports)"
         var levelsInNum = [Int]()

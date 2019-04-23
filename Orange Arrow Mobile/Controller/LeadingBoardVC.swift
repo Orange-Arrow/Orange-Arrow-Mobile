@@ -38,6 +38,10 @@ class LeadingBoardVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let statusBarView = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else {
+            return
+        }
+        statusBarView.backgroundColor = Utilities.hexStringToUIColor(hex: "FEC341")
         
         // set up the delegation
         
@@ -51,7 +55,7 @@ class LeadingBoardVC: UIViewController {
         let navItem = Utilities.setupNavigationBar(image: "icon_ranking", tappedFunc: #selector(backBtnTapped), handler: self, rightBar: #selector(categoryTapped))
         
         navigationBar.setItems([navItem], animated: false)
-        
+        navigationBar.barTintColor = Utilities.hexStringToUIColor(hex: "FEC341")
         // on the right bar item, should include a new one which is for change different categories
         
         setupDelegation()

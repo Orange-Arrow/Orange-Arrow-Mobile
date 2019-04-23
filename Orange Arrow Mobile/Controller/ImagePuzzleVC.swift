@@ -53,6 +53,10 @@ class ImagePuzzleVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let statusBarView = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else {
+            return
+        }
+        statusBarView.backgroundColor = Utilities.hexStringToUIColor(hex: "FEC341")
         
         Utilities.getLevel(num: 1) { (level) in
             self.currentLevel = level
@@ -73,6 +77,7 @@ class ImagePuzzleVC: UIViewController {
         // Do any additional setup after loading the view.
         let navItem = Utilities.setupNavigationBar(image: "icon_puzzle", tappedFunc: #selector(backBtnTapped), handler: self)
         navigationBar.setItems([navItem], animated: false)
+        navigationBar.barTintColor = Utilities.hexStringToUIColor(hex: "FEC341")
         
         // set up the timer
         totalTimer.startTimer(handler: self, selector: #selector(beginGame))

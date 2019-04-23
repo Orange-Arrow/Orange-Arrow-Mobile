@@ -44,7 +44,7 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Email"/>
                                 <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Enter Your Email"/>
                                 <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
-                                    <real key="value" value="2"/>
+                                    <real key="value" value="2.5"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
                                     <real key="value" value="1"/>
@@ -95,7 +95,7 @@
                                     <real key="value" value="1"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
-                                    <real key="value" value="2"/>
+                                    <real key="value" value="2.5"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Password"/>
                                 <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Enter Your Password"/>
@@ -138,7 +138,7 @@
                                     <real key="value" value="1"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
-                                    <real key="value" value="2"/>
+                                    <real key="value" value="2.5"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Repeat Password"/>
                                 <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Enter Your Passowrd Again"/>
@@ -182,7 +182,7 @@
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="string" keyPath="titleString" value="Sign Up"/>
                                 <userDefinedRuntimeAttribute type="number" keyPath="titleFontSize">
-                                    <real key="value" value="25"/>
+                                    <real key="value" value="30"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="image" keyPath="leftImageSrc" value="emailIcon"/>
                                 <userDefinedRuntimeAttribute type="number" keyPath="leftImageWidth">
